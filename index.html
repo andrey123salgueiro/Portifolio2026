@@ -2,238 +2,273 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Portifolio Andrey 2026</title>
+  <title>Portifolio Andrey 2026 - Gold Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --preto: #000000;
+      --dourado: #FFD700;
+      --azul: #0056b3;
+      --azul-brilhante: #00aaff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Press Start 2P', cursive;
-      background-color: black;
+      background-color: var(--preto);
       color: white;
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(90deg, #000, #001f4d);
-      padding: 20px;
+      background: linear-gradient(180deg, #1a1a1a, #000);
+      padding: 30px;
       text-align: center;
-      border-bottom: 3px solid #00aaff;
+      border-bottom: 4px solid var(--dourado);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
     }
 
     header h1 {
-      color: #00aaff;
-      font-size: 24px;
-      text-shadow: 2px 2px #fff;
+      color: var(--dourado);
+      font-size: 22px;
+      text-shadow: 3px 3px var(--azul);
+      margin: 0;
     }
 
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      background-color: #001f4d;
-      padding: 10px;
+      background-color: #0a0a0a;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--azul);
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 14px;
+      margin: 5px 15px;
+      font-size: 12px;
       transition: 0.3s;
     }
 
     nav a:hover {
-      color: #00aaff;
-      text-shadow: 0 0 5px #00aaff;
+      color: var(--dourado);
+      text-shadow: 0 0 8px var(--dourado);
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--azul-brilhante);
+      margin-top: 50px;
+      font-size: 18px;
+      text-transform: uppercase;
+      border-left: 5px solid var(--dourado);
+      display: inline-block;
+      padding-left: 15px;
+      margin-left: 20px;
     }
 
     .container {
       padding: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background-color: #001f4d;
-      border: 2px solid #00aaff;
-      padding: 15px;
+      background-color: #050505;
+      border: 2px solid var(--azul);
+      padding: 20px;
       text-align: center;
-      border-radius: 10px;
-      transition: transform 0.3s;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #00aaff;
+      transform: translateY(-10px);
+      border-color: var(--dourado);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .card h2 {
+      font-size: 14px;
+      color: var(--dourado);
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 10px;
+      color: #ccc;
+      margin-bottom: 20px;
     }
 
     .card a {
-      color: #00aaff;
+      color: var(--azul-brilhante);
       text-decoration: none;
-      font-weight: bold;
+      font-size: 11px;
+      padding: 8px 12px;
+      border: 1px solid var(--azul-brilhante);
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background-color: var(--azul-brilhante);
+      color: #000;
     }
 
     footer {
       background-color: #000;
-      color: #fff;
+      color: var(--dourado);
       text-align: center;
-      padding: 10px;
-      border-top: 3px solid #00aaff;
+      padding: 30px;
+      border-top: 4px solid var(--dourado);
+      margin-top: 50px;
+      font-size: 10px;
     }
+
+    /* Estilização da barra de rolagem */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: var(--azul); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--dourado); }
+
   </style>
 </head>
 <body>
+
   <header>
-    <h1>🎮 Portifolio Andrey 2026 🎮</h1>
+    <h1>🏆 ANDREY PORTFOLIO 2026 🏆</h1>
   </header>
 
   <nav>
-    <a href="#javascript">JavaScript</a>
-    <a href="#html">HTML</a>
-    <a href="#mobile">Programação Mobile</a>
-    <a href="#analise">Analise e Projetos de sistemas</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+    <a href="#javascript">JAVASCRIPT</a>
+    <a href="#html">HTML/CSS</a>
+    <a href="#mobile">MOBILE</a>
+    <a href="#analise">ANÁLISE</a>
+    <a href="#sobre">SOBRE</a>
+    <a href="#contato">CONTATO</a>
   </nav>
 
-  <!-- Categoria JavaScript -->
-  <section id="javascript" class="container">
-    <div class="card">
-      <h2>Tarefa JS 1</h2>
-      <p>Aprendendo sobre Variaveis</p>
-      <a href="https://github.com/andrey123salgueiro/variaveis" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa JS 2</h2>
-      <p>Fazendo atividades no js </p>
-      <a href="https://github.com/andrey123salgueiro/inicio-2026/tree/main" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa JS 3</h2>
-      <p>Media do aluno</p>
-      <a href="https://github.com/andrey123salgueiro/teste/blob/main/media_se.js" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa JS 4</h2>
-      <p>Usando breake</p>
-      <a href="https://github.com/andrey123salgueiro/inicio-2026/blob/main/brake_continue.js">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa JS 5</h2>
-      <p> </p>
-      <a href="">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa JS 6</h2>
-      <p></p>
-      <a href="">Ver Tarefa</a>
-    </div>
-    
+  <h2 id="javascript" class="section-title">01. JAVASCRIPT</h2>
+  <section class="container">
+    <script>
+      const linksJS = [
+      'https://github.com/andrey123salgueiro/variaveis', 
+      'https://github.com/andrey123salgueiro/link2',
+      '', '#', '#', '#', '#', '#', '#', '#' 
+    ];
+      for(let i = 0; i < linksJS.length; i++){
+      document.write(`
+        <div class="card">
+          <h2>Projeto JS ${i + 1}</h2>
+          <p>Desafio de lógica ou automação.</p>
+          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
+        </div>
+      `);
+    }
+    </script>
   </section>
 
-  <!-- Categoria HTML -->
-  <section id="html" class="container">
-    <div class="card">
-      <h2>Tarefa HTML 1</h2>
-      <p>Teste html</p>
-      <a href="https://github.com/andrey123salgueiro/teste/blob/main/teste.html" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa HTML 2</h2>
-      <p></p>
-      <a href="link-html2.html" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa HTML 3</h2>
-      <p></p>
-      <a href="link-html3.html" target="_blank">Ver Tarefa</a>
-    </div>
+  <h2 id="html" class="section-title">02. HTML & CSS</h2>
+  <section class="container">
+    <script>
+      const linksHTML = [
+      'https://github.com/andrey123salgueiro/link1', 
+      'https://github.com/andrey123salgueiro/link2',
+      '#', '#', '#', '#', '#', '#', '#', '#' 
+    ];
+      for(let i = 0; i < linksJS.length; i++){
+      document.write(`
+        <div class="card">
+          <h2>Projeto JS ${i + 1}</h2>
+          <p>Desafio de lógica ou automação.</p>
+          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
+        </div>
+      `);
+    }
+    </script>
   </section>
 
-  <!-- Categoria Programação Mobile -->
-  <section id="mobile" class="container">
-    <div class="card">
-      <h2>Tarefa Mobile 1</h2>
-      <p></p>
-      <a href="link-mobile1.html" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa Mobile 2</h2>
-      <p></p>
-      <a href="link-mobile2.html" target="_blank">Ver Tarefa</a>
-    </div>
-    <div class="card">
-      <h2>Tarefa Mobile 3</h2>
-      <p></p>
-      <a href="link-mobile3.html" target="_blank">Ver Tarefa</a>
-    </div>
-    
+  <h2 id="mobile" class="section-title">03. MOBILE</h2>
+  <section class="container">
+    <script>
+       const linksMOBILE = [
+      'https://github.com/andrey123salgueiro/link1', 
+      'https://github.com/andrey123salgueiro/link2',
+      '#', '#', '#', '#', '#', '#', '#', '#' 
+    ];
+      for(let i = 0; i < linksJS.length; i++){
+      document.write(`
+        <div class="card">
+          <h2>Projeto JS ${i + 1}</h2>
+          <p>Desafio de lógica ou automação.</p>
+          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
+        </div>
+      `);
+    }
+    </script>
   </section>
-<!-- Categoria analise -->
 
-<section id="analise" class="container">
-  <div class="card">
-    <h2>Tarefa Analise 1</h2>
-    <p>Apresentação Gamma 1</p>
-    <a href="https://gamma.app/docs/Propriedade-Intelectual-Pilar-Estrategico-para-Inovacao-e-Competi-ityfjg2ye9yky95" target="_blank">Ver Tarefa</a>
-  </div>
-  <div class="card">
-    <h2>Tarefa Analise 2</h2>
-    <p>Apresentação Gamma 2</p>
-    <a href="https://gamma.app/docs/EduSphere-6t61ggx5xb3i9vs" target="_blank">Ver Tarefa</a>
-  </div>
-  <div class="card">
-    <h2>Tarefa Analise 3</h2>
-    <p></p>
-    <a href="link-mobile3.html" target="_blank">Ver Tarefa</a>
-  </div>
-</section>
+  <h2 id="analise" class="section-title">04. ANÁLISE DE SISTEMAS</h2>
+  <section class="container">
+    <script>
+      const linksANALISE = [
+      'https://github.com/andrey123salgueiro/link1', 
+      'https://github.com/andrey123salgueiro/link2',
+      '#', '#', '#', '#', '#', '#', '#', '#' 
+    ];
+      for(let i = 0; i < linksJS.length; i++){
+      document.write(`
+        <div class="card">
+          <h2>Projeto JS ${i + 1}</h2>
+          <p>Desafio de lógica ou automação.</p>
+          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
+        </div>
+      `);
+    }
+      
+    </script>
+  </section>
 
-
-  <!-- Sobre -->
   <section id="sobre" class="container">
-    <div class="card">
-      <h2>Sobre Mim</h2>
-      <p>Sou Andrey, estudante de programação e este é meu portfólio estilo gamer.</p>
+    <div class="card" style="grid-column: 1 / -1; border-color: var(--dourado);">
+      <h2>SOBRE MIM</h2>
+      <p>Desenvolvedor em ascensão focado em criar soluções eficientes com design gamer.</p>
     </div>
   </section>
 
-  <!-- Contato -->
   <section id="contato" class="container">
-    <div class="card">
-      <h2>Contato</h2>
+    <div class="card" style="grid-column: 1 / -1;">
+      <h2>CONTATO</h2>
       <p>Email: QOw0andreyg@example.com</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Portifolio Andrey - Todos os direitos reservados</p>
+    <p>© 2026 Andrey - Level 100 Developer</p>
   </footer>
 
   <script>
-    // Efeito sonoro estilo jogo ao clicar nos links
+    // Som ao clicar (ajustado para ser mais discreto)
     const links = document.querySelectorAll('a');
     links.forEach(link => {
       link.addEventListener('click', () => {
         const audio = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+        audio.volume = 0.5;
         audio.play();
       });
     });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
