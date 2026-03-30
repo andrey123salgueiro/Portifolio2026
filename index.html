@@ -175,14 +175,26 @@
         'https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste3.js',
         'https://github.com/andrey123salgueiro/teste/blob/main/media_se.js' 
     ];
+      const nomeProject = [
+        'Variaveis',
+        'Variaveis2',
+        'Variaveis3',
+        'Variaveis4',
+        'Variaveis5',
+        'Variaveis6',
+        'Variaveis7',
+        'Variaveis8',
+        'Variaveis9',
+        'Variaveis10',
+      ]
       for(let i = 0; i < linksJS.length; i++){
-      document.write(`
-        <div class="card">
-          <h2>Projeto JS ${i + 1}</h2>
-          <p>linksJS.</p>
-          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
-        </div>
-      `);
+        document.write(`
+          <div class="card">
+            <h2>${nomeProject[i]} ${i + 1}</h2>
+            <p>linksJS.</p>
+            <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
+          </div>
+        `);
     }
     </script>
   </section>
