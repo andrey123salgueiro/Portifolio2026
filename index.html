@@ -151,14 +151,14 @@
     <h1>🏆 ANDREY PORTFOLIO 2026 🏆</h1>
   </header>
 
-  <nav>
+ <nav>
     <a href="#javascript">JAVASCRIPT</a>
     <a href="#html">HTML/CSS</a>
     <a href="#mobile">MOBILE</a>
     <a href="#analise">ANÁLISE</a>
-    <a href="#sobre">SOBRE</a>
+    <a href="#python">PYTHON</a> <a href="#sobre">SOBRE</a>
     <a href="#contato">CONTATO</a>
-  </nav>
+</nav>
 
   <h2 id="javascript" class="section-title">01. JAVASCRIPT</h2>
   <section class="container">
@@ -307,6 +307,36 @@
         'Variaveis9',
         'Variaveis10',
       ]
+
+     <h2 id="python" class="section-title">05. PYTHON</h2>
+  <section class="container">
+    <script>
+      const linksPYTHON = [
+        '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' 
+      ];
+      const nomeProjectPYTHON = [
+        'Projeto Python 1',
+        'Projeto Python 2',
+        'Projeto Python 3',
+        'Projeto Python 4',
+        'Projeto Python 5',
+        'Projeto Python 6',
+        'Projeto Python 7',
+        'Projeto Python 8',
+        'Projeto Python 9',
+        'Projeto Python 10',
+      ]
+      for(let i = 0; i < linksPYTHON.length; i++){
+        document.write(`
+          <div class="card">
+            <h2>Projeto Python ${i + 1}</h2>
+            <p>${nomeProjectPYTHON[i]}.</p>
+            <a href="${linksPYTHON[i]}" target="_blank">VER REPOSITÓRIO</a>
+          </div>
+        `);
+      }
+    </script>
+  </section>
       for(let i = 0; i < linksJS.length; i++){
       document.write(`
         <div class="card">
