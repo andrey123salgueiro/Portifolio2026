@@ -1,383 +1,766 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Portifolio Andrey 2026 - Gold Edition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --preto: #000000;
-      --dourado: #FFD700;
-      --azul: #0056b3;
-      --azul-brilhante: #00aaff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Cup 2026 - Álbum de Figurinhas</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Montserrat:wght@300;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        :root {
+            --fifa-red: #c41e3a;
+            --fifa-gold: #ffd700;
+            --fifa-dark: #1a1a2e;
+            --bg-body: #0f0f1a;
+            --color-legendary: #ffd700;
+            --color-rare: #c0c0c0;
+            --color-epic: #9b59b6;
+            --color-common: #4caf50;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Press Start 2P', cursive;
-      background-color: var(--preto);
-      color: white;
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
-    header {
-      background: linear-gradient(180deg, #1a1a1a, #000);
-      padding: 30px;
-      text-align: center;
-      border-bottom: 4px solid var(--dourado);
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
-    }
+        header {
+            background: linear-gradient(to bottom, rgba(196, 30, 58, 0.95), transparent);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--fifa-gold);
+            position: relative;
+        }
 
-    header h1 {
-      color: var(--dourado);
-      font-size: 22px;
-      text-shadow: 3px 3px var(--azul);
-      margin: 0;
-    }
+        .main-title {
+            font-family: 'Goldman', cursive;
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff, var(--fifa-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background-color: #0a0a0a;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--azul);
-    }
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: -30px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 5px 15px;
-      font-size: 12px;
-      transition: 0.3s;
-    }
+        .stat-box {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 15px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            text-align: center;
+            min-width: 130px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
-    nav a:hover {
-      color: var(--dourado);
-      text-shadow: 0 0 8px var(--dourado);
-    }
+        .stat-box span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--fifa-gold);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
 
-    .section-title {
-      text-align: center;
-      color: var(--azul-brilhante);
-      margin-top: 50px;
-      font-size: 18px;
-      text-transform: uppercase;
-      border-left: 5px solid var(--dourado);
-      display: inline-block;
-      padding-left: 15px;
-      margin-left: 20px;
-    }
+        .stat-box div {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
 
-    .container {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+        }
 
-    .card {
-      background-color: #050505;
-      border: 2px solid var(--azul);
-      padding: 20px;
-      text-align: center;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-family: 'Goldman', monospace;
+            letter-spacing: 1px;
+        }
 
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: var(--dourado);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-    }
+        .btn-filter {
+            background: rgba(30, 30, 50, 0.8);
+            color: white;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
 
-    .card h2 {
-      font-size: 14px;
-      color: var(--dourado);
-      margin-bottom: 15px;
-    }
+        .btn-filter:hover,
+        .btn-filter.active {
+            background: var(--fifa-gold);
+            color: #1a1a2e;
+            border-color: var(--fifa-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
 
-    .card p {
-      font-size: 10px;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
+        .btn-buy {
+            background: linear-gradient(135deg, var(--fifa-red), #8b0000);
+            color: white;
+            box-shadow: 0 0 15px rgba(196, 30, 58, 0.5);
+        }
 
-    .card a {
-      color: var(--azul-brilhante);
-      text-decoration: none;
-      font-size: 11px;
-      padding: 8px 12px;
-      border: 1px solid var(--azul-brilhante);
-      display: inline-block;
-      transition: 0.3s;
-    }
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.7);
+        }
 
-    .card a:hover {
-      background-color: var(--azul-brilhante);
-      color: #000;
-    }
+        .album-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
 
-    footer {
-      background-color: #000;
-      color: var(--dourado);
-      text-align: center;
-      padding: 30px;
-      border-top: 4px solid var(--dourado);
-      margin-top: 50px;
-      font-size: 10px;
-    }
+        /* Cards estilo figurinha real - apenas viram, não somem */
+        .card-wrapper {
+            perspective: 1500px;
+            height: 320px;
+            cursor: pointer;
+        }
 
-    /* Estilização da barra de rolagem */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background: var(--azul); border-radius: 5px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--dourado); }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: 12px;
+        }
 
-  </style>
+        .card-wrapper.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Frente da figurinha */
+        .card-front {
+            background: linear-gradient(145deg, #fff 0%, #f0f0f0 100%);
+            transform: rotateY(0deg);
+            position: relative;
+            border: 3px solid;
+            transition: all 0.3s;
+        }
+
+        /* Efeito de brilho ao passar mouse */
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+            pointer-events: none;
+        }
+
+        .card-wrapper:hover .card-front::before {
+            left: 100%;
+        }
+
+        /* Estilos por raridade na frente */
+        .legendary .card-front {
+            border-color: var(--color-legendary);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .rare .card-front {
+            border-color: var(--color-rare);
+            box-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
+        }
+
+        .epic .card-front {
+            border-color: var(--color-epic);
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
+        }
+
+        .common .card-front {
+            border-color: var(--color-common);
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+
+        .player-image {
+            width: 100%;
+            height: 65%;
+            object-fit: cover;
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .player-info {
+            padding: 12px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .player-name {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #1a1a2e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .player-team {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .player-number {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--fifa-gold);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .rarity-icon {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            font-size: 1.3rem;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Verso da figurinha */
+        .card-back {
+            background: linear-gradient(145deg, #2c2c3a, #1a1a2a);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid var(--fifa-gold);
+            position: relative;
+        }
+
+        .card-back::before {
+            content: "★ FIFA WORLD CUP 2026 ★";
+            position: absolute;
+            top: 15px;
+            font-size: 0.6rem;
+            color: var(--fifa-gold);
+            letter-spacing: 2px;
+        }
+
+        .card-back-stats {
+            margin-top: 40px;
+        }
+
+        .rarity-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            margin: 10px 0;
+        }
+
+        .fake-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 0.7rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .counter-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--fifa-red);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 10;
+            border: 2px solid var(--fifa-gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Overlay de pack */
+        #pack-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(15px);
+        }
+
+        .pack-container {
+            display: flex;
+            gap: 20px;
+            perspective: 1000px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .flying-card {
+            animation: flyIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            width: 180px;
+            height: 260px;
+            position: relative;
+        }
+
+        @keyframes flyIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(150px) rotate(15deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotate(0deg);
+            }
+        }
+
+        .collecting {
+            animation: flyOut 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards !important;
+        }
+
+        @keyframes flyOut {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0.1) translateY(-500px) rotate(720deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .album-grid {
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+                gap: 15px;
+            }
+
+            .card-wrapper {
+                height: 270px;
+            }
+
+            .player-name {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>🏆 ANDREY PORTFOLIO 2026 🏆</h1>
-  </header>
+    <div id="pack-overlay">
+        <h1 style="font-family: 'Goldman'; color: var(--fifa-gold); text-shadow: 0 0 20px rgba(212,175,55,0.5);">✨ VOCÊ
+            RECEBEU ✨</h1>
+        <div class="pack-container" id="pack-result-area"></div>
+        <button class="btn btn-buy" id="btn-collect" style="margin-top: 40px;" onclick="closePack()">📥
+            COLECIONAR</button>
+    </div>
 
- <nav>
-    <a href="#javascript">JAVASCRIPT</a>
-    <a href="#html">HTML/CSS</a>
-    <a href="#mobile">MOBILE</a>
-    <a href="#analise">ANÁLISE</a>
-    <a href="#python">PYTHON</a> <a href="#sobre">SOBRE</a>
-    <a href="#contato">CONTATO</a>
-</nav>
+    <header>
+        <h1 class="main-title">FIFA WORLD CUP 2026</h1>
+        <p>⭐ ÁLBUM DE FIGURINHAS OFICIAL ⭐</p>
+    </header>
 
-  <h2 id="javascript" class="section-title">01. JAVASCRIPT</h2>
-  <section class="container">
+    <div class="dashboard">
+        <div class="stat-box"><span>🪙 MOEDAS</span>
+            <div id="coin-val">1000</div>
+        </div>
+        <div class="stat-box"><span>📋 COLETADAS</span>
+            <div id="prog-val">0 / 120</div>
+        </div>
+        <div class="stat-box"><span>🔄 REPETIDAS</span>
+            <div id="rep-val">0</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn btn-filter active" onclick="setFilter('all', this)">📚 TODAS</button>
+        <button class="btn btn-filter" onclick="setFilter('owned', this)">✅ MINHAS</button>
+        <button class="btn btn-filter" onclick="setFilter('missing', this)">❌ FALTANDO</button>
+        <button class="btn btn-buy" onclick="openPack()">🎁 ABRIR PACOTE (100 🪙)</button>
+        <button class="btn btn-filter" onclick="addCoins()">💰 + MOEDAS</button>
+    </div>
+
+    <div class="album-grid" id="album-grid"></div>
+
     <script>
-      const linksJS = [
-        'https://github.com/andrey123salgueiro/variaveis/blob/main/variaveis.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/filtrar.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/brake_continue.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/carro.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/notas.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste.html',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste2.js',
-        'https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste3.js',
-        'https://github.com/andrey123salgueiro/teste/blob/main/media_se.js' ,
-        '#'
-    ];
-      const nomeProject = [
-        'Variaveis',
-        'Filtrando no JS',
-        'Usando o brake',
-        'Atividade carros',
-        'Atividades notas ',
-        'Teste Html ',
-        'Variaveis7',
-        'Variaveis8',
-        'Variaveis9',
-        'Variaveis10',
-        '#'
+        const TOTAL_CARDS = 120;
+        const PLAYER_NAMES = [
+            "Lionel Messi", "Cristiano Ronaldo", "Vinícius Jr.", "Kylian Mbappé", "Erling Haaland", "Jude Bellingham", "Neymar Jr.", "Kevin De Bruyne", "Lamine Yamal", "Mohamed Salah",
+            "Harry Kane", "Rodri", "Robert Lewandowski", "Luka Modric", "Antoine Griezmann", "Bukayo Saka", "Phil Foden", "Jamal Musiala", "Florian Wirtz", "Lautaro Martínez",
+            "Bernardo Silva", "Bruno Fernandes", "Alisson Becker", "Thibaut Courtois", "Virgil van Dijk", "Ruben Dias", "Federico Valverde", "Pedri", "Gavi", "Ederson",
+            "Rafael Leão", "Theo Hernández", "Victor Osimhen", "Khvicha Kvaratskhelia", "Julian Alvarez", "Alexis Mac Allister", "Enzo Fernández", "Eduardo Camavinga", "Aurélien Tchouaméni", "Éder Militão",
+            "Marquinhos", "Kyle Walker", "Achraf Hakimi", "Alphonso Davies", "Declan Rice", "Martin Ødegaard", "Son Heung-min", "Leroy Sané", "Joshua Kimmich", "William Saliba",
+            "Ronald Araújo", "Trent Alexander-Arnold", "Jan Oblak", "Mike Maignan", "Marc-André ter Stegen", "Nicolò Barella", "Dušan Vlahović", "Marcus Rashford", "Bruno Guimarães", "Douglas Luiz",
+            "Gabriel Magalhães", "Lucas Paquetá", "Darwin Nuñez", "Luis Díaz", "Federico Chiesa", "Joao Cancelo", "Joao Felix", "Alejandro Garnacho", "Kobbie Mainoo", "Endrick",
+            "Xavi Simons", "Takefusa Kubo", "Kaoru Mitoma", "Kim Min-jae", "Dayot Upamecano", "Ibrahima Konaté", "Cristian Romero", "Lisandro Martínez", "Nahuel Molina", "Rodrigo De Paul",
+            "Nico Williams", "Dani Olmo", "Mikel Merino", "Unai Simón", "Gianluigi Donnarumma", "Alessandro Bastoni", "Giovanni Di Lorenzo", "Kai Havertz", "Antonio Rüdiger", "Ilkay Gündogan",
+            "Granit Xhaka", "Manuel Akanji", "Gregor Kobel", "Rasmus Højlund", "Christian Eriksen", "Alexander Isak", "Dejan Kulusevski", "Santi Giménez", "Edson Álvarez", "Pervis Estupiñán",
+            "Moises Caicedo", "Piero Hincapié", "Jonathan David", "Christian Pulisic", "Weston McKennie", "Timothy Weah", "Serhou Guirassy", "Victor Boniface", "Mohammed Kudus",
+            "André Onana", "Yassine Bounou", "Youssef En-Nesyri", "Sofyan Amrabat", "Hwang Hee-chan", "Lee Kang-in", "Wataru Endo", "Gonçalo Ramos", "Vitinha", "Nuno Mendes"
+        ];
+        const TEAMS = ["Brasil 🇧🇷", "Argentina 🇦🇷", "França 🇫🇷", "Portugal 🇵🇹", "Espanha 🇪🇸", "Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Alemanha 🇩🇪", "Itália 🇮🇹", "Holanda 🇳🇱", "Bélgica 🇧🇪", "Uruguai 🇺🇾", "Marrocos 🇲🇦"];
+
+        let userState = { inventory: {}, coins: 1000, filter: 'all' };
+        const database = [];
+
+        function getPlayerImageUrl(playerName, playerId) {
+            const seed = playerName.replace(/\s/g, '').toLowerCase();
+            return `https://ui-avatars.com/api/?background=1a1a2e&color=ffd700&size=200&name=${encodeURIComponent(playerName.split(' ').slice(0, 2).join('+'))}&bold=true&length=2&fontsize=0.7`;
+        }
+
+        function createDatabase() {
+            for (let i = 1; i <= TOTAL_CARDS; i++) {
+                let rarity = "";
+                if (i <= 10) rarity = "legendary";
+                else if (i <= 30) rarity = "rare";
+                else if (i <= 70) rarity = "epic";
+                else rarity = "common";
+
+                database.push({
+                    id: i,
+                    name: PLAYER_NAMES[i - 1] || `Jogador ${i}`,
+                    team: TEAMS[i % TEAMS.length],
+                    rarity: rarity,
+                    imageUrl: getPlayerImageUrl(PLAYER_NAMES[i - 1] || `Jogador ${i}`, i)
+                });
+            }
+        }
+
+        function getRarityInfo(rarity) {
+            switch (rarity) {
+                case 'legendary': return { color: '#ffd700', label: 'LENDÁRIA', icon: '👑', bg: 'linear-gradient(135deg, #ffd70020, #ffd70005)' };
+                case 'rare': return { color: '#c0c0c0', label: 'RARA', icon: '💎', bg: 'linear-gradient(135deg, #c0c0c020, #c0c0c005)' };
+                case 'epic': return { color: '#9b59b6', label: 'ÉPICA', icon: '🔥', bg: 'linear-gradient(135deg, #9b59b620, #9b59b605)' };
+                default: return { color: '#4caf50', label: 'COMUM', icon: '⚽', bg: 'linear-gradient(135deg, #4caf5020, #4caf5005)' };
+            }
+        }
+
+        // Função para virar a figurinha (sem sumir)
+        function flipCard(element) {
+            element.classList.toggle('flipped');
+        }
+
+        function render() {
+            const grid = document.getElementById('album-grid');
+            grid.innerHTML = '';
+
+            database.forEach(p => {
+                const count = userState.inventory[p.id] || 0;
+                const isOwned = count > 0;
+                if (userState.filter === 'owned' && !isOwned) return;
+                if (userState.filter === 'missing' && isOwned) return;
+
+                const info = getRarityInfo(p.rarity);
+                const wrap = document.createElement('div');
+                wrap.className = `card-wrapper ${isOwned ? 'owned' : ''} ${p.rarity}`;
+
+                // Adiciona evento de clique para VIRAR (não sumir)
+                wrap.onclick = (function (element) {
+                    return function () { element.classList.toggle('flipped'); };
+                })(wrap);
+                return function () { flipCard(element); };
+            })(wrap);
+
+            const frontContent = isOwned ? `
+                <div class="player-image">
+                    <img src="${p.imageUrl}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="player-number">#${String(p.id).padStart(3, '0')}</div>
+                    <div class="rarity-icon">${info.icon}</div>
+                </div>
+                <div class="player-info">
+                    <div class="player-name">${p.name.toUpperCase()}</div>
+                    <div class="player-team">${p.team}</div>
+                </div>
+            ` : `
+                <div class="player-image" style="background: linear-gradient(135deg, #555, #333); display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 3rem;">❓</div>
+                    <div style="font-size: 0.7rem; margin-top: 10px;">FIGURINHA BLOQUEADA</div>
+                    <div class="player-number">#${String(p.id).padStart(3, '0')}</div>
+                </div>
+                <div class="player-info" style="background: #2a2a2a;">
+                    <div class="player-name" style="color: #999;">???</div>
+                    <div class="player-team" style="color: #777;">????????</div>
+                </div>
+            `;
+
+            wrap.innerHTML = `
+                <div class="card-inner">
+                    ${count > 1 ? `<div class="counter-badge">x${count}</div>` : ''}
+                    <div class="card-front">
+                        ${frontContent}
+                    </div>
+                    <div class="card-back">
+                        <div style="margin-top: 30px;">
+                            <div style="font-size: 1.2rem; color: var(--fifa-gold);">⭐ ${p.rarity.toUpperCase()} ⭐</div>
+                            <div class="rarity-badge" style="background: ${info.color}; color: #1a1a2e;">${info.label}</div>
+                            <div style="margin: 15px 0; font-size: 0.8rem;">${isOwned ? p.name : 'FIGURINHA SECRETA'}</div>
+                            <div class="fake-stats">
+                                <div class="stat-item">⚡ POT: ${Math.floor(Math.random() * 40) + 70}</div>
+                                <div class="stat-item">🛡️ DEF: ${Math.floor(Math.random() * 40) + 60}</div>
+                                <div class="stat-item">🎯 SHOT: ${Math.floor(Math.random() * 50) + 50}</div>
+                                <div class="stat-item">🏃 SPEED: ${Math.floor(Math.random() * 40) + 70}</div>
+                            </div>
+                            <div style="margin-top: 12px; font-size: 0.6rem; color: #aaa;">★ FIFA World Cup 2026 ★</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(wrap);
+        };
+        updateStats();
+
+        function openPack() {
+            if (userState.coins < 100) {
+                alert("💰 Moedas insuficientes! Clique em '+ MOEDAS' para adicionar.");
+                return;
+            }
+            userState.coins -= 100;
+
+            const resultArea = document.getElementById('pack-result-area');
+            resultArea.innerHTML = '';
+            document.getElementById('pack-overlay').style.display = 'flex';
+            document.getElementById('btn-collect').style.display = 'block';
+
+            const drawnCards = [];
+            for (let i = 0; i < 5; i++) {
+                const randId = Math.floor(Math.random() * TOTAL_CARDS) + 1;
+                const p = database.find(x => x.id === randId);
+                userState.inventory[randId] = (userState.inventory[randId] || 0) + 1;
+                drawnCards.push(p);
+
+                const info = getRarityInfo(p.rarity);
+                const card = document.createElement('div');
+                card.className = `flying-card`;
+                card.style.width = '170px';
+                card.style.height = '250px';
+                card.style.animationDelay = `${i * 0.12}s`;
+                card.style.background = '#fff';
+                card.style.borderRadius = '12px';
+                card.style.border = `3px solid ${info.color}`;
+                card.style.overflow = 'hidden';
+                card.style.position = 'relative';
+                card.style.boxShadow = `0 0 15px ${info.color}`;
+
+                card.innerHTML = `
+                <div style="width:100%; height:65%; overflow:hidden;">
+                    <img src="${p.imageUrl}" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding: 10px; text-align:center; background: white; color: #1a1a2e;">
+                    <div style="font-weight:800; font-size:0.8rem;">${p.name.toUpperCase()}</div>
+                    <div style="font-size:0.7rem; color:${info.color}; font-weight:bold;">${info.label}</div>
+                </div>
+                <div class="rarity-icon" style="top:5px; right:5px; background:rgba(0,0,0,0.6);">${info.icon}</div>
+            `;
+                resultArea.appendChild(card);
+            }
+            updateStats();
+        }
+
+        function closePack() {
+            const cards = document.querySelectorAll('.flying-card');
+            document.getElementById('btn-collect').style.display = 'none';
+
+            cards.forEach((card, index) => {
+                setTimeout(() => { card.classList.add('collecting'); }, index * 100);
+            });
+
+            setTimeout(() => {
+                document.getElementById('pack-overlay').style.display = 'none';
+                render();
+            }, (cards.length * 100) + 500);
+        }
+
+        function updateStats() {
+            let unique = 0, reps = 0;
+            for (let id in userState.inventory) {
+                if (userState.inventory[id] > 0) unique++;
+                if (userState.inventory[id] > 1) reps += (userState.inventory[id] - 1);
+            }
+            document.getElementById('coin-val').innerText = userState.coins;
+            document.getElementById('prog-val').innerText = `${unique} / ${TOTAL_CARDS}`;
+            document.getElementById('rep-val').innerText = reps;
+            localStorage.setItem('fifa2026_save', JSON.stringify(userState));
+        }
+
+        function setFilter(f, btn) {
+            userState.filter = f;
+            document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            render();
+        }
+
+        function addCoins() {
+            userState.coins += 500;
+            updateStats();
+            render();
+        }
+
+        window.onload = () => {
+            const saved = localStorage.getItem('fifa2026_save');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                userState.coins = parsed.coins;
+                userState.inventory = parsed.inventory;
+            }
+            createDatabase();
+            render();
+        };
+
+        function render() {
+    const grid = document.getElementById('album-grid');
+    grid.innerHTML = '';
+
+    database.forEach(p => {
+        const count = userState.inventory[p.id] || 0;
+        const isOwned = count > 0;
+        if (userState.filter === 'owned' && !isOwned) return;
+        if (userState.filter === 'missing' && isOwned) return;
+
+        const info = getRarityInfo(p.rarity);
+        const wrap = document.createElement('div');
+        wrap.className = `card-wrapper ${isOwned ? 'owned' : ''} ${p.rarity}`;
         
-      ]
-      for(let i = 0; i < linksJS.length; i++){
-        document.write(`
-          <div class="card">
-            <h2>Projetos JS ${i + 1}</h2>
-            <p>${nomeProject[i]}.</p>
-            <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
-          </div>
-        `);
-    }
-    </script>
-  </section>
+        // LINHA CORRIGIDA - agora só vira, não some
+        wrap.onclick = (function(element) {
+            return function() { element.classList.toggle('flipped'); };
+        })(wrap);
 
-  <h2 id="html" class="section-title">02. HTML & CSS</h2>
-  <section class="container">
-    <script>
-      const linksHTML = [
-      'https://github.com/andrey123salgueiro/link1', 
-      'https://github.com/andrey123salgueiro/link2',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#' 
-    ];
-        const nomeProjectHTML = [
-        'Variaveis',
-        'Variaveis2',
-        'Variaveis3',
-        'Variaveis4',
-        'Variaveis5',
-        'Variaveis6',
-        'Variaveis7',
-        'Variaveis8',
-        'Variaveis9',
-        'Variaveis10',
-      ]
-      for(let i = 0; i < linksJS.length; i++){
-      document.write(`
-        <div class="card">
-          <h2>Projeto HTML & CSS ${i + 1}</h2>
-          <p>${nomeProjectHTML[i]}.</p>
-          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
-        </div>
-      `);
-    }
-    </script>
-  </section>
-
-  <h2 id="mobile" class="section-title">03. MOBILE</h2>
-  <section class="container">
-    <script>
-       const linksMOBILE = [
-      'https://github.com/andrey123salgueiro/link1', 
-      'https://github.com/andrey123salgueiro/link2',
-         '#',
-         '#',
-         '#',
-         '#',
-         '#',
-         '#',
-         '#',
-         '#' 
-    ];
-        const nomeProjectMOBILE = [
-        'Variaveis',
-        'Variaveis2',
-        'Variaveis3',
-        'Variaveis4',
-        'Variaveis5',
-        'Variaveis6',
-        'Variaveis7',
-        'Variaveis8',
-        'Variaveis9',
-        'Variaveis10',
-      ]
-      for(let i = 0; i < linksJS.length; i++){
-      document.write(`
-        <div class="card">
-          <h2>Projeto Mobile ${i + 1}</h2>
-          <p>${nomeProjectMOBILE[i]}.</p>
-          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
-        </div>
-      `);
-    }
-    </script>
-  </section>
-
-  <h2 id="analise" class="section-title">04. ANÁLISE DE SISTEMAS</h2>
-  <section class="container">
-    <script>
-      const linksANALISE = [
-      'https://github.com/andrey123salgueiro/link1', 
-      'https://github.com/andrey123salgueiro/link2',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#',
-        '#' 
-    ];
-        const nomeProjectANALISE = [
-        'Variaveis',
-        'Variaveis2',
-        'Variaveis3',
-        'Variaveis4',
-        'Variaveis5',
-        'Variaveis6',
-        'Variaveis7',
-        'Variaveis8',
-        'Variaveis9',
-        'Variaveis10',
-      ]
-
-     <h2 id="python" class="section-title">05. PYTHON</h2>
-  <section class="container">
-    <script>
-      const linksPYTHON = [
-        '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' 
-      ];
-      const nomeProjectPYTHON = [
-        'Projeto Python 1',
-        'Projeto Python 2',
-        'Projeto Python 3',
-        'Projeto Python 4',
-        'Projeto Python 5',
-        'Projeto Python 6',
-        'Projeto Python 7',
-        'Projeto Python 8',
-        'Projeto Python 9',
-        'Projeto Python 10',
-      ]
-      for(let i = 0; i < linksPYTHON.length; i++){
-        document.write(`
-          <div class="card">
-            <h2>Projeto Python ${i + 1}</h2>
-            <p>${nomeProjectPYTHON[i]}.</p>
-            <a href="${linksPYTHON[i]}" target="_blank">VER REPOSITÓRIO</a>
-          </div>
-        `);
-      }
-    </script>
-  </section>
-      for(let i = 0; i < linksJS.length; i++){
-      document.write(`
-        <div class="card">
-          <h2>Projeto Analise ${i + 1}</h2>
-          <p>${nomeProjectANALISE[i]}.</p>
-          <a href="${linksJS[i]}" target="_blank">VER REPOSITÓRIO</a>
-        </div>
-      `);
-    }
-      
-    </script>
-  </section>
-
-  <section id="sobre" class="container">
-    <div class="card" style="grid-column: 1 / -1; border-color: var(--dourado);">
-      <h2>SOBRE MIM</h2>
-      <p>Desenvolvedor em ascensão focado em criar soluções eficientes com design gamer.</p>
-    </div>
-  </section>
-
-  <section id="contato" class="container">
-    <div class="card" style="grid-column: 1 / -1;">
-      <h2>CONTATO</h2>
-      <p>Email: QOw0andreyg@example.com</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Andrey - Level 100 Developer</p>
-  </footer>
-
-  <script>
-    // Som ao clicar (ajustado para ser mais discreto)
-    const links = document.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        const audio = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
-        audio.volume = 0.9;
-        audio.play();
-      });
+        wrap.innerHTML = `
+                <div class="card-inner">
+                    ${count > 1 ? `<div class="counter-badge">x${count}</div>` : ''}
+                    <div class="card-front">
+                        ${isOwned ? `
+                            <div class="player-image">
+                                <img src="${p.imageUrl}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+                                <div class="player-number">#${String(p.id).padStart(3,'0')}</div>
+                                <div class="rarity-icon">${info.icon}</div>
+                            </div>
+                            <div class="player-info">
+                                <div class="player-name">${p.name.toUpperCase()}</div>
+                                <div class="player-team">${p.team}</div>
+                            </div>
+                        ` : `
+                            <div class="player-image" style="background: linear-gradient(135deg, #555, #333); display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <div style="font-size: 3rem;">❓</div>
+                                <div style="font-size: 0.7rem; margin-top: 10px;">FIGURINHA BLOQUEADA</div>
+                                <div class="player-number">#${String(p.id).padStart(3,'0')}</div>
+                            </div>
+                            <div class="player-info" style="background: #2a2a2a;">
+                                <div class="player-name" style="color: #999;">???</div>
+                                <div class="player-team" style="color: #777;">????????</div>
+                            </div>
+                        `}
+                    </div>
+                    <div class="card-back">
+                        <div style="margin-top: 30px;">
+                            <div style="font-size: 1.2rem; color: var(--fifa-gold);">⭐ ${p.rarity.toUpperCase()} ⭐</div>
+                            <div class="rarity-badge" style="background: ${info.color}; color: #1a1a2e;">${info.label}</div>
+                            <div style="margin: 15px 0; font-size: 0.8rem;">${isOwned ? p.name : 'FIGURINHA SECRETA'}</div>
+                            <div class="fake-stats">
+                                <div class="stat-item">⚡ POT: ${Math.floor(Math.random() * 40) + 70}</div>
+                                <div class="stat-item">🛡️ DEF: ${Math.floor(Math.random() * 40) + 60}</div>
+                                <div class="stat-item">🎯 SHOT: ${Math.floor(Math.random() * 50) + 50}</div>
+                                <div class="stat-item">🏃 SPEED: ${Math.floor(Math.random() * 40) + 70}</div>
+                            </div>
+                            <div style="margin-top: 12px; font-size: 0.6rem; color: #aaa;">★ FIFA World Cup 2026 ★</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        grid.appendChild(wrap);
     });
-  </script>
+    updateStats();
+}
+
+
+    </script>
 </body>
+
 </html>
