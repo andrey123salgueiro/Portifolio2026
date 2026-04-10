@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIFA World Cup 2026 - Álbum de Figurinhas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FIFA World Cup 2026 - Álbum de Figurinhas Oficial</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Montserrat:wght@300;600;800&display=swap"
         rel="stylesheet">
@@ -16,30 +16,34 @@
         }
 
         :root {
-            --fifa-red: #c41e3a;
-            --fifa-gold: #ffd700;
-            --fifa-dark: #1a1a2e;
-            --bg-body: #0f0f1a;
-            --color-legendary: #ffd700;
-            --color-rare: #c0c0c0;
-            --color-epic: #9b59b6;
-            --color-common: #4caf50;
+            --fifa-burgundy: #6F1A2E;
+            --fifa-burgundy-light: #9E2A3E;
+            --fifa-gold: #E5B83C;
+            --fifa-gold-dark: #C49A2A;
+            --fifa-dark: #0F0C12;
+            --fifa-card-bg: #1E1926;
+            --fifa-text-light: #F5EAD6;
+            --color-legendary: #FFD966;
+            --color-rare: #B0C4DE;
+            --color-epic: #C084FC;
+            --color-common: #6EE7B7;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
-            color: white;
+            background: radial-gradient(circle at 10% 20%, #120B14 0%, #0A070C 100%);
+            color: var(--fifa-text-light);
             margin: 0;
             overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(to bottom, rgba(196, 30, 58, 0.95), transparent);
+            background: linear-gradient(135deg, rgba(111, 26, 46, 0.95) 0%, rgba(30, 25, 38, 0.98) 100%);
             padding: 40px 20px;
             text-align: center;
-            border-bottom: 3px solid var(--fifa-gold);
+            border-bottom: 4px solid var(--fifa-gold);
             position: relative;
+            backdrop-filter: blur(2px);
         }
 
         .main-title {
@@ -47,10 +51,11 @@
             font-size: 3rem;
             margin: 0;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #fff, var(--fifa-gold));
+            background: linear-gradient(135deg, #FFF3CF, var(--fifa-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 20px rgba(229, 184, 60, 0.4);
+            letter-spacing: 2px;
         }
 
         .dashboard {
@@ -60,17 +65,25 @@
             margin-top: -30px;
             padding: 0 20px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
 
         .stat-box {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 12, 18, 0.85);
+            backdrop-filter: blur(12px);
             padding: 15px 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 28px;
+            border: 1px solid rgba(229, 184, 60, 0.4);
             text-align: center;
             min-width: 130px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--fifa-gold);
         }
 
         .stat-box span {
@@ -78,26 +91,27 @@
             text-transform: uppercase;
             color: var(--fifa-gold);
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .stat-box div {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
             margin-top: 5px;
+            font-family: 'Goldman', monospace;
         }
 
         .controls {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
             margin: 40px 0 30px;
             flex-wrap: wrap;
         }
 
         .btn {
             padding: 12px 28px;
-            border-radius: 30px;
+            border-radius: 40px;
             border: none;
             cursor: pointer;
             font-weight: 800;
@@ -105,47 +119,49 @@
             transition: all 0.3s ease;
             font-family: 'Goldman', monospace;
             letter-spacing: 1px;
+            font-size: 0.8rem;
         }
 
         .btn-filter {
-            background: rgba(30, 30, 50, 0.8);
-            color: white;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(30, 25, 38, 0.9);
+            color: var(--fifa-text-light);
+            border: 1px solid rgba(229, 184, 60, 0.3);
         }
 
         .btn-filter:hover,
         .btn-filter.active {
             background: var(--fifa-gold);
-            color: #1a1a2e;
+            color: #1a1423;
             border-color: var(--fifa-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(229, 184, 60, 0.4);
         }
 
         .btn-buy {
-            background: linear-gradient(135deg, var(--fifa-red), #8b0000);
+            background: linear-gradient(135deg, var(--fifa-burgundy), #4A0E1F);
             color: white;
-            box-shadow: 0 0 15px rgba(196, 30, 58, 0.5);
+            box-shadow: 0 4px 15px rgba(111, 26, 46, 0.6);
+            border: 1px solid rgba(229, 184, 60, 0.5);
         }
 
         .btn-buy:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(196, 30, 58, 0.7);
+            box-shadow: 0 10px 25px rgba(111, 26, 46, 0.8);
+            background: linear-gradient(135deg, #8B2A3E, #5E1428);
         }
 
         .album-grid {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
             gap: 30px;
-            padding: 20px;
+            padding: 25px;
         }
 
-        /* Cards estilo figurinha real - apenas viram, não somem */
         .card-wrapper {
             perspective: 1500px;
-            height: 320px;
+            height: 340px;
             cursor: pointer;
         }
 
@@ -153,9 +169,9 @@
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             transform-style: preserve-3d;
-            border-radius: 12px;
+            border-radius: 18px;
         }
 
         .card-wrapper.flipped .card-inner {
@@ -168,125 +184,159 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 12px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Frente da figurinha */
         .card-front {
-            background: linear-gradient(145deg, #fff 0%, #f0f0f0 100%);
+            background: linear-gradient(145deg, #2A2235 0%, #1C1727 100%);
             transform: rotateY(0deg);
             position: relative;
-            border: 3px solid;
-            transition: all 0.3s;
+            border: 2px solid;
+            transition: all 0.2s;
         }
 
-        /* Efeito de brilho ao passar mouse */
-        .card-front::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-            pointer-events: none;
+        .card-wrapper:hover .card-front {
+            filter: brightness(1.02);
+            transform: scale(1.01);
         }
 
-        .card-wrapper:hover .card-front::before {
-            left: 100%;
-        }
-
-        /* Estilos por raridade na frente */
+        /* Raridade bordas */
         .legendary .card-front {
             border-color: var(--color-legendary);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 18px rgba(255, 217, 102, 0.5);
         }
 
         .rare .card-front {
             border-color: var(--color-rare);
-            box-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
+            box-shadow: 0 0 12px rgba(176, 196, 222, 0.4);
         }
 
         .epic .card-front {
             border-color: var(--color-epic);
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
         }
 
         .common .card-front {
             border-color: var(--color-common);
-            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 0 10px rgba(110, 231, 183, 0.3);
         }
 
         .player-image {
             width: 100%;
-            height: 65%;
-            object-fit: cover;
-            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            height: 60%;
+            position: relative;
+            background: radial-gradient(circle at 30% 20%, #1A1525, #0B0812);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            position: relative;
+            overflow: hidden;
+        }
+
+        .player-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .card-wrapper:hover .player-image img {
+            transform: scale(1.02);
+        }
+
+        .player-number {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--fifa-gold);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+            font-family: monospace;
+            backdrop-filter: blur(4px);
+        }
+
+        .rarity-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+            font-size: 1.4rem;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .position-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            background: rgba(229, 184, 60, 0.9);
+            color: #1A1423;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            z-index: 2;
+            font-family: monospace;
         }
 
         .player-info {
             padding: 12px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            height: 35%;
+            background: rgba(34, 28, 44, 0.95);
+            height: 40%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            border-top: 1px solid rgba(229, 184, 60, 0.3);
         }
 
         .player-name {
             font-weight: 800;
             font-size: 1rem;
-            color: #1a1a2e;
+            color: #FFEFC0;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .player-team {
             font-size: 0.7rem;
-            color: #666;
-            margin-top: 4px;
-        }
-
-        .player-number {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            background: rgba(0, 0, 0, 0.6);
-            color: var(--fifa-gold);
-            padding: 3px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            z-index: 2;
-        }
-
-        .rarity-icon {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            font-size: 1.3rem;
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            color: #C9B6E4;
+            margin-top: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 6px;
+        }
+
+        .player-team img {
+            width: 22px;
+            height: 15px;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .rarity-text {
+            font-size: 0.6rem;
+            font-weight: bold;
+            margin-top: 6px;
         }
 
         /* Verso da figurinha */
         .card-back {
-            background: linear-gradient(145deg, #2c2c3a, #1a1a2a);
+            background: linear-gradient(135deg, #1C1628, #110D1A);
             transform: rotateY(180deg);
             display: flex;
             flex-direction: column;
@@ -299,134 +349,118 @@
         }
 
         .card-back::before {
-            content: "★ FIFA WORLD CUP 2026 ★";
+            content: "★ 2026 ★";
             position: absolute;
-            top: 15px;
-            font-size: 0.6rem;
+            top: 18px;
+            font-size: 0.7rem;
             color: var(--fifa-gold);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-weight: bold;
         }
 
         .card-back-stats {
-            margin-top: 40px;
+            margin-top: 35px;
         }
 
         .rarity-badge {
             display: inline-block;
-            padding: 6px 15px;
+            padding: 5px 15px;
             border-radius: 25px;
             font-weight: bold;
             font-size: 0.7rem;
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
         .fake-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            gap: 10px;
             margin-top: 15px;
             font-size: 0.7rem;
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px;
+            border-radius: 12px;
+            font-weight: bold;
         }
 
         .counter-badge {
             position: absolute;
-            top: -8px;
+            top: -10px;
             right: -8px;
-            background: var(--fifa-red);
-            color: white;
-            width: 28px;
-            height: 28px;
+            background: var(--fifa-burgundy);
+            color: var(--fifa-gold);
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            z-index: 10;
+            z-index: 20;
             border: 2px solid var(--fifa-gold);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 12px black;
+            font-family: monospace;
         }
 
-        /* Overlay de pack */
+        /* Pack Overlay */
         #pack-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(5, 3, 8, 0.98);
             z-index: 10000;
             display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(18px);
         }
 
         .pack-container {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             perspective: 1000px;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            padding: 20px;
+            padding: 25px;
         }
 
         .flying-card {
-            animation: flyIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation: flyIn 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
             opacity: 0;
-            width: 180px;
-            height: 260px;
+            width: 190px;
+            height: 270px;
             position: relative;
         }
 
         @keyframes flyIn {
             0% {
                 opacity: 0;
-                transform: scale(0.3) translateY(150px) rotate(15deg);
+                transform: scale(0.2) translateY(200px) rotate(20deg);
             }
-
             100% {
                 opacity: 1;
                 transform: scale(1) translateY(0) rotate(0deg);
-            }
-        }
-
-        .collecting {
-            animation: flyOut 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards !important;
-        }
-
-        @keyframes flyOut {
-            0% {
-                opacity: 1;
-                transform: scale(1) translateY(0) rotate(0deg);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(0.1) translateY(-500px) rotate(720deg);
             }
         }
 
         @media (max-width: 768px) {
             .album-grid {
                 grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-                gap: 15px;
+                gap: 18px;
             }
-
             .card-wrapper {
-                height: 270px;
+                height: 290px;
             }
-
             .player-name {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -435,20 +469,18 @@
 <body>
 
     <div id="pack-overlay">
-        <h1 style="font-family: 'Goldman'; color: var(--fifa-gold); text-shadow: 0 0 20px rgba(212,175,55,0.5);">✨ VOCÊ
-            RECEBEU ✨</h1>
+        <h1 style="font-family: 'Goldman'; color: var(--fifa-gold); text-shadow: 0 0 15px rgba(229,184,60,0.6);">✨ PACOTE FIFA 2026 ✨</h1>
         <div class="pack-container" id="pack-result-area"></div>
-        <button class="btn btn-buy" id="btn-collect" style="margin-top: 40px;" onclick="closePack()">📥
-            COLECIONAR</button>
+        <button class="btn btn-buy" id="btn-collect" style="margin-top: 35px; padding: 12px 40px;" onclick="closePack()">📥 COLECIONAR</button>
     </div>
 
     <header>
-        <h1 class="main-title">FIFA WORLD CUP 2026</h1>
-        <p>⭐ ÁLBUM DE FIGURINHAS OFICIAL ⭐</p>
+        <h1 class="main-title">FIFA WORLD CUP 2026™</h1>
+        <p style="color: #E5B83C; letter-spacing: 2px;">⭐ ÁLBUM DIGITAL OFICIAL ⭐</p>
     </header>
 
     <div class="dashboard">
-        <div class="stat-box"><span>🪙 MOEDAS</span>
+        <div class="stat-box"><span>🪙 MOEDAS FIFA</span>
             <div id="coin-val">1000</div>
         </div>
         <div class="stat-box"><span>📋 COLETADAS</span>
@@ -469,297 +501,239 @@
 
     <div class="album-grid" id="album-grid"></div>
 
-    <script>
-        const TOTAL_CARDS = 120;
-        const PLAYER_NAMES = [
-            "Lionel Messi", "Cristiano Ronaldo", "Vinícius Jr.", "Kylian Mbappé", "Erling Haaland", "Jude Bellingham", "Neymar Jr.", "Kevin De Bruyne", "Lamine Yamal", "Mohamed Salah",
-            "Harry Kane", "Rodri", "Robert Lewandowski", "Luka Modric", "Antoine Griezmann", "Bukayo Saka", "Phil Foden", "Jamal Musiala", "Florian Wirtz", "Lautaro Martínez",
-            "Bernardo Silva", "Bruno Fernandes", "Alisson Becker", "Thibaut Courtois", "Virgil van Dijk", "Ruben Dias", "Federico Valverde", "Pedri", "Gavi", "Ederson",
-            "Rafael Leão", "Theo Hernández", "Victor Osimhen", "Khvicha Kvaratskhelia", "Julian Alvarez", "Alexis Mac Allister", "Enzo Fernández", "Eduardo Camavinga", "Aurélien Tchouaméni", "Éder Militão",
-            "Marquinhos", "Kyle Walker", "Achraf Hakimi", "Alphonso Davies", "Declan Rice", "Martin Ødegaard", "Son Heung-min", "Leroy Sané", "Joshua Kimmich", "William Saliba",
-            "Ronald Araújo", "Trent Alexander-Arnold", "Jan Oblak", "Mike Maignan", "Marc-André ter Stegen", "Nicolò Barella", "Dušan Vlahović", "Marcus Rashford", "Bruno Guimarães", "Douglas Luiz",
-            "Gabriel Magalhães", "Lucas Paquetá", "Darwin Nuñez", "Luis Díaz", "Federico Chiesa", "Joao Cancelo", "Joao Felix", "Alejandro Garnacho", "Kobbie Mainoo", "Endrick",
-            "Xavi Simons", "Takefusa Kubo", "Kaoru Mitoma", "Kim Min-jae", "Dayot Upamecano", "Ibrahima Konaté", "Cristian Romero", "Lisandro Martínez", "Nahuel Molina", "Rodrigo De Paul",
-            "Nico Williams", "Dani Olmo", "Mikel Merino", "Unai Simón", "Gianluigi Donnarumma", "Alessandro Bastoni", "Giovanni Di Lorenzo", "Kai Havertz", "Antonio Rüdiger", "Ilkay Gündogan",
-            "Granit Xhaka", "Manuel Akanji", "Gregor Kobel", "Rasmus Højlund", "Christian Eriksen", "Alexander Isak", "Dejan Kulusevski", "Santi Giménez", "Edson Álvarez", "Pervis Estupiñán",
-            "Moises Caicedo", "Piero Hincapié", "Jonathan David", "Christian Pulisic", "Weston McKennie", "Timothy Weah", "Serhou Guirassy", "Victor Boniface", "Mohammed Kudus",
-            "André Onana", "Yassine Bounou", "Youssef En-Nesyri", "Sofyan Amrabat", "Hwang Hee-chan", "Lee Kang-in", "Wataru Endo", "Gonçalo Ramos", "Vitinha", "Nuno Mendes"
-        ];
-        const TEAMS = ["Brasil 🇧🇷", "Argentina 🇦🇷", "França 🇫🇷", "Portugal 🇵🇹", "Espanha 🇪🇸", "Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Alemanha 🇩🇪", "Itália 🇮🇹", "Holanda 🇳🇱", "Bélgica 🇧🇪", "Uruguai 🇺🇾", "Marrocos 🇲🇦"];
+   <script>
+    const TOTAL_CARDS = 120;
+    
+    // ---------- BASE DE DADOS COMPLETA COM NOME, SELEÇÃO (código bandeira) e POSIÇÃO ----------
+    // Lista de 120 jogadores reais/semireais para dar vida ao álbum
+    const PLAYERS_FULL = [
+        { n: "Lionel Messi", t: "ar", p: "ATA" }, { n: "Cristiano Ronaldo", t: "pt", p: "ATA" }, { n: "Vinícius Jr.", t: "br", p: "ATA" },
+        { n: "Kylian Mbappé", t: "fr", p: "ATA" }, { n: "Erling Haaland", t: "no", p: "ATA" }, { n: "Jude Bellingham", t: "gb-eng", p: "MEI" },
+        { n: "Neymar Jr.", t: "br", p: "ATA" }, { n: "Kevin De Bruyne", t: "be", p: "MEI" }, { n: "Lamine Yamal", t: "es", p: "ATA" },
+        { n: "Mohamed Salah", t: "eg", p: "ATA" }, { n: "Alisson Becker", t: "br", p: "GOL" }, { n: "Virgil van Dijk", t: "nl", p: "ZAG" },
+        { n: "Rodri", t: "es", p: "VOL" }, { n: "Luka Modric", t: "hr", p: "MEI" }, { n: "Bernardo Silva", t: "pt", p: "MEI" },
+        { n: "Harry Kane", t: "gb-eng", p: "ATA" }, { n: "Antoine Griezmann", t: "fr", p: "ATA" }, { n: "Phil Foden", t: "gb-eng", p: "MEI" },
+        { n: "Jamal Musiala", t: "de", p: "MEI" }, { n: "Federico Valverde", t: "uy", p: "VOL" }, { n: "Rafael Leão", t: "pt", p: "ATA" },
+        { n: "Victor Osimhen", t: "ng", p: "ATA" }, { n: "Joshua Kimmich", t: "de", p: "VOL" }, { n: "Rúben Dias", t: "pt", p: "ZAG" },
+        { n: "Thibaut Courtois", t: "be", p: "GOL" }, { n: "Mike Maignan", t: "fr", p: "GOL" }, { n: "Ederson", t: "br", p: "GOL" },
+        { n: "Declan Rice", t: "gb-eng", p: "VOL" }, { n: "Pedri", t: "es", p: "MEI" }, { n: "Gavi", t: "es", p: "MEI" },
+        { n: "Enzo Fernández", t: "ar", p: "VOL" }, { n: "Alexis Mac Allister", t: "ar", p: "MEI" }, { n: "Darwin Núñez", t: "uy", p: "ATA" },
+        { n: "Randal Kolo Muani", t: "fr", p: "ATA" }, { n: "Julian Álvarez", t: "ar", p: "ATA" }, { n: "Khvicha Kvaratskhelia", t: "ge", p: "ATA" },
+        { n: "Florian Wirtz", t: "de", p: "MEI" }, { n: "Bukayo Saka", t: "gb-eng", p: "ATA" }, { n: "Martin Ødegaard", t: "no", p: "MEI" },
+        { n: "Achraf Hakimi", t: "ma", p: "LAT" }, { n: "Theo Hernández", t: "fr", p: "LAT" }, { n: "João Cancelo", t: "pt", p: "LAT" },
+        { n: "Trent Alexander-Arnold", t: "gb-eng", p: "LAT" }, { n: "David Alaba", t: "at", p: "ZAG" }, { n: "Antonio Rüdiger", t: "de", p: "ZAG" },
+        { n: "Eder Militão", t: "br", p: "ZAG" }, { n: "Ronald Araújo", t: "uy", p: "ZAG" }, { n: "Marquinhos", t: "br", p: "ZAG" },
+        { n: "John Stones", t: "gb-eng", p: "ZAG" }, { n: "Manuel Akanji", t: "ch", p: "ZAG" }, { n: "Kim Min-jae", t: "kr", p: "ZAG" },
+        { n: "Dayot Upamecano", t: "fr", p: "ZAG" }, { n: "Nicolò Barella", t: "it", p: "MEI" }, { n: "Frenkie de Jong", t: "nl", p: "MEI" },
+        { n: "Bruno Fernandes", t: "pt", p: "MEI" }, { n: "James Rodríguez", t: "co", p: "MEI" }, { n: "Christian Pulisic", t: "us", p: "ATA" },
+        { n: "Weston McKennie", t: "us", p: "VOL" }, { n: "Hirving Lozano", t: "mx", p: "ATA" }, { n: "Edson Álvarez", t: "mx", p: "VOL" },
+        { n: "Yoshinori Muto", t: "jp", p: "ATA" }, { n: "Takefusa Kubo", t: "jp", p: "MEI" }, { n: "Son Heung-min", t: "kr", p: "ATA" },
+        { n: "Lee Kang-in", t: "kr", p: "MEI" }, { n: "Sadio Mané", t: "sn", p: "ATA" }, { n: "Kalidou Koulibaly", t: "sn", p: "ZAG" },
+        { n: "André Onana", t: "cm", p: "GOL" }, { n: "Hakim Ziyech", t: "ma", p: "MEI" }, { n: "Yassine Bounou", t: "ma", p: "GOL" },
+        { n: "Nayef Aguerd", t: "ma", p: "ZAG" }, { n: "Mason Mount", t: "gb-eng", p: "MEI" }, { n: "Reece James", t: "gb-eng", p: "LAT" },
+        { n: "Kai Havertz", t: "de", p: "ATA" }, { n: "Serge Gnabry", t: "de", p: "ATA" }, { n: "Leroy Sané", t: "de", p: "ATA" },
+        { n: "Iker Muniain", t: "es", p: "MEI" }, { n: "Dani Olmo", t: "es", p: "MEI" }, { n: "Álvaro Morata", t: "es", p: "ATA" },
+        { n: "Fabián Ruiz", t: "es", p: "MEI" }, { n: "Giovanni Lo Celso", t: "ar", p: "MEI" }, { n: "Lautaro Martínez", t: "ar", p: "ATA" },
+        { n: "Ángel Di María", t: "ar", p: "ATA" }, { n: "Rodrigo De Paul", t: "ar", p: "VOL" }, { n: "Richarlison", t: "br", p: "ATA" },
+        { n: "Raphinha", t: "br", p: "ATA" }, { n: "Lucas Paquetá", t: "br", p: "MEI" }, { n: "Casemiro", t: "br", p: "VOL" },
+        { n: "Danilo", t: "br", p: "LAT" }, { n: "Alex Sandro", t: "br", p: "LAT" }, { n: "Gleison Bremer", t: "br", p: "ZAG" },
+        { n: "Dominik Szoboszlai", t: "hu", p: "MEI" }, { n: "Miloš Veljković", t: "rs", p: "ZAG" }, { n: "Dusan Vlahović", t: "rs", p: "ATA" },
+        { n: "Sergej Milinković-Savić", t: "rs", p: "MEI" }, { n: "Patrik Schick", t: "cz", p: "ATA" }, { n: "Tomáš Souček", t: "cz", p: "VOL" },
+        { n: "Georginio Wijnaldum", t: "nl", p: "MEI" }, { n: "Matthijs de Ligt", t: "nl", p: "ZAG" }, { n: "Denzel Dumfries", t: "nl", p: "LAT" },
+        { n: "Cody Gakpo", t: "nl", p: "ATA" }, { n: "Xavi Simons", t: "nl", p: "MEI" }, { n: "Jeremie Frimpong", t: "nl", p: "LAT" },
+        { n: "Jonathan David", t: "ca", p: "ATA" }, { n: "Alphonso Davies", t: "ca", p: "LAT" }, { n: "Stephen Eustáquio", t: "ca", p: "VOL" },
+        { n: "Milan Borjan", t: "ca", p: "GOL" }, { n: "Luis Díaz", t: "co", p: "ATA" }, { n: "Duván Zapata", t: "co", p: "ATA" }
+    ];
+    
+    // garantir 120 itens (completar com genéricos se faltar)
+    while(PLAYERS_FULL.length < TOTAL_CARDS) {
+        PLAYERS_FULL.push({ n: `Craque ${PLAYERS_FULL.length+1}`, t: "br", p: "ATA" });
+    }
+    if(PLAYERS_FULL.length > TOTAL_CARDS) PLAYERS_FULL.length = TOTAL_CARDS;
 
-        let userState = { inventory: {}, coins: 1000, filter: 'all' };
-        const database = [];
+    let userState = { inventory: {}, coins: 1000, filter: 'all' };
+    const database = [];
 
-        function getPlayerImageUrl(playerName, playerId) {
-            const seed = playerName.replace(/\s/g, '').toLowerCase();
-            return `https://ui-avatars.com/api/?background=1a1a2e&color=ffd700&size=200&name=${encodeURIComponent(playerName.split(' ').slice(0, 2).join('+'))}&bold=true&length=2&fontsize=0.7`;
-        }
-
-        function createDatabase() {
-            for (let i = 1; i <= TOTAL_CARDS; i++) {
-                let rarity = "";
-                if (i <= 10) rarity = "legendary";
-                else if (i <= 30) rarity = "rare";
-                else if (i <= 70) rarity = "epic";
-                else rarity = "common";
-
-                database.push({
-                    id: i,
-                    name: PLAYER_NAMES[i - 1] || `Jogador ${i}`,
-                    team: TEAMS[i % TEAMS.length],
-                    rarity: rarity,
-                    imageUrl: getPlayerImageUrl(PLAYER_NAMES[i - 1] || `Jogador ${i}`, i)
-                });
-            }
-        }
-
-        function getRarityInfo(rarity) {
-            switch (rarity) {
-                case 'legendary': return { color: '#ffd700', label: 'LENDÁRIA', icon: '👑', bg: 'linear-gradient(135deg, #ffd70020, #ffd70005)' };
-                case 'rare': return { color: '#c0c0c0', label: 'RARA', icon: '💎', bg: 'linear-gradient(135deg, #c0c0c020, #c0c0c005)' };
-                case 'epic': return { color: '#9b59b6', label: 'ÉPICA', icon: '🔥', bg: 'linear-gradient(135deg, #9b59b620, #9b59b605)' };
-                default: return { color: '#4caf50', label: 'COMUM', icon: '⚽', bg: 'linear-gradient(135deg, #4caf5020, #4caf5005)' };
-            }
-        }
-
-        // Função para virar a figurinha (sem sumir)
-        function flipCard(element) {
-            element.classList.toggle('flipped');
-        }
-
-        function render() {
-            const grid = document.getElementById('album-grid');
-            grid.innerHTML = '';
-
-            database.forEach(p => {
-                const count = userState.inventory[p.id] || 0;
-                const isOwned = count > 0;
-                if (userState.filter === 'owned' && !isOwned) return;
-                if (userState.filter === 'missing' && isOwned) return;
-
-                const info = getRarityInfo(p.rarity);
-                const wrap = document.createElement('div');
-                wrap.className = `card-wrapper ${isOwned ? 'owned' : ''} ${p.rarity}`;
-
-                // Adiciona evento de clique para VIRAR (não sumir)
-                wrap.onclick = (function (element) {
-                    return function () { element.classList.toggle('flipped'); };
-                })(wrap);
-                return function () { flipCard(element); };
-            })(wrap);
-
-            const frontContent = isOwned ? `
-                <div class="player-image">
-                    <img src="${p.imageUrl}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
-                    <div class="player-number">#${String(p.id).padStart(3, '0')}</div>
-                    <div class="rarity-icon">${info.icon}</div>
-                </div>
-                <div class="player-info">
-                    <div class="player-name">${p.name.toUpperCase()}</div>
-                    <div class="player-team">${p.team}</div>
-                </div>
-            ` : `
-                <div class="player-image" style="background: linear-gradient(135deg, #555, #333); display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                    <div style="font-size: 3rem;">❓</div>
-                    <div style="font-size: 0.7rem; margin-top: 10px;">FIGURINHA BLOQUEADA</div>
-                    <div class="player-number">#${String(p.id).padStart(3, '0')}</div>
-                </div>
-                <div class="player-info" style="background: #2a2a2a;">
-                    <div class="player-name" style="color: #999;">???</div>
-                    <div class="player-team" style="color: #777;">????????</div>
-                </div>
-            `;
-
-            wrap.innerHTML = `
-                <div class="card-inner">
-                    ${count > 1 ? `<div class="counter-badge">x${count}</div>` : ''}
-                    <div class="card-front">
-                        ${frontContent}
-                    </div>
-                    <div class="card-back">
-                        <div style="margin-top: 30px;">
-                            <div style="font-size: 1.2rem; color: var(--fifa-gold);">⭐ ${p.rarity.toUpperCase()} ⭐</div>
-                            <div class="rarity-badge" style="background: ${info.color}; color: #1a1a2e;">${info.label}</div>
-                            <div style="margin: 15px 0; font-size: 0.8rem;">${isOwned ? p.name : 'FIGURINHA SECRETA'}</div>
-                            <div class="fake-stats">
-                                <div class="stat-item">⚡ POT: ${Math.floor(Math.random() * 40) + 70}</div>
-                                <div class="stat-item">🛡️ DEF: ${Math.floor(Math.random() * 40) + 60}</div>
-                                <div class="stat-item">🎯 SHOT: ${Math.floor(Math.random() * 50) + 50}</div>
-                                <div class="stat-item">🏃 SPEED: ${Math.floor(Math.random() * 40) + 70}</div>
-                            </div>
-                            <div style="margin-top: 12px; font-size: 0.6rem; color: #aaa;">★ FIFA World Cup 2026 ★</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            grid.appendChild(wrap);
-        };
-        updateStats();
-
-        function openPack() {
-            if (userState.coins < 100) {
-                alert("💰 Moedas insuficientes! Clique em '+ MOEDAS' para adicionar.");
-                return;
-            }
-            userState.coins -= 100;
-
-            const resultArea = document.getElementById('pack-result-area');
-            resultArea.innerHTML = '';
-            document.getElementById('pack-overlay').style.display = 'flex';
-            document.getElementById('btn-collect').style.display = 'block';
-
-            const drawnCards = [];
-            for (let i = 0; i < 5; i++) {
-                const randId = Math.floor(Math.random() * TOTAL_CARDS) + 1;
-                const p = database.find(x => x.id === randId);
-                userState.inventory[randId] = (userState.inventory[randId] || 0) + 1;
-                drawnCards.push(p);
-
-                const info = getRarityInfo(p.rarity);
-                const card = document.createElement('div');
-                card.className = `flying-card`;
-                card.style.width = '170px';
-                card.style.height = '250px';
-                card.style.animationDelay = `${i * 0.12}s`;
-                card.style.background = '#fff';
-                card.style.borderRadius = '12px';
-                card.style.border = `3px solid ${info.color}`;
-                card.style.overflow = 'hidden';
-                card.style.position = 'relative';
-                card.style.boxShadow = `0 0 15px ${info.color}`;
-
-                card.innerHTML = `
-                <div style="width:100%; height:65%; overflow:hidden;">
-                    <img src="${p.imageUrl}" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div style="padding: 10px; text-align:center; background: white; color: #1a1a2e;">
-                    <div style="font-weight:800; font-size:0.8rem;">${p.name.toUpperCase()}</div>
-                    <div style="font-size:0.7rem; color:${info.color}; font-weight:bold;">${info.label}</div>
-                </div>
-                <div class="rarity-icon" style="top:5px; right:5px; background:rgba(0,0,0,0.6);">${info.icon}</div>
-            `;
-                resultArea.appendChild(card);
-            }
-            updateStats();
-        }
-
-        function closePack() {
-            const cards = document.querySelectorAll('.flying-card');
-            document.getElementById('btn-collect').style.display = 'none';
-
-            cards.forEach((card, index) => {
-                setTimeout(() => { card.classList.add('collecting'); }, index * 100);
+    function createDatabase() {
+        for (let i = 1; i <= TOTAL_CARDS; i++) {
+            let rarity = i <= 8 ? "legendary" : i <= 28 ? "rare" : i <= 70 ? "epic" : "common";
+            const pData = PLAYERS_FULL[i-1];
+            database.push({
+                id: i,
+                name: pData.n,
+                countryCode: pData.t,
+                pos: pData.p,
+                rarity: rarity,
+                flagUrl: `https://flagcdn.com/w320/${pData.t}.png`
             });
-
-            setTimeout(() => {
-                document.getElementById('pack-overlay').style.display = 'none';
-                render();
-            }, (cards.length * 100) + 500);
         }
+    }
 
-        function updateStats() {
-            let unique = 0, reps = 0;
-            for (let id in userState.inventory) {
-                if (userState.inventory[id] > 0) unique++;
-                if (userState.inventory[id] > 1) reps += (userState.inventory[id] - 1);
-            }
-            document.getElementById('coin-val').innerText = userState.coins;
-            document.getElementById('prog-val').innerText = `${unique} / ${TOTAL_CARDS}`;
-            document.getElementById('rep-val').innerText = reps;
-            localStorage.setItem('fifa2026_save', JSON.stringify(userState));
+    function getRarityInfo(rarity) {
+        switch (rarity) {
+            case 'legendary': return { color: '#FFD966', label: 'LENDÁRIA', icon: '🏆' };
+            case 'rare': return { color: '#A5D8FF', label: 'RARA', icon: '💎' };
+            case 'epic': return { color: '#D8B4FE', label: 'ÉPICA', icon: '⚡' };
+            default: return { color: '#6EE7B7', label: 'COMUM', icon: '⭐' };
         }
+    }
 
-        function setFilter(f, btn) {
-            userState.filter = f;
-            document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            render();
+    function updateStats() {
+        let ownedCount = 0;
+        let duplicates = 0;
+        for (let i = 1; i <= TOTAL_CARDS; i++) {
+            let qty = userState.inventory[i] || 0;
+            if (qty > 0) ownedCount++;
+            if (qty > 1) duplicates += (qty - 1);
         }
+        document.getElementById('prog-val').innerText = `${ownedCount} / ${TOTAL_CARDS}`;
+        document.getElementById('rep-val').innerText = duplicates;
+        document.getElementById('coin-val').innerText = userState.coins;
+    }
 
-        function addCoins() {
-            userState.coins += 500;
-            updateStats();
-            render();
-        }
+    function render() {
+        const grid = document.getElementById('album-grid');
+        grid.innerHTML = '';
 
-        window.onload = () => {
-            const saved = localStorage.getItem('fifa2026_save');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                userState.coins = parsed.coins;
-                userState.inventory = parsed.inventory;
-            }
-            createDatabase();
-            render();
-        };
+        database.forEach(p => {
+            const count = userState.inventory[p.id] || 0;
+            const isOwned = count > 0;
+            if (userState.filter === 'owned' && !isOwned) return;
+            if (userState.filter === 'missing' && isOwned) return;
 
-        function render() {
-    const grid = document.getElementById('album-grid');
-    grid.innerHTML = '';
+            const info = getRarityInfo(p.rarity);
+            const wrap = document.createElement('div');
+            wrap.className = `card-wrapper ${p.rarity}`;
+            wrap.onclick = (function(cardId) { 
+                return function() { this.classList.toggle('flipped'); };
+            })(p.id);
 
-    database.forEach(p => {
-        const count = userState.inventory[p.id] || 0;
-        const isOwned = count > 0;
-        if (userState.filter === 'owned' && !isOwned) return;
-        if (userState.filter === 'missing' && isOwned) return;
-
-        const info = getRarityInfo(p.rarity);
-        const wrap = document.createElement('div');
-        wrap.className = `card-wrapper ${isOwned ? 'owned' : ''} ${p.rarity}`;
-        
-        // LINHA CORRIGIDA - agora só vira, não some
-        wrap.onclick = (function(element) {
-            return function() { element.classList.toggle('flipped'); };
-        })(wrap);
-
-        wrap.innerHTML = `
+            // front e back com todos os detalhes: bandeira, posição, nome
+            wrap.innerHTML = `
                 <div class="card-inner">
                     ${count > 1 ? `<div class="counter-badge">x${count}</div>` : ''}
                     <div class="card-front">
                         ${isOwned ? `
                             <div class="player-image">
-                                <img src="${p.imageUrl}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+                                <img src="${p.flagUrl}" alt="bandeira" loading="lazy" onerror="this.src='https://flagcdn.com/w320/un.png'">
                                 <div class="player-number">#${String(p.id).padStart(3,'0')}</div>
                                 <div class="rarity-icon">${info.icon}</div>
+                                <div class="position-badge">${p.pos}</div>
                             </div>
                             <div class="player-info">
                                 <div class="player-name">${p.name.toUpperCase()}</div>
-                                <div class="player-team">${p.team}</div>
+                                <div class="player-team">
+                                    <img src="${p.flagUrl}" style="width:20px; height:14px;" onerror="this.style.display='none'">
+                                    <span>${p.countryCode.toUpperCase()}</span>
+                                </div>
+                                <div class="rarity-text" style="color:${info.color}">${info.label}</div>
                             </div>
                         ` : `
-                            <div class="player-image" style="background: linear-gradient(135deg, #555, #333); display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                                <div style="font-size: 3rem;">❓</div>
-                                <div style="font-size: 0.7rem; margin-top: 10px;">FIGURINHA BLOQUEADA</div>
+                            <div class="player-image" style="background: #120E1A; display:flex; align-items:center; justify-content:center; flex-direction:column;">
+                                <span style="font-size:2.5rem;">❓</span>
                                 <div class="player-number">#${String(p.id).padStart(3,'0')}</div>
+                                <div class="position-badge" style="background:#5A4A6E;">???</div>
                             </div>
-                            <div class="player-info" style="background: #2a2a2a;">
-                                <div class="player-name" style="color: #999;">???</div>
-                                <div class="player-team" style="color: #777;">????????</div>
+                            <div class="player-info" style="background:#241F2E;">
+                                <div class="player-name" style="color:#7A6A8E;">FIGURINHA OCULTA</div>
+                                <div class="player-team"><span>🔒 ABRA PACOTES</span></div>
                             </div>
                         `}
                     </div>
                     <div class="card-back">
-                        <div style="margin-top: 30px;">
-                            <div style="font-size: 1.2rem; color: var(--fifa-gold);">⭐ ${p.rarity.toUpperCase()} ⭐</div>
-                            <div class="rarity-badge" style="background: ${info.color}; color: #1a1a2e;">${info.label}</div>
-                            <div style="margin: 15px 0; font-size: 0.8rem;">${isOwned ? p.name : 'FIGURINHA SECRETA'}</div>
-                            <div class="fake-stats">
-                                <div class="stat-item">⚡ POT: ${Math.floor(Math.random() * 40) + 70}</div>
-                                <div class="stat-item">🛡️ DEF: ${Math.floor(Math.random() * 40) + 60}</div>
-                                <div class="stat-item">🎯 SHOT: ${Math.floor(Math.random() * 50) + 50}</div>
-                                <div class="stat-item">🏃 SPEED: ${Math.floor(Math.random() * 40) + 70}</div>
-                            </div>
-                            <div style="margin-top: 12px; font-size: 0.6rem; color: #aaa;">★ FIFA World Cup 2026 ★</div>
+                        <div style="font-size: 1rem; font-weight:bold; color: var(--fifa-gold);">${p.name.toUpperCase()}</div>
+                        <div style="font-size: 0.75rem; margin: 8px 0;">${p.pos} | ${p.countryCode.toUpperCase()}</div>
+                        <img src="${p.flagUrl}" width="55" style="border-radius: 8px; border: 1px solid gold; margin-bottom:8px;" onerror="this.src='https://flagcdn.com/w320/un.png'">
+                        <div class="fake-stats">
+                            <div class="stat-item">⚽ GOLS: ${Math.floor(Math.random() * 35) + 20}</div>
+                            <div class="stat-item">🛡️ DEFESA: ${Math.floor(Math.random() * 40) + 50}</div>
                         </div>
+                        <div class="rarity-badge" style="background:${info.color}20; color:${info.color};">${info.label}</div>
                     </div>
                 </div>
             `;
-        grid.appendChild(wrap);
-    });
-    updateStats();
-}
+            grid.appendChild(wrap);
+        });
+        updateStats();
+    }
 
-
+    function openPack() {
+        if (userState.coins < 100) {
+            alert("Moedas insuficientes! Clique em '+ MOEDAS' para testar.");
+            return;
+        }
+        userState.coins -= 100;
+        updateStats();
+        
+        const packCards = [];
+        for (let i = 0; i < 5; i++) {
+            const randId = Math.floor(Math.random() * TOTAL_CARDS) + 1;
+            packCards.push(database.find(c => c.id === randId));
+        }
+        
+        const overlay = document.getElementById('pack-overlay');
+        const area = document.getElementById('pack-result-area');
+        area.innerHTML = '';
+        overlay.style.display = 'flex';
+        
+        packCards.forEach((card, idx) => {
+            const info = getRarityInfo(card.rarity);
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'flying-card';
+            cardDiv.style.animationDelay = `${idx * 0.1}s`;
+            cardDiv.innerHTML = `
+                <div style="background: linear-gradient(145deg, #2A2235, #181320); border-radius: 16px; border: 2px solid ${info.color}; height:100%; width:100%; overflow:hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                    <div style="height:60%; background:#111; display:flex; align-items:center; justify-content:center;">
+                        <img src="${card.flagUrl}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://flagcdn.com/w320/un.png'">
+                    </div>
+                    <div style="padding:10px; text-align:center;">
+                        <div style="font-weight:bold; font-size:0.85rem;">${card.name}</div>
+                        <div style="font-size:0.65rem; color:${info.color}">${card.pos} | ${card.countryCode.toUpperCase()}</div>
+                    </div>
+                </div>
+            `;
+            area.appendChild(cardDiv);
+        });
+        
+        window._pendingPack = packCards;
+    }
+    
+    function closePack() {
+        if (window._pendingPack) {
+            for (let card of window._pendingPack) {
+                let currentQty = userState.inventory[card.id] || 0;
+                userState.inventory[card.id] = currentQty + 1;
+            }
+            window._pendingPack = null;
+            render();
+        }
+        document.getElementById('pack-overlay').style.display = 'none';
+    }
+    
+    function setFilter(type, btnElement) {
+        userState.filter = type;
+        document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+        btnElement.classList.add('active');
+        render();
+    }
+    
+    function addCoins() {
+        userState.coins += 500;
+        updateStats();
+        render();
+    }
+    
+    createDatabase();
+    // Inicializar inventário vazio
+    for (let i = 1; i <= TOTAL_CARDS; i++) {
+        if (!userState.inventory[i]) userState.inventory[i] = 0;
+    }
+    render();
+    
+    window.openPack = openPack;
+    window.closePack = closePack;
+    window.setFilter = setFilter;
+    window.addCoins = addCoins;
     </script>
 </body>
 
