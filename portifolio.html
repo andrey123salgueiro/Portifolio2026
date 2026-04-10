@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrey Portfolio 2026 - Gold Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --preto: #000000;
+      --dourado: #FFD700;
+      --azul: #0056b3;
+      --azul-brilhante: #00aaff;
+      --verde-python: #2b5b84;
+      --verde-python-claro: #4B8BBE;
+      --amarelo-python: #FFD43B;
+      --laranja-padrao: #e67e22;
+      --laranja-escuro: #b85e0a;
+      --cinza-card: #0a0a0a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background-color: var(--preto);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(180deg, #1a1a1a, #000);
+      padding: 30px;
+      text-align: center;
+      border-bottom: 4px solid var(--dourado);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+    }
+
+    header h1 {
+      color: var(--dourado);
+      font-size: 22px;
+      text-shadow: 3px 3px var(--azul);
+      margin: 0;
+    }
+
+    header p {
+      font-size: 10px;
+      margin-top: 10px;
+      color: #aaa;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #0a0a0a;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--laranja-padrao);
+      gap: 5px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 5px 12px;
+      font-size: 10px;
+      transition: 0.3s;
+      padding: 5px 8px;
+    }
+
+    nav a:hover {
+      color: var(--dourado);
+      text-shadow: 0 0 8px var(--dourado);
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--azul-brilhante);
+      margin-top: 60px;
+      margin-bottom: 30px;
+      font-size: 18px;
+      text-transform: uppercase;
+      border-left: 5px solid var(--dourado);
+      display: inline-block;
+      padding-left: 15px;
+      margin-left: 20px;
+    }
+
+    .professor-badge {
+      display: inline-block;
+      background: rgba(0,0,0,0.7);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 9px;
+      margin-left: 20px;
+      color: var(--dourado);
+      border: 1px solid var(--dourado);
+    }
+
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: var(--cinza-card);
+      border: 2px solid var(--laranja-padrao);
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--dourado);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .card h2 {
+      font-size: 14px;
+      color: var(--dourado);
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+
+    .card p {
+      font-size: 9px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .card a {
+      color: var(--azul-brilhante);
+      text-decoration: none;
+      font-size: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--azul-brilhante);
+      display: inline-block;
+      transition: 0.3s;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .card a:hover {
+      background-color: var(--azul-brilhante);
+      color: #000;
+    }
+
+    .edit-name-btn {
+      background: #1a1a2e;
+      color: var(--dourado);
+      border: 1px solid var(--dourado);
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .edit-name-btn:hover {
+      background: var(--dourado);
+      color: black;
+    }
+
+    /* Estilo especial para Python - Única matéria do outro professor (separada no final) */
+    .python-section {
+      border-top: 3px solid var(--amarelo-python);
+      margin-top: 30px;
+      position: relative;
+      margin-bottom: 40px;
+    }
+    
+    .python-section::before {
+      content: "👨‍🏫 MATÉRIA ESPECIAL - PROFESSOR VITOR";
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: var(--amarelo-python);
+      color: #000;
+      font-size: 8px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-family: 'Press Start 2P', cursive;
+      z-index: 10;
+    }
+    
+    .python-badge {
+      background: linear-gradient(135deg, var(--verde-python), var(--verde-python-claro));
+      color: var(--amarelo-python);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 12px;
+      display: inline-block;
+      margin-left: 20px;
+      border: 1px solid var(--amarelo-python);
+    }
+
+    .card.python-card {
+      border-color: var(--amarelo-python);
+      background: #0d1117;
+    }
+    
+    .card.python-card:hover {
+      border-color: var(--dourado);
+      box-shadow: 0 0 20px rgba(255, 212, 59, 0.4);
+    }
+
+    /* TODOS os cards padrão usam borda laranja */
+    .card.backend-card,
+    .card.mobile-card,
+    .card.analise-card,
+    .card.js-card,
+    .card.html-card {
+      border-color: var(--laranja-padrao);
+    }
+
+    footer {
+      background-color: #000;
+      color: var(--dourado);
+      text-align: center;
+      padding: 30px;
+      border-top: 4px solid var(--dourado);
+      margin-top: 50px;
+      font-size: 10px;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: var(--laranja-padrao); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--dourado); }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #111;
+      padding: 30px;
+      border: 3px solid var(--dourado);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      font-family: 'Press Start 2P', cursive;
+    }
+    .modal-content input {
+      width: 90%;
+      padding: 12px;
+      margin: 20px 0;
+      background: #222;
+      border: 1px solid var(--dourado);
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+    }
+    .modal-content button {
+      background: var(--dourado);
+      border: none;
+      padding: 10px 20px;
+      font-family: 'Press Start 2P', cursive;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    /* Separador visual entre seções normais e python */
+    .separator-area {
+      margin: 20px 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏆 ANDREY PORTFOLIO 2026 🏆</h1>
+    <p>Full Stack | Game Dev | Python | Back-End</p>
+  </header>
+
+  <nav>
+    <a href="#javascript">JS/FRONT</a>
+    <a href="#html">HTML/CSS</a>
+    <a href="#backend">BACK-END</a>
+    <a href="#mobile">MOBILE</a>
+    <a href="#analise">ANÁLISE</a>
+    <a href="#python">PYTHON</a>
+    <a href="#sobre">SOBRE</a>
+    <a href="#contato">CONTATO</a>
+  </nav>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <h2 id="javascript" class="section-title">01. JAVASCRIPT / FRONT-END</h2>
+  <div class="container" id="js-container"></div>
+
+  <!-- ==================== HTML & CSS ==================== -->
+  <h2 id="html" class="section-title">02. HTML & CSS</h2>
+  <div class="container" id="html-container"></div>
+
+  <!-- ==================== BACK-END ==================== -->
+  <h2 id="backend" class="section-title">03. BACK-END (NODE.JS / BANCO)</h2>
+  <div class="container" id="backend-container"></div>
+
+  <!-- ==================== MOBILE ==================== -->
+  <h2 id="mobile" class="section-title">04. MOBILE (REACT NATIVE / FLUTTER)</h2>
+  <div class="container" id="mobile-container"></div>
+
+  <!-- ==================== ANÁLISE DE SISTEMAS (Agora acima do Python, abaixo do Mobile) ==================== -->
+  <h2 id="analise" class="section-title">05. ANÁLISE DE SISTEMAS</h2>
+  <div class="container" id="analise-container"></div>
+
+  <!-- ==================== SEPARADOR VISUAL ==================== -->
+  <div class="separator-area"></div>
+
+  <!-- ==================== PYTHON (ÚNICA MATÉRIA DO OUTRO PROFESSOR - FICA SEPARADA NO FINAL) ==================== -->
+  <div class="python-section">
+    <h2 id="python" class="section-title">⭐ PYTHON 🐍</h2>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 15px; margin-bottom: 20px;">
+      <span class="professor-badge">👨‍🏫 PROFESSOR: VITOR</span>
+      <span class="python-badge">🔥 Estruturas de Dados | POO | Automação</span>
+    </div>
+    <div class="container" id="python-container"></div>
+  </div>
+
+  <!-- ==================== SOBRE & CONTATO ==================== -->
+  <section id="sobre" class="container">
+    <div class="card" style="grid-column: 1 / -1; border-color: var(--dourado);">
+      <h2>🎮 SOBRE MIM</h2>
+      <p>Desenvolvedor full stack em evolução, apaixonado por criar soluções inovadoras com identidade gamer e pixel art. Experiência em JavaScript, Python, Back-End e banco de dados.</p>
+    </div>
+  </section>
+
+  <section id="contato" class="container">
+    <div class="card" style="grid-column: 1 / -1; border-color: var(--dourado);">
+      <h2>📧 CONTATO</h2>
+      <p>Email: andrey.dev@golden.com</p>
+      <p>GitHub: /andrey-gold2026</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Andrey - Level 100 Developer | Todos os direitos reservados</p>
+  </footer>
+
+  <!-- Modal para editar nome da atividade -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h3 style="color:var(--dourado); font-size:12px;">✏️ EDITAR NOME DA ATIVIDADE</h3>
+      <input type="text" id="activityNameInput" placeholder="Digite o novo título...">
+      <div>
+        <button id="saveNameBtn">💾 SALVAR</button>
+        <button id="cancelModalBtn">❌ CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ------------------- DADOS DAS ATIVIDADES (CADA CATEGORIA) -------------------
+    // Categoria 1: JavaScript
+    const jsActivities = [
+      { nome: "Calculadora Interativa", desc: "Projeto JS com operações matemáticas e eventos DOM.", link: "#" },
+      { nome: "To-Do List Dinâmica", desc: "Lista de tarefas com LocalStorage e manipulação de array.", link: "#" },
+      { nome: "Jogo da Velha JS", desc: "Lógica de vitória e IA simples.", link: "#" },
+      { nome: "Consumo de API REST", desc: "Fetch e exibição de dados públicos.", link: "#" },
+      { nome: "Validador de CPF", desc: "Algoritmo de validação e interface responsiva.", link: "#" },
+      { nome: "Relógio Mundial", desc: "Fuso horário com setInterval e Date.", link: "#" },
+      { nome: "Gerador de Senhas", desc: "Nível de segurança e copy to clipboard.", link: "#" },
+      { nome: "Quiz Interativo", desc: "Pontuação e ranking com JS puro.", link: "#" },
+      { nome: "Filtro de Produtos", desc: "Filtro dinâmico com categorias.", link: "#" },
+      { nome: "Slider Personalizado", desc: "Carrossel de imagens com setas.", link: "#" }
+    ];
+
+    // Categoria 2: HTML/CSS
+    const htmlActivities = [
+      { nome: "Landing Page Responsiva", desc: "Layout moderno com Flexbox e Grid.", link: "#" },
+      { nome: "Cardápio Digital", desc: "Animações CSS e hover effects.", link: "#" },
+      { nome: "Formulário Estilizado", desc: "Validação visual com CSS3.", link: "#" },
+      { nome: "Portfólio Criativo", desc: "Temas dark/light mode com variáveis.", link: "#" },
+      { nome: "Galeria 3D", desc: "Perspectiva e transformações CSS.", link: "#" },
+      { nome: "Clone Netflix (UI)", desc: "Grid de filmes e header responsivo.", link: "#" },
+      { nome: "Página de Captura", desc: "Design mobile first e botões.", link: "#" },
+      { nome: "Tabela de Preços", desc: "Cards interativos com sombra.", link: "#" },
+      { nome: "Animação com Keyframes", desc: "Loading spinner e transições.", link: "#" },
+      { nome: "Site Acadêmico", desc: "Semântica HTML5 e acessibilidade.", link: "#" }
+    ];
+
+    // Categoria 3: BACK-END
+    const backendActivities = [
+      { nome: "API RESTful com Express", desc: "CRUD de usuários com Node.js e MongoDB.", link: "#" },
+      { nome: "Autenticação JWT", desc: "Login seguro e middleware de validação.", link: "#" },
+      { nome: "Servidor com MySQL", desc: "Consultas parametrizadas e pool connection.", link: "#" },
+      { nome: "WebSocket Chat", desc: "Comunicação real-time usando Socket.io.", link: "#" },
+      { nome: "Upload de Arquivos", desc: "Multer e gerenciamento de pastas.", link: "#" },
+      { nome: "Testes Unitários (Jest)", desc: "Cobertura de código para API.", link: "#" },
+      { nome: "Docker + Node", desc: "Containerização e docker-compose.", link: "#" },
+      { nome: "GraphQL Primeiro Serviço", desc: "Resolvers e schema design.", link: "#" },
+      { nome: "Microsserviço de Logs", desc: "RabbitMQ e comunicação assíncrona.", link: "#" },
+      { nome: "Deploy na AWS EC2", desc: "Configuração de ambiente Linux.", link: "#" }
+    ];
+
+    // Categoria 4: MOBILE
+    const mobileActivities = [
+      { nome: "App de Notas", desc: "React Native com AsyncStorage.", link: "#" },
+      { nome: "Lista de Compras", desc: "Flutter e gerenciamento de estado.", link: "#" },
+      { nome: "Calculadora IMC", desc: "UI responsiva para Android/iOS.", link: "#" },
+      { nome: "Leitor de QR Code", desc: "Expo + câmera integrada.", link: "#" },
+      { nome: "App de Clima", desc: "API OpenWeatherMap e geolocalização.", link: "#" },
+      { nome: "To-Do com Firebase", desc: "Autenticação e Firestore.", link: "#" },
+      { nome: "Jogo da Memória", desc: "React Native Animations.", link: "#" },
+      { nome: "App de Receitas", desc: "Navegação stack e bottom tabs.", link: "#" },
+      { nome: "Cronômetro Esportivo", desc: "Hooks e efeitos sonoros.", link: "#" },
+      { nome: "Galeria de Fotos", desc: "Permissões e imagem local.", link: "#" }
+    ];
+
+    // Categoria 5: ANÁLISE DE SISTEMAS (Agora posicionada antes do Python)
+    const analiseActivities = [
+      { nome: "Diagrama de Casos de Uso", desc: "Sistema de Biblioteca digital - Modelagem UML.", link: "#" },
+      { nome: "MER e DER (Banco)", desc: "Modelagem relacional para e-commerce completo.", link: "#" },
+      { nome: "Documentação de Requisitos", desc: "Histórias de usuário e metodologia MoSCoW.", link: "#" },
+      { nome: "Fluxograma de Atendimento", desc: "Processos de suporte técnico e tomada de decisão.", link: "#" },
+      { nome: "Prototipagem (Figma)", desc: "Telas de alta fidelidade para aplicativo mobile.", link: "#" },
+      { nome: "Matriz de Riscos", desc: "Análise SWOT e plano de contingência do projeto.", link: "#" },
+      { nome: "Arquitetura MVC", desc: "Diagrama de componentes e fluxo de camadas.", link: "#" },
+      { nome: "Projeto de API", desc: "Swagger e documentação de endpoints REST.", link: "#" },
+      { nome: "Estimativa de Pontos", desc: "Planejamento ágil (Scrum) e velocity do time.", link: "#" },
+      { nome: "Modelagem de Processos BPMN", desc: "Fluxo de aprovações e notificações.", link: "#" }
+    ];
+
+    // Categoria PYTHON (Separada - Única do Professor Vitor, fica por último)
+    const pythonActivities = [
+      { nome: "Análise de Dados com Pandas", desc: "Limpeza, manipulação e gráficos com matplotlib.", link: "#" },
+      { nome: "Automação de Planilhas", desc: "Openpyxl e envio de e-mails automáticos.", link: "#" },
+      { nome: "Web Scraping (BeautifulSoup)", desc: "Extração de dados da web para análise.", link: "#" },
+      { nome: "API com FastAPI", desc: "Endpoints assíncronos e documentação interativa.", link: "#" },
+      { nome: "Jogo da Cobrinha (Pygame)", desc: "Lógica de jogos, eventos e colisões.", link: "#" },
+      { nome: "Sistema de Cadastro (Django)", desc: "Models, views e templates completos.", link: "#" },
+      { nome: "Reconhecimento Facial", desc: "OpenCV e classificação básica de imagens.", link: "#" },
+      { nome: "ChatBot simples (NLTK)", desc: "Processamento de linguagem natural.", link: "#" },
+      { nome: "Algoritmos de Ordenação", desc: "Visualização com matplotlib e animações.", link: "#" },
+      { nome: "Dashboards Interativos", desc: "Plotly Dash e storytelling com dados.", link: "#" }
+    ];
+
+    // Função para renderizar cards dinamicamente com botão de edição
+    function renderCards(containerId, activitiesArray, additionalClass = "") {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = "";
+      activitiesArray.forEach((activity, idx) => {
+        const card = document.createElement("div");
+        card.className = `card ${additionalClass}`;
+        card.setAttribute("data-index", idx);
+        card.setAttribute("data-category", containerId);
+        
+        const uniqueId = `${containerId}_${idx}`;
+        card.innerHTML = `
+          <h2 id="title-${uniqueId}">${escapeHtml(activity.nome)}</h2>
+          <p>${escapeHtml(activity.desc)}</p>
+          <div class="card-actions">
+            <a href="${activity.link}" target="_blank">🔗 ACESSAR PROJETO</a>
+            <button class="edit-name-btn" data-id="${uniqueId}" data-current-name="${escapeHtml(activity.nome)}">✏️ EDITAR NOME</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      // Adicionar eventos aos botões de edição depois de renderizar
+      document.querySelectorAll('.edit-name-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetId = btn.getAttribute('data-id');
+          const currentName = btn.getAttribute('data-current-name');
+          openEditModal(targetId, currentName, containerId);
+        });
+      });
+    }
+
+    // Função auxiliar para escapar HTML
+    function escapeHtml(str) {
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+        return c;
+      });
+    }
+
+    // Variáveis globais para o modal
+    let currentEditingId = null;
+    let currentEditingCategory = null;
+
+    function openEditModal(elementId, currentName, categoryId) {
+      currentEditingId = elementId;
+      currentEditingCategory = categoryId;
+      const modal = document.getElementById('editModal');
+      const input = document.getElementById('activityNameInput');
+      input.value = currentName.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+      modal.style.display = 'flex';
+    }
+
+    function saveEditedName() {
+      if (!currentEditingId || !currentEditingCategory) return;
+      const newName = document.getElementById('activityNameInput').value.trim();
+      if (newName === "") {
+        alert("Digite um nome válido para a atividade!");
+        return;
+      }
+      
+      // Atualiza o título no DOM
+      const titleElement = document.getElementById(`title-${currentEditingId}`);
+      if (titleElement) {
+        titleElement.innerText = newName;
+      }
+      
+      // Atualiza também o array correspondente para persistência
+      const parts = currentEditingId.split('_');
+      const containerId = parts.slice(0, -1).join('_');
+      const idx = parseInt(parts[parts.length - 1]);
+      
+      let targetArray = null;
+      switch(containerId) {
+        case 'js-container': targetArray = jsActivities; break;
+        case 'html-container': targetArray = htmlActivities; break;
+        case 'backend-container': targetArray = backendActivities; break;
+        case 'mobile-container': targetArray = mobileActivities; break;
+        case 'analise-container': targetArray = analiseActivities; break;
+        case 'python-container': targetArray = pythonActivities; break;
+        default: break;
+      }
+      
+      if (targetArray && targetArray[idx]) {
+        targetArray[idx].nome = newName;
+        // Atualizar o atributo data-current-name do botão correspondente
+        const btn = document.querySelector(`.edit-name-btn[data-id="${currentEditingId}"]`);
+        if(btn) btn.setAttribute('data-current-name', newName);
+      }
+      
+      closeModal();
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('editModal');
+      modal.style.display = 'none';
+      currentEditingId = null;
+      currentEditingCategory = null;
+    }
+
+    // Inicializar todas as seções na ordem correta:
+    // 1. JS, 2. HTML, 3. Back-End, 4. Mobile, 5. ANÁLISE, 6. PYTHON (separado)
+    renderCards('js-container', jsActivities, 'js-card');
+    renderCards('html-container', htmlActivities, 'html-card');
+    renderCards('backend-container', backendActivities, 'backend-card');
+    renderCards('mobile-container', mobileActivities, 'mobile-card');
+    renderCards('analise-container', analiseActivities, 'analise-card');
+    renderCards('python-container', pythonActivities, 'python-card');
+
+    // Configurar eventos do modal
+    document.getElementById('saveNameBtn').addEventListener('click', saveEditedName);
+    document.getElementById('cancelModalBtn').addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('editModal');
+      if (e.target === modal) closeModal();
+    });
+
+    // Som ao clicar nos links (efeito retrô)
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (link.getAttribute('href') === '#') e.preventDefault();
+        const audio = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+        audio.volume = 0.3;
+        audio.play().catch(e => console.log("Áudio não carregado"));
+      });
+    });
+
+    console.log("🏆 Portfólio Gold Edition 2026 - Ordem: JS, HTML, Back-End, Mobile, ANÁLISE, PYTHON (Professor Vitor - matéria separada)");
+  </script>
+</body>
+</html>
