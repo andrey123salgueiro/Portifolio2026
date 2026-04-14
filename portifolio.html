@@ -453,8 +453,8 @@
 
     // Categoria PYTHON (Separada - Única do Professor Vitor, fica por último)
     const pythonActivities = [
-      { nome: "Atividade 1", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/andrey.py" },
-      { nome: "Trabalho vitim", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/grafico%20trabalho%20vitim.png" },
+      { nome: "Trabalho do vitim", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/andrey.py" },
+      { nome: "Grafico de Barras", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/grafico%20trabalho%20vitim.png" },
       { nome: "Automação", desc: "Usando a keyboard", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/redacao.py" },
       { nome: "", desc: "", link: "#" },
       { nome: "", desc: "", link: "#" },
@@ -524,12 +524,7 @@
       modal.style.display = 'flex';
     }
 
-    function saveEditedName() {
-      if (!currentEditingId || !currentEditingCategory) return;
-      const newName = document.getElementById('activityNameInput').value.trim();
-      if (newName === "") {
-        alert("Digite um nome válido para a atividade!");
-        return;
+    
       }
       
       // Atualiza o título no DOM
