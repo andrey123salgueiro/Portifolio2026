@@ -524,7 +524,12 @@
       modal.style.display = 'flex';
     }
 
-    
+    function saveEditedName() {
+      if (!currentEditingId || !currentEditingCategory) return;
+      const newName = document.getElementById('activityNameInput').value.trim();
+      if (newName === "") {
+        alert("Digite um nome válido para a atividade!");
+        return;
       }
       
       // Atualiza o título no DOM
