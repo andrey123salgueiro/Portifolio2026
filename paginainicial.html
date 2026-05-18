@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Andrey | Início - Portfólio Gamer</title>
+    <!-- Google Fonts: 'Press Start 2P' para toque pixel, 'Inter' para legibilidade -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 30%, #0a0c12, #030507);
+            color: #eef2ff;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Efeito de grid de fundo estilo matrix / gamer */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 85vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* layout grid */
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            min-width: 260px;
+        }
+
+        .hero-card {
+            flex: 0.9;
+            min-width: 280px;
+            background: rgba(10, 14, 23, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2), 0 20px 35px -12px black;
+            padding: 2rem 1.8rem;
+            border: 1px solid rgba(255, 200, 0, 0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5), 0 25px 30px -12px #000;
+        }
+
+        /* badge estilo pixel */
+        .badge {
+            display: inline-block;
+            background: #1e1a2f;
+            color: #f5c542;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #f5c542;
+            box-shadow: 0 2px 0 #000;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+            background: linear-gradient(125deg, #fff, #f5c542, #ffaa33);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+        }
+
+        .highlight {
+            color: #ffd966;
+            background: none;
+            text-shadow: 0 0 5px #ffaa33;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #b9c7d9;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            border-left: 4px solid #f5c542;
+            padding-left: 1rem;
+            font-family: monospace;
+        }
+
+        .bio {
+            font-size: 1rem;
+            color: #cdd9f4;
+            margin-bottom: 2rem;
+            line-height: 1.65;
+            font-weight: 400;
+            max-width: 95%;
+        }
+
+        .bio strong {
+            color: #ffd966;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 200, 0, 0.3);
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: #f5c542;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .contact-item i {
+            width: 28px;
+            font-size: 1.3rem;
+            color: #ffcd4a;
+            text-align: center;
+        }
+
+        .contact-item a, .contact-item span {
+            text-decoration: none;
+            color: #f0f3fa;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #ffcd4a;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        .social-links a {
+            background: #11141f;
+            border: 1px solid #f5c54260;
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: #ffcd4a;
+            font-size: 1.4rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #f5c542;
+            color: #0a0c12;
+            transform: scale(1.1);
+            border-color: white;
+            box-shadow: 0 0 12px #ffcd4a;
+        }
+
+        .btn-portfolio {
+            background: linear-gradient(95deg, #1e2a3a, #0f1722);
+            color: #ffdd99;
+            border: 1px solid #ffcd4a;
+            padding: 0.9rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            width: 100%;
+            justify-content: center;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-portfolio i {
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-portfolio:hover {
+            background: #f5c542;
+            color: #0a0c12;
+            border-color: white;
+            box-shadow: 0 0 18px #f5c542;
+            transform: translateY(-3px);
+        }
+
+        .btn-portfolio:hover i {
+            transform: translateX(6px);
+            color: #0a0c12;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.7rem;
+            color: #8f9bb3;
+            border-top: 1px solid rgba(245, 197, 66, 0.3);
+            padding-top: 2rem;
+            font-family: monospace;
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .hero-grid {
+                gap: 2rem;
+            }
+            .bio {
+                max-width: 100%;
+            }
+            .btn-portfolio {
+                font-size: 0.65rem;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .contact-item {
+                flex-wrap: wrap;
+                gap: 0.4rem;
+            }
+        }
+
+        /* animação sutil */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content, .hero-card {
+            animation: fadeUp 0.5s ease forwards;
+        }
+        .hero-card {
+            animation-delay: 0.1s;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero-grid">
+        <!-- Lado esquerdo: apresentação ANDREY com temática full stack / gamer -->
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fas fa-gamepad"></i> &nbsp; FULL STACK | GAME DEV | PYTHON
+            </div>
+            <h1>
+                Olá, eu sou <span class="highlight">Andrey</span>
+            </h1>
+            <div class="tagline">
+                >_ Transformando linhas de código em experiências épicas_
+            </div>
+            <div class="bio">
+                🎮 Estudante do <strong>Colégio Unidade Polo - Arapongas/PR</strong>, 3º ano em <strong>Desenvolvimento de Sistemas</strong>.<br>
+                💻 Desenvolvedor full stack em evolução, apaixonado por criar soluções inovadoras com identidade gamer e pixel art. Experiência em JavaScript, Python, Back-End e banco de dados.<br><br>
+                🚀 Aqui no meu universo você encontra projetos de front-end, automação com Python, análise de sistemas, jogos e muito mais. <br>
+                🌟 Vamos construir algo memorável? <i class="fas fa-crown" style="color:#f5c542"></i>
+            </div>
+        </div>
+
+        <!-- Coluna direita: cartão com contatos e @, estilo neon/gamer -->
+        <div class="hero-card">
+            <div style="margin-bottom: 1.2rem;">
+                <i class="fas fa-address-card" style="font-size: 1.8rem; color:#ffcd4a;"></i>
+                <h3 style="display: inline-block; margin-left: 12px; font-weight: 700; font-family: 'Press Start 2P', monospace; font-size: 0.8rem;">[ CONTATOS ]</h3>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <span><strong>@</strong> <a href="https://instagram.com/andrey.dev" target="_blank" rel="noopener noreferrer">@andrey.dev</a></span>
+                </div>
+                <div class="contact-item">
+                    <i class="far fa-envelope"></i>
+                    <a href="mailto:andrey.dev@golden.com">andrey.dev@golden.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/andrey-gold2026" target="_blank">/andrey-gold2026</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/andrey-fullstack" target="_blank">/in/andrey-fullstack</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/5543999999999" target="_blank">(43) 9 9602-5004</a>
+                </div>
+            </div>
+            
+            <!-- redes estilo pixel -->
+            <div class="social-links">
+                <a href="https://github.com/andrey-gold2026" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.twitch.tv/andreydev" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+                <a href="https://twitter.com/andrey_codes" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://discord.gg/andreyzone" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+            
+            <!-- Botão para o portfólio (link real que você já utiliza) -->
+            <a href="#" id="goToPortfolioBtn" class="btn-portfolio">
+                <i class="fas fa-terminal"></i> ACESSAR PORTFÓLIO 2026 <i class="fas fa-arrow-right"></i>
+            </a>
+            <p style="font-size: 0.65rem; text-align: center; margin-top: 1rem; opacity: 0.8; font-family: monospace;">
+                ⚡ projetos | jogos | python | full stack ⚡
+            </p>
+        </div>
+    </div>
+    <div class="footer-note">
+        <i class="fas fa-copyright"></i> 2026 — Andrey • Estudante de Desenvolvimento de Sistemas • Colégio Unidade Polo - Arapongas/PR 
+        | <i class="fas fa-code"></i> Tema Gamer / Pixel
+    </div>
+</div>
+
+<script>
+    (function() {
+        // LINK DO SEU PORTFÓLIO REAL (igual ao que você compartilhou)
+        const PORTFOLIO_URL = "https://andrey123salgueiro.github.io/Portifolio2026/portifolio.html";
+        
+        const btn = document.getElementById('goToPortfolioBtn');
+        if (btn) {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = PORTFOLIO_URL;
+            });
+        }
+        
+        // Garantir que links de contato abram em nova aba
+        const externalLinks = document.querySelectorAll('.contact-item a, .social-links a');
+        externalLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && (href.startsWith('http') || href.startsWith('https')) && !href.includes(window.location.hostname)) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    })();
+</script>
+</body>
+</html>
