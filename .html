@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha seus Produtos - Cálculo de Venda</title>
+    <!-- Sem CSS: apenas HTML e JavaScript puro, estilos padrão do navegador -->
+</head>
+<body>
+    <!-- 
+        Página completamente funcional SEM CSS:
+        - Você (usuário) escolhe os 2 produtos (nomes e preços) através de inputs
+        - Sistema exibe automaticamente:
+            * Total da compra (soma dos preços dos 2 produtos)
+            * Desconto de 10% sobre o total
+            * Total com desconto aplicado
+            * Opção de parcelamento de 1 até 10 vezes (sem juros) mostrando o valor de cada parcela
+        - Nenhum estilo CSS, apenas HTML puro e lógica JavaScript
+    -->
+    
+    <h1>🛒 Escolha os Produtos e Valores</h1>
+    <hr>
+
+    <!-- Produto 1: Nome e Preço personalizáveis -->
+    <fieldset>
+        <legend><strong>Produto 1</strong></legend>
+        <label for="produto1Nome">Nome do Produto 1:</label>
+        <input type="text" id="produto1Nome" value="Smartphone" style="width: 200px;">
+        <br><br>
+        <label for="produto1Preco">Preço (R$):</label>
+        <input type="number" id="produto1Preco" step="0.01" value="1299.99">
+        <span> R$</span>
+    </fieldset>
+    <br>
+
+    <!-- Produto 2: Nome e Preço personalizáveis -->
+    <fieldset>
+        <legend><strong>Produto 2</strong></legend>
+        <label for="produto2Nome">Nome do Produto 2:</label>
+        <input type="text" id="produto2Nome" value="Fone de Ouvido" style="width: 200px;">
+        <br><br>
+        <label for="produto2Preco">Preço (R$):</label>
+        <input type="number" id="produto2Preco" step="0.01" value="299.90">
+        <span> R$</span>
+    </fieldset>
+    <br>
+    <hr>
+
+    <!-- Botão para forçar recalculo (embora tudo atualize automaticamente, mantemos para garantir) -->
+    <button id="atualizarBtn">🔄 Recalcular Tudo</button>
+    <br><br>
+    <hr>
+
+    <!-- Exibição dos Produtos escolhidos (dinâmico) -->
+    <h2>📋 Resumo da Compra</h2>
+    <div>
+        <strong>Produto 1:</strong> <span id="exibeProduto1Nome">Smartphone</span> - 
+        <strong>Preço:</strong> R$ <span id="exibeProduto1Preco">1299.99</span>
+    </div>
+    <div>
+        <strong>Produto 2:</strong> <span id="exibeProduto2Nome">Fone de Ouvido</span> - 
+        <strong>Preço:</strong> R$ <span id="exibeProduto2Preco">299.90</span>
+    </div>
+    <br>
+
+    <!-- Totais e Descontos -->
+    <div>
+        <strong>💰 Total bruto (soma dos dois produtos):</strong>
+        R$ <span id="totalBruto">0.00</span>
+    </div>
+    <br>
+    <div>
+        <strong>🎉 Desconto de 10% aplicado:</strong>
+        - R$ <span id="valorDesconto">0.00</span>
+    </div>
+    <br>
+    <div>
+        <strong>🏷️ Total com desconto (10% OFF):</strong>
+        R$ <span id="totalComDesconto">0.00</span>
+    </div>
+    <br>
+    <hr>
+
+    <!-- Parcelamento: escolha de 1 até 10 vezes -->
+    <h3>💳 Parcelamento (sem juros)</h3>
+    <div>
+        <label for="parcelas">Número de parcelas:</label>
+        <select id="parcelas">
+            <option value="1">1x (sem juros)</option>
+            <option value="2">2x (sem juros)</option>
+            <option value="3">3x (sem juros)</option>
+            <option value="4">4x (sem juros)</option>
+            <option value="5">5x (sem juros)</option>
+            <option value="6">6x (sem juros)</option>
+            <option value="7">7x (sem juros)</option>
+            <option value="8">8x (sem juros)</option>
+            <option value="9">9x (sem juros)</option>
+            <option value="10" selected>10x (sem juros)</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <strong>📆 Valor de cada parcela:</strong>
+        R$ <span id="valorParcela">0.00</span>
+    </div>
+    <div>
+        <em>(Total parcelado: R$ <span id="totalParceladoSpan">0.00</span> - mesmo valor do total com desconto)</em>
+    </div>
+    <br>
+    <hr>
+
+    <script>
+        // Função principal que obtém todos os dados dinâmicos e atualiza a tela:
+        // - Busca os nomes e preços dos produtos
+        // - Calcula total bruto, desconto (10%) e total com desconto
+        // - Calcula o valor da parcela baseado no total com desconto e no número de parcelas selecionado
+        function calcularTudo() {
+            // 1. Capturar valores dos inputs
+            const nomeProduto1 = document.getElementById('produto1Nome').value.trim();
+            const nomeProduto2 = document.getElementById('produto2Nome').value.trim();
+            
+            let precoProduto1 = parseFloat(document.getElementById('produto1Preco').value);
+            let precoProduto2 = parseFloat(document.getElementById('produto2Preco').value);
+            
+            // Validação: se não for número válido ou estiver vazio, assume 0.00
+            if (isNaN(precoProduto1)) precoProduto1 = 0.0;
+            if (isNaN(precoProduto2)) precoProduto2 = 0.0;
+            
+            // Atualizar a exibição dos nomes (caso o usuário mude o nome)
+            document.getElementById('exibeProduto1Nome').innerText = nomeProduto1 || "Produto 1";
+            document.getElementById('exibeProduto2Nome').innerText = nomeProduto2 || "Produto 2";
+            
+            // Atualizar exibição dos preços unitários no resumo
+            document.getElementById('exibeProduto1Preco').innerText = precoProduto1.toFixed(2);
+            document.getElementById('exibeProduto2Preco').innerText = precoProduto2.toFixed(2);
+            
+            // 2. Cálculo do total bruto (soma)
+            const totalBruto = precoProduto1 + precoProduto2;
+            
+            // 3. Desconto de 10%
+            const descontoPercentual = 0.10;
+            const valorDesconto = totalBruto * descontoPercentual;
+            
+            // 4. Total com desconto aplicado
+            const totalComDesconto = totalBruto - valorDesconto;
+            
+            // 5. Atualizar os elementos de total na tela (com duas casas decimais)
+            document.getElementById('totalBruto').innerText = totalBruto.toFixed(2);
+            document.getElementById('valorDesconto').innerText = valorDesconto.toFixed(2);
+            document.getElementById('totalComDesconto').innerText = totalComDesconto.toFixed(2);
+            
+            // Atualizar também o total parcelado no rodapé informativo
+            document.getElementById('totalParceladoSpan').innerText = totalComDesconto.toFixed(2);
+            
+            // 6. Obter o número de parcelas selecionado (1 a 10)
+            const parcelasSelect = document.getElementById('parcelas');
+            let numeroParcelas = parseInt(parcelasSelect.value);
+            
+            // Garantir que seja um número válido entre 1 e 10
+            if (isNaN(numeroParcelas) || numeroParcelas < 1) numeroParcelas = 1;
+            if (numeroParcelas > 10) numeroParcelas = 10;
+            
+            // 7. Calcular valor de cada parcela (sem juros) baseado no total com desconto
+            let valorParcela = totalComDesconto / numeroParcelas;
+            
+            // Exibir o valor da parcela formatado
+            document.getElementById('valorParcela').innerText = valorParcela.toFixed(2);
+        }
+        
+        // Eventos específicos para quando o usuário alterar o número de parcelas,
+        // nomes ou preços. Tudo deve recalcular dinamicamente.
+        
+        // Função auxiliar para sincronizar qualquer alteração nos inputs de texto/número
+        function aoAlterarInput() {
+            calcularTudo();
+        }
+        
+        // Capturar todos os elementos que podem disparar atualizações
+        const inputProduto1Nome = document.getElementById('produto1Nome');
+        const inputProduto1Preco = document.getElementById('produto1Preco');
+        const inputProduto2Nome = document.getElementById('produto2Nome');
+        const inputProduto2Preco = document.getElementById('produto2Preco');
+        const selectParcelas = document.getElementById('parcelas');
+        const botaoAtualizar = document.getElementById('atualizarBtn');
+        
+        // Adicionar listeners para eventos 'input' e 'change' (garantindo responsividade)
+        inputProduto1Nome.addEventListener('input', calcularTudo);
+        inputProduto1Preco.addEventListener('input', calcularTudo);
+        inputProduto2Nome.addEventListener('input', calcularTudo);
+        inputProduto2Preco.addEventListener('input', calcularTudo);
+        selectParcelas.addEventListener('change', calcularTudo);   // mudança no select
+        
+        // Botão manual para recalcular (caso queira forçar, embora já seja automático)
+        botaoAtualizar.addEventListener('click', calcularTudo);
+        
+        // Inicializar tudo ao carregar a página com os valores padrão (Smartphone R$1299.99, Fone R$299.90)
+        window.addEventListener('DOMContentLoaded', function() {
+            calcularTudo();
+        });
+        
+        // Observação: como a descrição pede "mude esse codigo eu quero que vc escolhe os 2 produto 
+        // que vai ter escolha os precos e me fale o total dos 2 e depois o total com o desconto 
+        // e as opções do parcelamento", agora o usuário pode ESCOLHER tanto os nomes quanto os preços.
+        // Os produtos são completamente personalizáveis. O sistema fala o total bruto, total com desconto
+        // e parcelamento de forma clara.
+    </script>
+</body>
+</html>
