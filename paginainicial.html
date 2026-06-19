@@ -1,401 +1,657 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Andrey | Início - Portfólio Gamer</title>
-    <!-- Google Fonts: 'Press Start 2P' para toque pixel, 'Inter' para legibilidade -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrey Salgueiro | Página Inicial Acadêmica</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter & Fira Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        dark: {
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                            600: '#374151',
+                        }
+                    }
+                }
+            }
         }
-
+    </script>
+    <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 20% 30%, #0a0c12, #030507);
-            color: #eef2ff;
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            background-color: #0b0f19;
+            color: #f3f4f6;
         }
-
-        /* Efeito de grid de fundo estilo matrix / gamer */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-            z-index: 0;
+        /* Custom glow effects for tech aesthetic */
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
         }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 2rem 1.8rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 85vh;
-            position: relative;
-            z-index: 2;
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.35);
         }
-
-        /* layout grid */
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            align-items: center;
-            justify-content: space-between;
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-
-        .hero-content {
-            flex: 1.2;
-            min-width: 260px;
-        }
-
-        .hero-card {
-            flex: 0.9;
-            min-width: 280px;
-            background: rgba(10, 14, 23, 0.75);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2), 0 20px 35px -12px black;
-            padding: 2rem 1.8rem;
-            border: 1px solid rgba(255, 200, 0, 0.5);
-            transition: transform 0.2s ease, box-shadow 0.2s;
-        }
-
-        .hero-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.5), 0 25px 30px -12px #000;
-        }
-
-        /* badge estilo pixel */
-        .badge {
-            display: inline-block;
-            background: #1e1a2f;
-            color: #f5c542;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.6rem;
-            padding: 0.4rem 1rem;
-            border-radius: 8px;
-            letter-spacing: 1px;
-            margin-bottom: 1.8rem;
-            border-left: 4px solid #f5c542;
-            box-shadow: 0 2px 0 #000;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
-            background: linear-gradient(125deg, #fff, #f5c542, #ffaa33);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.01em;
-        }
-
-        .highlight {
-            color: #ffd966;
-            background: none;
-            text-shadow: 0 0 5px #ffaa33;
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            color: #b9c7d9;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            border-left: 4px solid #f5c542;
-            padding-left: 1rem;
-            font-family: monospace;
-        }
-
-        .bio {
-            font-size: 1rem;
-            color: #cdd9f4;
-            margin-bottom: 2rem;
-            line-height: 1.65;
-            font-weight: 400;
-            max-width: 95%;
-        }
-
-        .bio strong {
-            color: #ffd966;
-            font-weight: 700;
-        }
-
-        .contact-info {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 0.6rem 1rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 200, 0, 0.3);
-            transition: all 0.2s;
-        }
-
-        .contact-item:hover {
-            border-color: #f5c542;
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        .contact-item i {
-            width: 28px;
-            font-size: 1.3rem;
-            color: #ffcd4a;
-            text-align: center;
-        }
-
-        .contact-item a, .contact-item span {
-            text-decoration: none;
-            color: #f0f3fa;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .contact-item a:hover {
-            color: #ffcd4a;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.2rem;
-            margin: 1.5rem 0 2rem 0;
-        }
-
-        .social-links a {
-            background: #11141f;
-            border: 1px solid #f5c54260;
-            width: 44px;
-            height: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            color: #ffcd4a;
-            font-size: 1.4rem;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            background: #f5c542;
-            color: #0a0c12;
-            transform: scale(1.1);
-            border-color: white;
-            box-shadow: 0 0 12px #ffcd4a;
-        }
-
-        .btn-portfolio {
-            background: linear-gradient(95deg, #1e2a3a, #0f1722);
-            color: #ffdd99;
-            border: 1px solid #ffcd4a;
-            padding: 0.9rem 1.8rem;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 16px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            width: 100%;
-            justify-content: center;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-        }
-
-        .btn-portfolio i {
-            font-size: 1rem;
-            transition: transform 0.2s;
-        }
-
-        .btn-portfolio:hover {
-            background: #f5c542;
-            color: #0a0c12;
-            border-color: white;
-            box-shadow: 0 0 18px #f5c542;
-            transform: translateY(-3px);
-        }
-
-        .btn-portfolio:hover i {
-            transform: translateX(6px);
-            color: #0a0c12;
-        }
-
-        .footer-note {
-            text-align: center;
-            margin-top: 3rem;
-            font-size: 0.7rem;
-            color: #8f9bb3;
-            border-top: 1px solid rgba(245, 197, 66, 0.3);
-            padding-top: 2rem;
-            font-family: monospace;
-        }
-
-        @media (max-width: 800px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            .hero-grid {
-                gap: 2rem;
-            }
-            .bio {
-                max-width: 100%;
-            }
-            .btn-portfolio {
-                font-size: 0.65rem;
-                padding: 0.8rem;
-            }
-        }
-
-        @media (max-width: 550px) {
-            .contact-item {
-                flex-wrap: wrap;
-                gap: 0.4rem;
-            }
-        }
-
-        /* animação sutil */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hero-content, .hero-card {
-            animation: fadeUp 0.5s ease forwards;
-        }
-        .hero-card {
-            animation-delay: 0.1s;
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body>
-<div class="container">
-    <div class="hero-grid">
-        <!-- Lado esquerdo: apresentação ANDREY com temática full stack / gamer -->
-        <div class="hero-content">
-            <div class="badge">
-                <i class="fas fa-gamepad"></i> &nbsp; FULL STACK | GAME DEV | PYTHON
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative selection:bg-brand-500 selection:text-white">
+
+    <!-- Background Blur Decorative Elements -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-dark-900/80 border-b border-dark-700/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo / Brand -->
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-500/20">
+                    <span class="font-mono">AS</span>
+                </div>
+                <div>
+                    <span class="text-sm font-semibold text-brand-500 block uppercase tracking-wider font-mono">Estudante Dev</span>
+                    <span class="text-lg font-bold text-white tracking-tight">Andrey Salgueiro</span>
+                </div>
             </div>
-            <h1>
-                Olá, eu sou <span class="highlight">Andrey</span>
-            </h1>
-            <div class="tagline">
-                >_ Transformando linhas de código em experiências épicas_
-            </div>
-            <div class="bio">
-                🎮 Estudante do <strong>Colégio Unidade Polo - Arapongas/PR</strong>, 3º ano em <strong>Desenvolvimento de Sistemas</strong>.<br>
-                💻 Desenvolvedor full stack em evolução, apaixonado por criar soluções inovadoras com identidade gamer e pixel art. Experiência basica em JavaScript, Python, Back-End e banco de dados.<br><br>
-                🚀 Aqui no meu universo você encontra projetos de front-end, automação com Python, análise de sistemas, jogos e muito mais. <br>
-                🌟 Vamos construir algo memorável? <i class="fas fa-crown" style="color:#f5c542"></i>
+
+            <!-- Quick Access Badges & config triggers -->
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleConfigPanel()" class="p-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-700 text-gray-400 hover:text-white transition-all flex items-center space-x-1 text-xs sm:text-sm" title="Configurar Links e Fotos">
+                    <i class="fa-solid fa-gear animate-spin-slow"></i>
+                    <span class="hidden sm:inline">Configurar</span>
+                </button>
+                <a href="#portfolio-section" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-500/20 flex items-center space-x-2">
+                    <span>Ir para Portfólio</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
             </div>
         </div>
+    </header>
 
-        <!-- Coluna direita: cartão com contatos e @, estilo neon/gamer -->
-        <div class="hero-card">
-            <div style="margin-bottom: 1.2rem;">
-                <i class="fas fa-address-card" style="font-size: 1.8rem; color:#ffcd4a;"></i>
-                <h3 style="display: inline-block; margin-left: 12px; font-weight: 700; font-family: 'Press Start 2P', monospace; font-size: 0.8rem;">[ CONTATOS ]</h3>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <span><strong>@</strong> <a href="https://instagram.com/salgueiro_andrey" target="_blank" rel="noopener noreferrer">@salgueiro_andrey</a></span>
-                </div>
-                <div class="contact-item">
-                    <i class="far fa-envelope"></i>
-                    <a href="mailto:salgueiro.andrey@escola.pr.gov.br">salgueiro.andrey@escola.pr.gov.br</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/andrey123salgueiro target="_blank">andrey123salgueiro</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/feed/" target="_blank">/andrey salgueiro</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <a href="https://wa.me/5543999999999" target="_blank">(43) 9 9602-5004</a>
+    <!-- Hero Banner with Main Info -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 flex flex-col gap-16">
+        
+        <!-- Teacher Welcoming Message Banner -->
+        <div class="bg-gradient-to-r from-brand-900/40 via-dark-800 to-dark-800 border border-brand-500/20 rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="space-y-3 z-10 max-w-2xl text-center md:text-left">
+                <span class="px-3 py-1 bg-brand-500/15 text-brand-500 rounded-full text-xs font-semibold tracking-wider uppercase font-mono border border-brand-500/30">
+                    <i class="fa-solid fa-graduation-cap mr-1"></i> Espaço do Professor
+                </span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Olá, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-indigo-400">Professor!</span> Bem-vindo.
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    Esta é a minha página inicial acadêmica. Aqui apresento meu perfil de estudos, meu colégio e o que desenvolvo no curso de Sistemas. Clique no botão abaixo para explorar meu portfólio completo de projetos práticos.
+                </p>
+                <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
+                    <a href="#portfolio-section" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-base transition-all transform hover:-translate-y-1 hover:scale-105 shadow-xl shadow-brand-500/20 flex items-center space-x-2">
+                        <span>Acessar Meu Portfólio</span>
+                        <i class="fa-solid fa-arrow-pointer animate-bounce"></i>
+                    </a>
                 </div>
             </div>
             
-            <!-- redes estilo pixel -->
-            <div class="social-links">
-                <a href="https://github.com/andrey-gold2026" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-               
-               
+            <!-- Quick Profile Overview Card -->
+            <div class="w-full md:w-80 bg-dark-800/80 backdrop-blur-sm border border-dark-700/80 rounded-2xl p-6 shadow-xl relative glow-blue shrink-0">
+                <div class="absolute -top-3 -right-3 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-lg text-emerald-400 text-[10px] font-mono uppercase tracking-wider">
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-1"></span> Ativo
+                </div>
+                <div class="flex flex-col items-center text-center space-y-4">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-brand-600 to-purple-600 flex items-center justify-center text-white text-3xl font-extrabold shadow-lg shadow-indigo-500/10 border border-indigo-400/20">
+                        AS
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-white">Andrey Salgueiro</h2>
+                        <p class="text-sm text-brand-500 font-mono mt-1">Sistemas & Ensino Médio</p>
+                    </div>
+                    
+                    <hr class="w-full border-dark-700" />
+                    
+                    <div class="w-full space-y-2 text-left text-xs">
+                        <div class="flex items-center space-x-2 text-gray-300">
+                            <i class="fa-solid fa-school text-brand-500 w-5 text-center"></i>
+                            <span>C. E. Unidade Polo</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-300">
+                            <i class="fa-solid fa-location-dot text-brand-500 w-5 text-center"></i>
+                            <span>Arapongas, PR</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-300">
+                            <i class="fa-solid fa-calendar text-brand-500 w-5 text-center"></i>
+                            <span>3º Ano do Ensino Médio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Identity / Academics Showcase Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Detailed Academic Information Card (Left side) -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-dark-800 border border-dark-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <i class="fa-solid fa-address-card text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Minha Identidade Acadêmica</h3>
+                            <p class="text-xs text-gray-400 font-mono">Informações Oficiais de Matrícula</p>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-dark-700" />
+                    
+                    <div class="space-y-4">
+                        <!-- Info item: Name -->
+                        <div class="p-4 rounded-2xl bg-dark-900 border border-dark-700/50 flex items-start gap-4">
+                            <div class="p-2 bg-brand-500/10 text-brand-500 rounded-lg shrink-0 mt-0.5">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 block uppercase font-mono">Estudante</span>
+                                <span class="text-base font-bold text-white block">Andrey Salgueiro</span>
+                            </div>
+                        </div>
+
+                        <!-- Info item: School -->
+                        <div class="p-4 rounded-2xl bg-dark-900 border border-dark-700/50 flex items-start gap-4">
+                            <div class="p-2 bg-pink-500/10 text-pink-500 rounded-lg shrink-0 mt-0.5">
+                                <i class="fa-solid fa-school-flag"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 block uppercase font-mono">Instituição de Ensino</span>
+                                <span class="text-base font-bold text-white block">Colégio Estadual Unidade Polo</span>
+                                <span class="text-xs text-gray-400 block mt-0.5">Arapongas - Paraná</span>
+                            </div>
+                        </div>
+
+                        <!-- Info item: Grade -->
+                        <div class="p-4 rounded-2xl bg-dark-900 border border-dark-700/50 flex items-start gap-4">
+                            <div class="p-2 bg-amber-500/10 text-amber-500 rounded-lg shrink-0 mt-0.5">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 block uppercase font-mono">Série / Período</span>
+                                <span class="text-base font-bold text-white block">3º Ano do Ensino Médio</span>
+                                <span class="text-xs text-gray-400 block mt-0.5">Conclusão do ciclo de Educação Básica</span>
+                            </div>
+                        </div>
+
+                        <!-- Info item: Course -->
+                        <div class="p-4 rounded-2xl bg-dark-900 border border-dark-700/50 flex items-start gap-4">
+                            <div class="p-2 bg-cyan-500/10 text-cyan-500 rounded-lg shrink-0 mt-0.5">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 block uppercase font-mono">Curso Técnico Integrado</span>
+                                <span class="text-base font-bold text-white block text-cyan-400">Desenvolvimento de Sistemas</span>
+                                <span class="text-xs text-gray-400 block mt-0.5">Foco em Lógica, Programação Web e Banco de Dados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Skills Sub-card -->
+                <div class="bg-dark-800 border border-dark-700 rounded-3xl p-6 shadow-xl">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono mb-4 text-gray-300">Minha Stack de Aprendizado</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-dark-700 text-xs text-gray-300 hover:text-white hover:border-brand-500 transition-all cursor-default flex items-center gap-1.5">
+                            <i class="fa-brands fa-html5 text-orange-500"></i> HTML5
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-dark-700 text-xs text-gray-300 hover:text-white hover:border-brand-500 transition-all cursor-default flex items-center gap-1.5">
+                            <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS3
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-dark-700 text-xs text-gray-300 hover:text-white hover:border-brand-500 transition-all cursor-default flex items-center gap-1.5">
+                            <i class="fa-brands fa-js text-yellow-500"></i> JavaScript
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-dark-700 text-xs text-gray-300 hover:text-white hover:border-brand-500 transition-all cursor-default flex items-center gap-1.5">
+                            <i class="fa-brands fa-python text-sky-400"></i> Python
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-dark-700 text-xs text-gray-300 hover:text-white hover:border-brand-500 transition-all cursor-default flex items-center gap-1.5">
+                            <i class="fa-solid fa-database text-purple-400"></i> SQL Server
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-dark-900 border border-dark-700 text-xs text-gray-300 hover:text-white hover:border-brand-500 transition-all cursor-default flex items-center gap-1.5">
+                            <i class="fa-solid fa-laptop-code text-emerald-400"></i> Algoritmos
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery & Activity Showcase (Right side) -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="bg-dark-800 border border-dark-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-400">
+                                <i class="fa-solid fa-images text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">O que eu faço no Colégio</h3>
+                                <p class="text-xs text-gray-400 font-mono">Vivência acadêmica & projetos práticos</p>
+                            </div>
+                        </div>
+                        <span class="self-start sm:self-center px-3 py-1 bg-dark-900 text-brand-400 border border-dark-700 rounded-full text-xs font-semibold">
+                            4 Fotos Do Colégio
+                        </span>
+                    </div>
+
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Abaixo estão registradas imagens reais (ou ilustrações) das nossas salas de informática, laboratórios e projetos integrados que desenvolvo rotineiramente no <strong>Colégio Estadual Unidade Polo</strong> em Arapongas. Clique em qualquer foto para ampliá-la.
+                    </p>
+
+                    <!-- Photo Cards Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Photo Card 1 -->
+                        <div class="group bg-dark-900 border border-dark-700/60 rounded-2xl overflow-hidden cursor-pointer hover:border-brand-500 transition-all duration-300 transform hover:-translate-y-1" onclick="openGalleryModal(1)">
+                            <div class="relative h-44 overflow-hidden bg-dark-800 flex items-center justify-center">
+                                <img id="gal-img-1" src="https://placehold.co/600x400/1e293b/a5b4fc?text=Laboratório+de+Programação" onerror="this.src='https://placehold.co/600x400/1e293b/a5b4fc?text=Imagem+Colégio+1'" alt="Atividade no Lab" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute top-3 right-3 bg-dark-900/90 border border-dark-700 rounded-lg p-2 text-white text-xs backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i class="fa-solid fa-expand"></i> Ampliar
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-1">
+                                <h4 class="text-sm font-bold text-white tracking-tight" id="gal-title-1">Laboratório de Sistemas</h4>
+                                <p class="text-xs text-gray-400" id="gal-desc-1">Onde programo minhas aplicações práticas de código, banco de dados e testes de software.</p>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 2 -->
+                        <div class="group bg-dark-900 border border-dark-700/60 rounded-2xl overflow-hidden cursor-pointer hover:border-brand-500 transition-all duration-300 transform hover:-translate-y-1" onclick="openGalleryModal(2)">
+                            <div class="relative h-44 overflow-hidden bg-dark-800 flex items-center justify-center">
+                                <img id="gal-img-2" src="https://placehold.co/600x400/1e293b/a5b4fc?text=Projetos+Colaborativos" onerror="this.src='https://placehold.co/600x400/1e293b/a5b4fc?text=Imagem+Colégio+2'" alt="Trabalho de Desenvolvimento" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute top-3 right-3 bg-dark-900/90 border border-dark-700 rounded-lg p-2 text-white text-xs backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i class="fa-solid fa-expand"></i> Ampliar
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-1">
+                                <h4 class="text-sm font-bold text-white tracking-tight" id="gal-title-2">Desenvolvimento em Grupo</h4>
+                                <p class="text-xs text-gray-400" id="gal-desc-2">Momentos em que projetamos diagramas UML, fluxogramas e dividimos tarefas em metodologias ágeis.</p>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 3 -->
+                        <div class="group bg-dark-900 border border-dark-700/60 rounded-2xl overflow-hidden cursor-pointer hover:border-brand-500 transition-all duration-300 transform hover:-translate-y-1" onclick="openGalleryModal(3)">
+                            <div class="relative h-44 overflow-hidden bg-dark-800 flex items-center justify-center">
+                                <img id="gal-img-3" src="https://placehold.co/600x400/1e293b/a5b4fc?text=Estudos+da+Turma" onerror="this.src='https://placehold.co/600x400/1e293b/a5b4fc?text=Imagem+Colégio+3'" alt="Sala de Aula Unidade Polo" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute top-3 right-3 bg-dark-900/90 border border-dark-700 rounded-lg p-2 text-white text-xs backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i class="fa-solid fa-expand"></i> Ampliar
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-1">
+                                <h4 class="text-sm font-bold text-white tracking-tight" id="gal-title-3">Teoria & Planejamento</h4>
+                                <p class="text-xs text-gray-400" id="gal-desc-3">Nossas aulas de teoria da informação, engenharia de software e análise técnica de requisitos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Photo Card 4 -->
+                        <div class="group bg-dark-900 border border-dark-700/60 rounded-2xl overflow-hidden cursor-pointer hover:border-brand-500 transition-all duration-300 transform hover:-translate-y-1" onclick="openGalleryModal(4)">
+                            <div class="relative h-44 overflow-hidden bg-dark-800 flex items-center justify-center">
+                                <img id="gal-img-4" src="https://placehold.co/600x400/1e293b/a5b4fc?text=Apresentação+de+Sistemas" onerror="this.src='https://placehold.co/600x400/1e293b/a5b4fc?text=Imagem+Colégio+4'" alt="Apresentação de Projeto" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute top-3 right-3 bg-dark-900/90 border border-dark-700 rounded-lg p-2 text-white text-xs backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <i class="fa-solid fa-expand"></i> Ampliar
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-1">
+                                <h4 class="text-sm font-bold text-white tracking-tight" id="gal-title-4">Exposição e Entrega</h4>
+                                <p class="text-xs text-gray-400" id="gal-desc-4">Apresentando sistemas prontos e protótipos em feiras tecnológicas e seminários escolares.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="p-4 rounded-2xl bg-brand-500/5 border border-brand-500/15 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-info text-brand-500 text-lg shrink-0"></i>
+                        <p class="text-xs text-gray-400">
+                            <strong>Dica para o Andrey:</strong> Você pode clicar no botão <strong>Configurar</strong> no topo direito da tela para colar os links reais das fotos tiradas com seu celular!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination/Portfolio Link Section -->
+        <div id="portfolio-section" class="bg-dark-800 border border-dark-700 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+            <!-- Background lights -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-indigo-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+            
+            <div class="max-w-2xl mx-auto space-y-6 relative z-10">
+                <div class="w-16 h-16 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-400 mx-auto border border-brand-500/25">
+                    <i class="fa-solid fa-circle-nodes text-3xl"></i>
+                </div>
                 
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                    Pronto para ver meus códigos e soluções desenvolvidas?
+                </h3>
+                
+                <p class="text-gray-400 text-sm sm:text-base">
+                    No meu portfólio de projetos, o senhor encontrará aplicações web completas, repositórios explicados, desafios resolvidos em sala de aula e mockups de bancos de dados construídos para o curso técnico de Desenvolvimento de Sistemas.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <!-- Interactive Active Portfolio Redirection Button -->
+                    <a id="btn-portfolio-target" href="#" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-lg tracking-wide shadow-2xl shadow-brand-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-rocket text-xl animate-pulse"></i>
+                        <span>Ir para o meu Portfólio</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
+                    </a>
+                </div>
+                
+                <div class="text-xs text-gray-500 font-mono flex items-center justify-center space-x-2">
+                    <span>Destino atual:</span>
+                    <span id="label-portfolio-url" class="text-brand-400 break-all select-all font-semibold">https://meuportfolio.com</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-900 border-t border-dark-700/80 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center">
+            <div class="text-sm text-gray-500 font-mono">
+                &copy; <span id="current-year">2026</span> - Andrey Salgueiro. Todos os direitos reservados.
             </div>
             
-            <!-- Botão para o portfólio (link real que você já utiliza) -->
-            <a href="#" id="goToPortfolioBtn" class="btn-portfolio">
-                <i class="fas fa-terminal"></i> ACESSAR PORTFÓLIO 2026 <i class="fas fa-arrow-right"></i>
-            </a>
-            <p style="font-size: 0.65rem; text-align: center; margin-top: 1rem; opacity: 0.8; font-family: monospace;">
-                ⚡ projetos | jogos | python | full stack ⚡
-            </p>
+            <div class="flex items-center space-x-2 text-xs text-gray-400">
+                <i class="fa-solid fa-code text-brand-500"></i>
+                <span>Construído para avaliação escolar no Colégio Estadual Unidade Polo</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal: Zoom de Foto da Galeria -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 bg-dark-900/95 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+        <button onclick="closeGalleryModal()" class="absolute top-6 right-6 w-12 h-12 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-700 text-white flex items-center justify-center transition-all">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+        <div class="max-w-4xl w-full bg-dark-800 border border-dark-700 rounded-3xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" id="modal-container">
+            <div class="relative h-96 sm:h-[500px] bg-dark-900">
+                <img id="modal-img" src="" alt="Ampliado" class="w-full h-full object-contain" />
+            </div>
+            <div class="p-6 bg-dark-800 border-t border-dark-700">
+                <h4 id="modal-title" class="text-xl font-bold text-white mb-2">Título do Card</h4>
+                <p id="modal-desc" class="text-sm text-gray-400">Descrição detalhada da atividade.</p>
+            </div>
         </div>
     </div>
-    <div class="footer-note">
-        <i class="fas fa-copyright"></i> 2026 — Andrey • Estudante de Desenvolvimento de Sistemas • Colégio Unidade Polo - Arapongas/PR 
-        | <i class="fas fa-code"></i> Tema Gamer / Pixel
-    </div>
-</div>
 
-<script>
-    (function() {
-        // LINK DO SEU PORTFÓLIO REAL (igual ao que você compartilhou)
-        const PORTFOLIO_URL = "https://andrey123salgueiro.github.io/Portifolio2026/portifolio.html";
+    <!-- Slide-over Control Panel (Configurador) -->
+    <div id="config-panel" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-dark-800 border-l border-dark-700/80 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
         
-        const btn = document.getElementById('goToPortfolioBtn');
-        if (btn) {
-            btn.addEventListener('click', function(event) {
-                event.preventDefault();
-                window.location.href = PORTFOLIO_URL;
-            });
-        }
-        
-        // Garantir que links de contato abram em nova aba
-        const externalLinks = document.querySelectorAll('.contact-item a, .social-links a');
-        externalLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && (href.startsWith('http') || href.startsWith('https')) && !href.includes(window.location.hostname)) {
-                link.setAttribute('target', '_blank');
-                link.setAttribute('rel', 'noopener noreferrer');
+        <div class="p-6 space-y-6 overflow-y-auto no-scrollbar flex-grow">
+            <!-- Panel Header -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-sliders text-brand-500 text-lg animate-pulse"></i>
+                    <h3 class="text-lg font-bold text-white">Configurar sua Página</h3>
+                </div>
+                <button onclick="toggleConfigPanel()" class="w-8 h-8 rounded-lg bg-dark-700 hover:bg-dark-600 text-gray-400 hover:text-white flex items-center justify-center transition-all">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-400">
+                As informações editadas aqui serão salvas no seu navegador para quando o seu professor for testar esta mesma página em sua máquina!
+            </p>
+
+            <hr class="border-dark-700" />
+
+            <!-- Input sections -->
+            <div class="space-y-4">
+                <!-- Portfolio Link Input -->
+                <div class="space-y-1">
+                    <label for="input-portfolio" class="block text-xs font-bold text-gray-300 uppercase tracking-wider font-mono">Link do seu Portfólio</label>
+                    <div class="relative rounded-xl shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-link text-gray-500 text-xs"></i>
+                        </div>
+                        <input type="url" id="input-portfolio" class="block w-full pl-9 pr-3 py-2.5 bg-dark-900 border border-dark-700 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-500 focus:border-brand-500" placeholder="Ex: https://meuportfoliolink.github.io" />
+                    </div>
+                </div>
+
+                <hr class="border-dark-700" />
+                <h4 class="text-xs font-bold text-gray-300 uppercase tracking-wider font-mono">Links das 4 fotos do Colégio</h4>
+
+                <!-- Photo 1 Input -->
+                <div class="space-y-1">
+                    <label for="input-img-1" class="block text-[11px] font-semibold text-gray-400">Foto 1: Laboratório de Sistemas</label>
+                    <input type="text" id="input-img-1" class="block w-full px-3 py-2 bg-dark-900 border border-dark-700 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Cole a URL da foto 1" />
+                </div>
+
+                <!-- Photo 2 Input -->
+                <div class="space-y-1">
+                    <label for="input-img-2" class="block text-[11px] font-semibold text-gray-400">Foto 2: Desenvolvimento em Grupo</label>
+                    <input type="text" id="input-img-2" class="block w-full px-3 py-2 bg-dark-900 border border-dark-700 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Cole a URL da foto 2" />
+                </div>
+
+                <!-- Photo 3 Input -->
+                <div class="space-y-1">
+                    <label for="input-img-3" class="block text-[11px] font-semibold text-gray-400">Foto 3: Teoria & Planejamento</label>
+                    <input type="text" id="input-img-3" class="block w-full px-3 py-2 bg-dark-900 border border-dark-700 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Cole a URL da foto 3" />
+                </div>
+
+                <!-- Photo 4 Input -->
+                <div class="space-y-1">
+                    <label for="input-img-4" class="block text-[11px] font-semibold text-gray-400">Foto 4: Exposição e Entrega</label>
+                    <input type="text" id="input-img-4" class="block w-full px-3 py-2 bg-dark-900 border border-dark-700 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Cole a URL da foto 4" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Footer / Actions -->
+        <div class="p-6 bg-dark-900 border-t border-dark-700 space-y-3">
+            <button onclick="saveConfigurations()" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all flex items-center justify-center space-x-2 shadow-lg shadow-brand-500/10">
+                <i class="fa-solid fa-floppy-disk"></i>
+                <span>Salvar Configurações</span>
+            </button>
+            <button onclick="resetConfigurations()" class="w-full py-2.5 rounded-xl bg-dark-850 hover:bg-dark-800 border border-dark-700 text-gray-400 hover:text-white font-medium text-xs transition-all">
+                Restaurar Fotos Padrão
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Custom Notification Box (replacing forbidden alert) -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-emerald-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-2xl shadow-emerald-500/20 flex items-center space-x-2 transition-all duration-300 opacity-0 pointer-events-none scale-90">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Alterações salvas com sucesso!</span>
+    </div>
+
+    <script>
+        // Set year dynamically in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Standard Default Mock Links for Andrey if he doesn't have URLs ready
+        const defaultConfigs = {
+            portfolioUrl: 'https://seunome.github.io/portfolio', // Placeholder Link Andrey can alter
+            img1: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop', // Lab picture
+            img2: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=600&auto=format&fit=crop', // Collaboration picture
+            img3: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop', // Group/Theory study
+            img4: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=600&auto=format&fit=crop'  // Presenting/Class display
+        };
+
+        // Load configs from LocalStorage or Fallback to Default
+        let currentConfigs = { ...defaultConfigs };
+
+        // Helper to load settings from storage
+        function loadSettings() {
+            const saved = localStorage.getItem('andrey_portfolio_main_config');
+            if (saved) {
+                try {
+                    currentConfigs = JSON.parse(saved);
+                } catch (e) {
+                    currentConfigs = { ...defaultConfigs };
+                }
             }
-        });
-    })();
-</script>
+            applyConfigsToUI();
+        }
+
+        // Apply visual states to elements
+        function applyConfigsToUI() {
+            // Apply Portfolio URL
+            const btnTarget = document.getElementById('btn-portfolio-target');
+            const labelTarget = document.getElementById('label-portfolio-url');
+            btnTarget.href = currentConfigs.portfolioUrl;
+            labelTarget.textContent = currentConfigs.portfolioUrl;
+
+            // Apply School Photos
+            for (let i = 1; i <= 4; i++) {
+                const imgElem = document.getElementById(`gal-img-${i}`);
+                if (imgElem) {
+                    imgElem.src = currentConfigs[`img${i}`] || defaultConfigs[`img${i}`];
+                }
+            }
+
+            // Populate Form fields inside the panel
+            document.getElementById('input-portfolio').value = currentConfigs.portfolioUrl;
+            document.getElementById('input-img-1').value = currentConfigs.img1;
+            document.getElementById('input-img-2').value = currentConfigs.img2;
+            document.getElementById('input-img-3').value = currentConfigs.img3;
+            document.getElementById('input-img-4').value = currentConfigs.img4;
+        }
+
+        // Open config panel
+        function toggleConfigPanel() {
+            const panel = document.getElementById('config-panel');
+            if (panel.classList.contains('translate-x-full')) {
+                panel.classList.remove('translate-x-full');
+                panel.classList.add('translate-x-0');
+            } else {
+                panel.classList.remove('translate-x-0');
+                panel.classList.add('translate-x-full');
+            }
+        }
+
+        // Save customized configs
+        function saveConfigurations() {
+            const portfolioVal = document.getElementById('input-portfolio').value.trim();
+            const img1Val = document.getElementById('input-img-1').value.trim();
+            const img2Val = document.getElementById('input-img-2').value.trim();
+            const img3Val = document.getElementById('input-img-3').value.trim();
+            const img4Val = document.getElementById('input-img-4').value.trim();
+
+            currentConfigs.portfolioUrl = portfolioVal || defaultConfigs.portfolioUrl;
+            currentConfigs.img1 = img1Val || defaultConfigs.img1;
+            currentConfigs.img2 = img2Val || defaultConfigs.img2;
+            currentConfigs.img3 = img3Val || defaultConfigs.img3;
+            currentConfigs.img4 = img4Val || defaultConfigs.img4;
+
+            localStorage.setItem('andrey_portfolio_main_config', JSON.stringify(currentConfigs));
+            applyConfigsToUI();
+            toggleConfigPanel();
+            showToast('Configurações atualizadas com sucesso!');
+        }
+
+        // Reset configs back to aesthetic default images
+        function resetConfigurations() {
+            currentConfigs = { ...defaultConfigs };
+            localStorage.setItem('andrey_portfolio_main_config', JSON.stringify(currentConfigs));
+            applyConfigsToUI();
+            toggleConfigPanel();
+            showToast('As fotos e links foram restaurados para o padrão.');
+        }
+
+        // Toast feedback trigger (replacement for forbidden alert/confirm dialogs)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'scale-90');
+            toast.classList.add('opacity-100', 'scale-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'scale-100');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'scale-90');
+            }, 3000);
+        }
+
+        // Gallery Lightbox Modal Zoom Functions
+        function openGalleryModal(id) {
+            const modal = document.getElementById('gallery-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
+            const modalContainer = document.getElementById('modal-container');
+
+            const sourceImg = document.getElementById(`gal-img-${id}`);
+            const sourceTitle = document.getElementById(`gal-title-${id}`);
+            const sourceDesc = document.getElementById(`gal-desc-${id}`);
+
+            if (sourceImg && sourceTitle && sourceDesc) {
+                modalImg.src = sourceImg.src;
+                modalTitle.textContent = sourceTitle.textContent;
+                modalDesc.textContent = sourceDesc.textContent;
+
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('gallery-modal');
+            const modalContainer = document.getElementById('modal-container');
+
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Close panels on click outside
+        window.onclick = function(event) {
+            const galleryModal = document.getElementById('gallery-modal');
+            const configPanel = document.getElementById('config-panel');
+            
+            if (event.target === galleryModal) {
+                closeGalleryModal();
+            }
+        }
+
+        // Run setup on document loading completion
+        window.onload = function() {
+            loadSettings();
+        };
+    </script>
 </body>
 </html>
