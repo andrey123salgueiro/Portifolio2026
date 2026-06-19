@@ -3,380 +3,684 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrey Portfolio 2026 - Gold Edition</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Stranger Things · Andrey Portfolio · Optimized</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
   <style>
+    /* ================================================================
+       ROOT – CORES NEON (otimizado)
+    ================================================================ */
     :root {
-      --preto: #000000;
-      --dourado: #FFD700;
-      --azul: #0056b3;
-      --azul-brilhante: #00aaff;
-      --verde-python: #2b5b84;
-      --verde-python-claro: #4B8BBE;
-      --amarelo-python: #FFD43B;
-      --laranja-padrao: #e67e22;
-      --laranja-escuro: #b85e0a;
-      --cinza-card: #0a0a0a;
+      --neon-red: #ff1744;
+      --neon-blue: #00e5ff;
+      --neon-green: #76ff03;
+      --neon-purple: #d500f9;
+      --neon-yellow: #ffea00;
+      --neon-orange: #ff9100;
+      --neon-pink: #f50057;
+      --dark-bg: #0a0a0a;
+      --card-bg: #141414;
+      --text-light: #e0e0e0;
     }
 
-    html {
-      scroll-behavior: smooth;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: 'Press Start 2P', cursive;
-      background-color: var(--preto);
-      color: white;
-      line-height: 1.6;
+      background: var(--dark-bg);
+      background-image: 
+        radial-gradient(ellipse at 20% 30%, rgba(255, 23, 68, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(0, 229, 255, 0.06) 0%, transparent 50%);
+      color: var(--text-light);
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 0 12px;
+      will-change: auto;
     }
 
+    /* ================================================================
+       ANIMAÇÃO DE FUNDO OTIMIZADA (GPU acelerada)
+    ================================================================ */
+    .neon-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .drop {
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, currentColor);
+      animation: fall linear infinite;
+      opacity: 0.3;
+      will-change: transform;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-120px) scaleY(0.5); opacity: 0.1; }
+      30% { opacity: 0.7; }
+      70% { opacity: 0.7; }
+      100% { transform: translateY(110vh) scaleY(1.2); opacity: 0; }
+    }
+
+    /* Gotas com cores diferentes (usando variáveis) */
+    .drop:nth-child(1) { left: 5%; animation-duration: 4.0s; height: 80px; color: var(--neon-blue); }
+    .drop:nth-child(2) { left: 15%; animation-duration: 4.8s; height: 60px; color: var(--neon-purple); }
+    .drop:nth-child(3) { left: 28%; animation-duration: 3.5s; height: 100px; color: var(--neon-red); }
+    .drop:nth-child(4) { left: 38%; animation-duration: 5.2s; height: 70px; color: var(--neon-green); }
+    .drop:nth-child(5) { left: 50%; animation-duration: 4.2s; height: 90px; color: var(--neon-yellow); }
+    .drop:nth-child(6) { left: 62%; animation-duration: 5.0s; height: 55px; color: var(--neon-orange); }
+    .drop:nth-child(7) { left: 75%; animation-duration: 3.8s; height: 110px; color: var(--neon-pink); }
+    .drop:nth-child(8) { left: 88%; animation-duration: 4.5s; height: 75px; color: var(--neon-blue); }
+    .drop:nth-child(9) { left: 42%; animation-duration: 5.5s; height: 85px; color: var(--neon-purple); }
+    .drop:nth-child(10) { left: 68%; animation-duration: 4.0s; height: 65px; color: var(--neon-red); }
+
+    /* Partículas flutuantes (reduzidas para performance) */
+    .particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(2px);
+      animation: floatParticle 20s infinite alternate ease-in-out;
+      will-change: transform;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+      100% { transform: translate(60px, -140px) scale(2.5); opacity: 0.3; }
+    }
+
+    .particle:nth-child(11) { width: 8px; height: 8px; left: 8%; top: 80%; background: var(--neon-red); animation-duration: 16s; }
+    .particle:nth-child(12) { width: 12px; height: 12px; left: 90%; top: 15%; background: var(--neon-blue); animation-duration: 20s; }
+    .particle:nth-child(13) { width: 6px; height: 6px; left: 45%; top: 55%; background: var(--neon-green); animation-duration: 14s; }
+    .particle:nth-child(14) { width: 10px; height: 10px; left: 25%; top: 25%; background: var(--neon-purple); animation-duration: 18s; }
+    .particle:nth-child(15) { width: 7px; height: 7px; left: 75%; top: 85%; background: var(--neon-yellow); animation-duration: 15s; }
+
+    /* ================================================================
+       HEADER – OTIMIZADO
+    ================================================================ */
     header {
-      background: linear-gradient(180deg, #1a1a1a, #000);
-      padding: 30px;
+      position: relative;
+      z-index: 10;
       text-align: center;
-      border-bottom: 4px solid var(--dourado);
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+      padding: 30px 20px 20px;
+      border-bottom: 3px solid var(--neon-red);
+      box-shadow: 0 0 60px rgba(255, 23, 68, 0.15);
+      background: linear-gradient(180deg, #0f0505, #050101);
+      margin-bottom: 20px;
+      border-radius: 0 0 30px 30px;
     }
 
     header h1 {
-      color: var(--dourado);
-      font-size: 22px;
-      text-shadow: 3px 3px var(--azul);
-      margin: 0;
+      font-family: 'Creepster', cursive;
+      font-size: 4.2rem;
+      letter-spacing: 8px;
+      color: var(--neon-red);
+      text-shadow: 
+        0 0 30px var(--neon-red),
+        0 0 60px var(--neon-red),
+        0 0 100px #8b0000,
+        4px 4px 0 #3a0000;
+      animation: glitchPulse 2.5s infinite alternate;
+      transform: skewX(-5deg);
+      will-change: text-shadow;
+    }
+
+    @keyframes glitchPulse {
+      0% { text-shadow: 0 0 30px var(--neon-red), 0 0 60px var(--neon-red), 4px 4px 0 #3a0000; }
+      100% { text-shadow: 0 0 50px var(--neon-red), 0 0 80px #ff1744, 0 0 120px #8b0000, -4px 4px 0 #3a0000; }
     }
 
     header p {
-      font-size: 10px;
-      margin-top: 10px;
-      color: #aaa;
+      font-size: 1.2rem;
+      color: var(--neon-blue);
+      text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+      background: rgba(0, 0, 0, 0.8);
+      display: inline-block;
+      padding: 6px 30px;
+      border: 2px solid var(--neon-blue);
+      border-radius: 50px;
+      letter-spacing: 3px;
     }
 
+    .header-badge {
+      display: inline-block;
+      background: rgba(20, 20, 20, 0.9);
+      padding: 5px 22px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      color: var(--neon-green);
+      border: 2px solid var(--neon-green);
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+
+    /* ================================================================
+       NAVEGAÇÃO – OTIMIZADA (menos animações pesadas)
+    ================================================================ */
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      background-color: #0a0a0a;
-      padding: 15px;
+      gap: 8px 14px;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 12px 20px;
       position: sticky;
       top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--laranja-padrao);
-      gap: 5px;
+      z-index: 200;
+      border-bottom: 2px solid var(--neon-purple);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
     }
 
     nav a {
-      color: #fff;
+      color: var(--text-light);
       text-decoration: none;
-      margin: 5px 12px;
-      font-size: 10px;
-      transition: 0.3s;
-      padding: 5px 8px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 8px 18px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      background: rgba(30, 30, 30, 0.3);
+      border: 2px solid transparent;
+      letter-spacing: 1.5px;
+      position: relative;
     }
 
     nav a:hover {
-      color: var(--dourado);
-      text-shadow: 0 0 8px var(--dourado);
-      transform: scale(1.05);
+      color: #fff;
+      transform: scale(1.05) translateY(-2px);
+      background: rgba(20, 20, 30, 0.8);
+      box-shadow: 0 0 30px rgba(255, 23, 68, 0.15);
+      border-color: var(--neon-red);
     }
 
+    /* ================================================================
+       TÍTULOS DAS SEÇÕES – OTIMIZADOS
+    ================================================================ */
     .section-title {
-      text-align: center;
-      color: var(--azul-brilhante);
-      margin-top: 60px;
-      margin-bottom: 30px;
-      font-size: 18px;
-      text-transform: uppercase;
-      border-left: 5px solid var(--dourado);
+      font-family: 'Creepster', cursive;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      color: var(--neon-red);
+      text-shadow: 0 0 30px rgba(255, 23, 68, 0.3);
+      margin: 45px 0 20px 0;
+      padding-left: 20px;
+      border-left: 8px solid var(--neon-blue);
       display: inline-block;
-      padding-left: 15px;
-      margin-left: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 30px 8px 20px;
+      border-radius: 0 40px 40px 0;
+      transform: skewX(-3deg);
+      animation: titleNeon 3s infinite alternate;
+      will-change: text-shadow, border-left-color;
+    }
+
+    @keyframes titleNeon {
+      0% { text-shadow: 0 0 30px rgba(255, 23, 68, 0.3); border-left-color: var(--neon-blue); }
+      100% { text-shadow: 0 0 60px rgba(255, 23, 68, 0.6); border-left-color: var(--neon-purple); }
     }
 
     .professor-badge {
       display: inline-block;
-      background: rgba(0,0,0,0.7);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 9px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 5px 22px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: var(--neon-blue);
+      border: 2px solid var(--neon-blue);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
       margin-left: 20px;
-      color: var(--dourado);
-      border: 1px solid var(--dourado);
+      letter-spacing: 2px;
     }
 
+    .python-badge {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 5px 26px;
+      border-radius: 50px;
+      border: 2px solid var(--neon-green);
+      color: var(--neon-green);
+      font-weight: bold;
+      box-shadow: 0 0 25px rgba(118, 255, 3, 0.1);
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+    }
+
+    /* ================================================================
+       CARDS – OTIMIZADOS (menos camadas, mais performance)
+    ================================================================ */
     .container {
-      padding: 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 25px;
+      padding: 0 10px 20px;
+      position: relative;
+      z-index: 5;
     }
 
     .card {
-      background-color: var(--cinza-card);
-      border: 2px solid var(--laranja-padrao);
-      padding: 20px;
+      background: var(--card-bg);
+      border: 2px solid #3a1a1a;
+      border-radius: 16px;
+      padding: 20px 18px;
       text-align: center;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 0 #1a0505, 0 0 30px rgba(139, 0, 0, 0.06);
       position: relative;
       overflow: hidden;
+      will-change: transform;
+    }
+
+    /* Camada única de brilho (menos pesada) */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(255, 23, 68, 0.04), transparent 60%),
+                  radial-gradient(circle at 70% 60%, rgba(0, 229, 255, 0.03), transparent 50%);
+      pointer-events: none;
+      animation: cardBgMove 12s infinite alternate ease-in-out;
+      will-change: transform;
+    }
+
+    @keyframes cardBgMove {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(20px, -15px) rotate(4deg); }
     }
 
     .card:hover {
-      transform: translateY(-10px);
-      border-color: var(--dourado);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      transform: translateY(-12px) scale(1.02);
+      border-color: var(--neon-red);
+      box-shadow: 0 0 50px rgba(255, 23, 68, 0.2), 0 12px 0 #2a0000;
     }
 
     .card h2 {
-      font-size: 14px;
-      color: var(--dourado);
-      margin-bottom: 15px;
+      font-family: 'Creepster', cursive;
+      font-size: 1.4rem;
+      color: var(--neon-red);
+      text-shadow: 0 0 20px rgba(255, 23, 68, 0.2);
+      margin-bottom: 10px;
+      letter-spacing: 2px;
       word-break: break-word;
+      position: relative;
+      z-index: 2;
+      transition: text-shadow 0.3s ease;
+    }
+
+    .card:hover h2 {
+      text-shadow: 0 0 40px rgba(255, 23, 68, 0.5);
     }
 
     .card p {
-      font-size: 9px;
-      color: #ccc;
-      margin-bottom: 20px;
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-bottom: 15px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px 14px;
+      border-radius: 30px;
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      position: relative;
+      z-index: 2;
     }
 
     .card-actions {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .card a {
-      color: var(--azul-brilhante);
+      color: var(--neon-blue);
       text-decoration: none;
-      font-size: 10px;
-      padding: 8px 12px;
-      border: 1px solid var(--azul-brilhante);
-      display: inline-block;
-      transition: 0.3s;
-      background: transparent;
-      cursor: pointer;
+      font-size: 0.7rem;
+      padding: 10px 16px;
+      border: 2px solid var(--neon-blue);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      background: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.03);
+      position: relative;
     }
 
     .card a:hover {
-      background-color: var(--azul-brilhante);
+      background: var(--neon-blue);
       color: #000;
+      box-shadow: 0 0 40px var(--neon-blue), 0 0 70px rgba(0, 229, 255, 0.2);
+      transform: scale(1.03);
     }
 
     .edit-name-btn {
-      background: #1a1a2e;
-      color: var(--dourado);
-      border: 1px solid var(--dourado);
-      font-family: 'Press Start 2P', cursive;
-      font-size: 8px;
-      padding: 6px 12px;
+      background: rgba(20, 20, 30, 0.8);
+      color: var(--neon-yellow);
+      border: 2px solid var(--neon-yellow);
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      padding: 8px 14px;
+      border-radius: 50px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      letter-spacing: 1px;
+      width: 100%;
     }
 
     .edit-name-btn:hover {
-      background: var(--dourado);
-      color: black;
-    }
-
-    /* Estilo especial para Python - Única matéria do outro professor (separada no final) */
-    .python-section {
-      border-top: 3px solid var(--amarelo-python);
-      margin-top: 30px;
-      position: relative;
-      margin-bottom: 40px;
-    }
-    
-    .python-section::before {
-      content: "👨‍🏫 MATÉRIA ESPECIAL - PROFESSOR VITOR";
-      position: absolute;
-      top: -15px;
-      right: 20px;
-      background: var(--amarelo-python);
+      background: var(--neon-yellow);
       color: #000;
-      font-size: 8px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-family: 'Press Start 2P', cursive;
-      z-index: 10;
-    }
-    
-    .python-badge {
-      background: linear-gradient(135deg, var(--verde-python), var(--verde-python-claro));
-      color: var(--amarelo-python);
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-size: 12px;
-      display: inline-block;
-      margin-left: 20px;
-      border: 1px solid var(--amarelo-python);
+      box-shadow: 0 0 40px var(--neon-yellow);
+      transform: scale(1.03);
     }
 
+    /* Cards Python */
     .card.python-card {
-      border-color: var(--amarelo-python);
-      background: #0d1117;
+      border-color: var(--neon-green);
+      box-shadow: 0 8px 0 #0a2a0a, 0 0 30px rgba(118, 255, 3, 0.06);
     }
-    
     .card.python-card:hover {
-      border-color: var(--dourado);
-      box-shadow: 0 0 20px rgba(255, 212, 59, 0.4);
+      border-color: var(--neon-green);
+      box-shadow: 0 0 50px rgba(118, 255, 3, 0.2), 0 12px 0 #0a3a0a;
+    }
+    .card.python-card h2 {
+      color: var(--neon-green);
+      text-shadow: 0 0 20px rgba(118, 255, 3, 0.2);
+    }
+    .card.python-card:hover h2 {
+      text-shadow: 0 0 40px rgba(118, 255, 3, 0.5);
     }
 
-    /* TODOS os cards padrão usam borda laranja */
-    .card.backend-card,
-    .card.mobile-card,
-    .card.analise-card,
-    .card.googleIAstudio-card,
-    .card.js-card,
-    .card.html-card {
-      border-color: var(--laranja-padrao);
+    /* ================================================================
+       SEÇÃO PYTHON
+    ================================================================ */
+    .python-section {
+      border-top: 4px solid var(--neon-green);
+      margin-top: 40px;
+      padding-top: 15px;
+      position: relative;
+      background: radial-gradient(ellipse at 30% 20%, rgba(118, 255, 3, 0.02), transparent 70%);
+      border-radius: 40px 40px 0 0;
+      margin-bottom: 25px;
     }
 
-    footer {
-      background-color: #000;
-      color: var(--dourado);
-      text-align: center;
-      padding: 30px;
-      border-top: 4px solid var(--dourado);
-      margin-top: 50px;
-      font-size: 10px;
+    .python-section::before {
+      content: "⚡ PROFESSOR VITOR · UPSIDE DOWN ⚡";
+      position: absolute;
+      top: -16px;
+      right: 20px;
+      background: var(--neon-green);
+      color: #000;
+      font-size: 0.65rem;
+      padding: 5px 22px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      box-shadow: 0 0 40px rgba(118, 255, 3, 0.3);
+      z-index: 20;
+      border: 2px solid #000;
     }
 
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background: var(--laranja-padrao); border-radius: 5px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--dourado); }
-
+    /* ================================================================
+       MODAL
+    ================================================================ */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
+      z-index: 9999;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.9);
+      background: rgba(0, 0, 0, 0.9);
       justify-content: center;
       align-items: center;
+      backdrop-filter: blur(6px);
     }
+
     .modal-content {
-      background: #111;
-      padding: 30px;
-      border: 3px solid var(--dourado);
+      background: #0f0a0a;
+      padding: 30px 25px;
+      border: 3px solid var(--neon-red);
+      border-radius: 20px;
       width: 90%;
       max-width: 400px;
       text-align: center;
-      font-family: 'Press Start 2P', cursive;
+      font-family: 'Courier New', monospace;
+      box-shadow: 0 0 80px rgba(255, 23, 68, 0.15);
     }
+
+    .modal-content h3 {
+      color: var(--neon-red);
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 30px rgba(255, 23, 68, 0.3);
+      font-family: 'Creepster', cursive;
+    }
+
     .modal-content input {
       width: 90%;
       padding: 12px;
-      margin: 20px 0;
-      background: #222;
-      border: 1px solid var(--dourado);
+      margin: 18px 0;
+      background: #0a0a0a;
+      border: 2px solid var(--neon-purple);
       color: white;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 10px;
-    }
-    .modal-content button {
-      background: var(--dourado);
-      border: none;
-      padding: 10px 20px;
-      font-family: 'Press Start 2P', cursive;
-      cursor: pointer;
-      margin: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      border-radius: 50px;
+      text-align: center;
+      transition: 0.3s;
     }
 
-    /* Separador visual entre seções normais e python */
-    .separator-area {
-      margin: 20px 0 10px;
+    .modal-content input:focus {
+      outline: none;
+      box-shadow: 0 0 40px rgba(213, 0, 249, 0.2);
+      border-color: var(--neon-blue);
+    }
+
+    .modal-content button {
+      background: transparent;
+      border: 2px solid var(--neon-blue);
+      padding: 10px 24px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+      border-radius: 50px;
+      color: var(--neon-blue);
+      transition: 0.3s;
+    }
+
+    .modal-content button:hover {
+      background: var(--neon-blue);
+      color: #000;
+      box-shadow: 0 0 40px var(--neon-blue);
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    footer {
+      background: #050101;
+      color: var(--neon-red);
+      text-align: center;
+      padding: 25px;
+      border-top: 3px solid var(--neon-red);
+      margin-top: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
+      position: relative;
+      z-index: 5;
+    }
+
+    footer span {
+      color: var(--neon-blue);
+      text-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+    }
+
+    /* ================================================================
+       SCROLLBAR – OTIMIZADA
+    ================================================================ */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0a0000; }
+    ::-webkit-scrollbar-thumb { 
+      background: var(--neon-red); 
+      border-radius: 20px; 
+      border: 2px solid #2a0000;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--neon-purple); }
+
+    /* ================================================================
+       RESPONSIVIDADE
+    ================================================================ */
+    @media (max-width: 700px) {
+      header h1 { font-size: 2.8rem; letter-spacing: 5px; }
+      .section-title { font-size: 1.7rem; padding-left: 15px; }
+      nav a { font-size: 0.65rem; padding: 6px 12px; }
+      .python-section::before { font-size: 0.55rem; padding: 4px 14px; right: 10px; }
+      .container { gap: 18px; }
+    }
+    @media (max-width: 450px) {
+      header h1 { font-size: 2.2rem; }
+      .card h2 { font-size: 1.2rem; }
+    }
+
+    /* ================================================================
+       OTIMIZAÇÃO: REDUZIR ANIMAÇÕES EM DISPOSITIVOS LENTOS
+    ================================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .drop, .particle, .card::before {
+        animation: none !important;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- ================================================================
+       ANIMAÇÕES DE FUNDO (otimizadas)
+  ================================================================ -->
+  <div class="neon-rain">
+    <div class="drop"></div><div class="drop"></div><div class="drop"></div>
+    <div class="drop"></div><div class="drop"></div><div class="drop"></div>
+    <div class="drop"></div><div class="drop"></div><div class="drop"></div>
+    <div class="drop"></div>
+  </div>
+
+  <div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div><div class="particle"></div>
+  <div class="particle"></div>
+
+  <!-- ================================================================
+       HEADER
+  ================================================================ -->
   <header>
-    <h1>🏆 ANDREY PORTFOLIO 2026 🏆</h1>
-    <p>Full Stack | Game Dev | Python | Back-End</p>
+    <h1>STRANGER THINGS</h1>
+    <p>⚡ ANDREY PORTFOLIO · 2026 ⚡</p>
+    <div class="header-badge">🕹️ FULL STACK · GAME DEV · PYTHON</div>
   </header>
 
+  <!-- ================================================================
+       NAVEGAÇÃO
+  ================================================================ -->
   <nav>
-    <a href="#javascript">JS/FRONT</a>
-    <a href="#html">HTML/CSS</a>
-    <a href="#backend">BACK-END</a>
-    <a href="#mobile">MOBILE</a>
-    <a href="#analise">ANÁLISE</a>
-    <a href="#projetosgoogleIAstudio">Projetos Google IA Studio</a>
-    <a href="#python">PYTHON</a>
-    <a href="#sobre">SOBRE</a>
-    <a href="#contato">CONTATO</a>
+    <a href="#javascript">⚡ JS</a>
+    <a href="#html">🎨 HTML</a>
+    <a href="#backend">⚙️ BACKEND</a>
+    <a href="#mobile">📱 MOBILE</a>
+    <a href="#analise">🔍 ANÁLISE</a>
+    <a href="#ias">🧠 IA STUDIO</a>
+    <a href="#python">🐍 PYTHON</a>
+    <a href="#sobre">👤 SOBRE</a>
+    <a href="#contato">📧 CONTATO</a>
   </nav>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <h2 id="javascript" class="section-title">01. JAVASCRIPT / FRONT-END</h2>
+  <!-- ================================================================
+       SEÇÕES
+  ================================================================ -->
+  <h2 id="javascript" class="section-title">01. JAVASCRIPT · FRONT</h2>
   <div class="container" id="js-container"></div>
 
-  <!-- ==================== HTML & CSS ==================== -->
-  <h2 id="html" class="section-title">02. HTML & CSS</h2>
+  <h2 id="html" class="section-title">02. HTML &amp; CSS</h2>
   <div class="container" id="html-container"></div>
 
-  <!-- ==================== BACK-END ==================== -->
-  <h2 id="backend" class="section-title">03. BACK-END (NODE.JS / BANCO)</h2>
+  <h2 id="backend" class="section-title">03. BACK-END · NODE</h2>
   <div class="container" id="backend-container"></div>
 
-  <!-- ==================== MOBILE ==================== -->
-  <h2 id="mobile" class="section-title">04. MOBILE (REACT NATIVE)</h2>
+  <h2 id="mobile" class="section-title">04. MOBILE · REACT NATIVE</h2>
   <div class="container" id="mobile-container"></div>
 
-  <!-- ==================== ANÁLISE DE SISTEMAS (Agora acima do Python, abaixo do Mobile) ==================== -->
   <h2 id="analise" class="section-title">05. ANÁLISE DE SISTEMAS</h2>
-  <div class="container" id="analise-container"></div> 
+  <div class="container" id="analise-container"></div>
 
-   <!-- ==================== google ia studio ==================== -->
-  <h2 id="ias" class="section-title">06. Google IA studio</h2>
+  <h2 id="ias" class="section-title">06. GOOGLE IA STUDIO</h2>
   <div class="container" id="googleIAstudio-container"></div>
 
-  <!-- ==================== SEPARADOR VISUAL ==================== -->
-  <div class="separator-area"></div>
-
-  <!-- ==================== PYTHON (ÚNICA MATÉRIA DO OUTRO PROFESSOR - FICA SEPARADA NO FINAL) ==================== -->
+  <!-- ================================================================
+       SEÇÃO PYTHON
+  ================================================================ -->
   <div class="python-section">
-    <h2 id="python" class="section-title">⭐ PYTHON 🐍</h2>
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 15px; margin-bottom: 20px;">
-      <span class="professor-badge">👨‍🏫 PROFESSOR: VITOR</span>
-      <span class="python-badge">🔥 Estruturas de Dados | POO | Automação</span>
+    <h2 id="python" class="section-title">🐍 PYTHON · UPSIDE DOWN</h2>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 15px; padding: 0 20px 15px;">
+      <span class="professor-badge">👨‍🏫 PROF. VITOR</span>
+      <span class="python-badge">🔥 ESTRUTURAS · POO · AUTOMAÇÃO</span>
     </div>
     <div class="container" id="python-container"></div>
   </div>
 
-  <!-- ==================== SOBRE & CONTATO ==================== -->
+  <!-- ================================================================
+       SOBRE & CONTATO
+  ================================================================ -->
   <section id="sobre" class="container">
-    <div class="card" style="grid-column: 1 / -1; border-color: var(--dourado);">
-      <h2>🎮 SOBRE MIM</h2>
-      <p>Desenvolvedor full stack em evolução, apaixonado por criar soluções inovadoras com identidade gamer e pixel art. Experiência em JavaScript, Python, Back-End e banco de dados.</p>
+    <div class="card" style="grid-column: 1 / -1; border-color: var(--neon-blue);">
+      <h2>🎬 SOBRE MIM</h2>
+      <p>Desenvolvedor full stack com alma de Hawkins. Criando soluções com identidade retrô, pixel art e muito neon. JavaScript, Python, Back-End e banco de dados são meus poderes.</p>
     </div>
   </section>
 
   <section id="contato" class="container">
-    <div class="card" style="grid-column: 1 / -1; border-color: var(--dourado);">
+    <div class="card" style="grid-column: 1 / -1; border-color: var(--neon-blue);">
       <h2>📧 CONTATO</h2>
-      <p>Email: andrey.dev@golden.com</p>
-      <p>GitHub: /andrey-gold2026</p>
+      <p>andrey.stranger@upsidedown.com</p>
+      <p>GitHub: /andrey-hawkins-2026</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Andrey - Level 100 Developer | Todos os direitos reservados</p>
+    <p>© 2026 <span>ANDREY</span> · STRANGER THINGS · OPTIMIZED</p>
   </footer>
 
-  <!-- Modal para editar nome da atividade -->
+  <!-- ================================================================
+       MODAL EDITAR NOME
+  ================================================================ -->
   <div id="editModal" class="modal">
     <div class="modal-content">
-      <h3 style="color:var(--dourado); font-size:12px;">✏️ EDITAR NOME DA ATIVIDADE</h3>
-      <input type="text" id="activityNameInput" placeholder="Digite o novo título...">
+      <h3>✏️ EDITAR ATIVIDADE</h3>
+      <input type="text" id="activityNameInput" placeholder="Novo título...">
       <div>
         <button id="saveNameBtn">💾 SALVAR</button>
         <button id="cancelModalBtn">❌ CANCELAR</button>
@@ -384,9 +688,11 @@
     </div>
   </div>
 
+  <!-- ================================================================
+       SCRIPT
+  ================================================================ -->
   <script>
-    // ------------------- DADOS DAS ATIVIDADES (CADA CATEGORIA) -------------------
-    // Categoria 1: JavaScript
+    // ---------- DADOS ----------
     const jsActivities = [
       { nome: "Usando selectionSort", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/selectionSort.js" },
       { nome: "Usando o brake", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/brake_continue.js" },
@@ -404,57 +710,47 @@
       { nome: "Leitura de Arquivos", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/leituradearquivos.js" },
       { nome: "ObjetoJS", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/objeto.js" },
       { nome: "Operação Basica no JS", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/opera%C3%A7%C3%A3obasica.js" },
-      { nome:"Hello Word", desc: "", link:"https://github.com/andrey123salgueiro/Portifolio2026/blob/main/helloword.js"},
-      { nome:"App js", desc: "codigo do Snack Expo", link:"https://github.com/andrey123salgueiro/Portifolio2026/blob/main/app.js"}
+      { nome:"Hello Word", desc: "", link:"https://github.com/andrey123salgueiro/Portifolio2026/blob/main/helloword.js" },
+      { nome:"App js", desc: "codigo do Snack Expo", link:"https://github.com/andrey123salgueiro/Portifolio2026/blob/main/app.js" }
     ];
 
-    // Categoria 2: HTML/CSS
     const htmlActivities = [
       { nome: "Album da copa 26", desc: "Minha coleção de figurinhas.", link: "https://andrey123salgueiro.github.io/Portifolio2026/album26.html" },
       { nome: "Cafeteria", desc: "Cantinho do Café", link: "https://andrey123salgueiro.github.io/cafeteria/index.html" },
       { nome: "Portifólio 25", desc: "Meu hub de projetos antigo", link: "https://andrey123salgueiro.github.io/site-c-todos-os-codigos/index.html" },
       { nome: "Pac-Mam", desc: "", link: "https://andrey123salgueiro.github.io/Pac-mam/pam-man.html" },
       { nome: "html", desc: "Exercicio basico", link: "exerciciobasico.html" },
-      
     ];
 
-    // Categoria 3: BACK-END
     const backendActivities = [
       { nome: "Atividade Gamma 1", desc: "Plano de negócio", link: "https://gamma.app/docs/plano-de-negocio-Educacao-Sem-Barreiras-pw8okkqjwz5c3n8" },
       { nome: "Atividade Gamma 2", desc: "Agenda Escolar", link: "https://gamma.app/docs/EduSphere-6t61ggx5xb3i9vs" },
       { nome: "Atividade Gamma 3", desc: "Propriedade Intelectual", link: "https://gamma.app/docs/Propriedade-Intelectual-Pilar-Estrategico-para-Inovacao-e-Competi-ityfjg2ye9yky95" },
       { nome: "Atividade Gamma 4", desc: "Métricas e Melhorias nos Negócios", link: "https://gamma.app/docs/Metricas-e-Melhorias-nos-Negocios-bp0tq07tr2cyovj?mode=doc" },
       { nome: "", desc: "", link: "" },
-      
     ];
 
-    // Categoria 4: MOBILE
     const mobileActivities = [
       { nome: "QRcode App Teste", desc: "", link: "./qrcode.png" },
-      { nome: "QRcode Carrossel de imagens", desc: "", link: "./QRcodecarrosselimg.png"}
-
+      { nome: "QRcode Carrossel de imagens", desc: "", link: "./QRcodecarrosselimg.png" }
     ];
 
-    // Categoria 5: ANÁLISE DE SISTEMAS (Agora posicionada antes do Python)
     const analiseActivities = [
       { nome: "Melhores IAs", desc: "", link: "https://notebooklm.google.com/notebook/e7352761-18d2-4517-9407-a32876f966e6/artifact/6992e8cd-282b-42dd-94ea-437f0bf0c29e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
       { nome: "IAs usadas para fazer as novelinhas de frutas ", desc: "", link: "https://notebooklm.google.com/notebook/e7352761-18d2-4517-9407-a32876f966e6/artifact/a111a2c6-82d4-4266-86bd-40470d24385f?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
       { nome: "Analise do projeto Robô de resgate", desc: "", link: "https://notebooklm.google.com/notebook/31e23506-e4d9-4b28-9604-21e7da751227/artifact/21959f93-bf43-4977-832e-919fec81fe50?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
       { nome: "Robô de resgate", desc: "Mapa Mental", link: "https://notebooklm.google.com/notebook/31e23506-e4d9-4b28-9604-21e7da751227/artifact/21959f93-bf43-4977-832e-919fec81fe50?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
       { nome: "#", desc: "", link: "#" },
-     
     ];
 
-      // Categoria 6: Google IA studio
     const googleIAstudioActivities = [
       { nome: "QRcode", desc: "Jogo que ensina o Programador", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/qrcode%20jogo%20que%20ensina%20o%20programador.png?raw=true" },
       { nome: "QRcode", desc: "Controle de Torcidas", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/Qrcode%20torcidas.png?raw=true" },
       { nome: "QRcode", desc: "Gestor de Finanças Pessoais", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/qrcode%20finan%C3%A7as%20pessoais.png?raw=true" },
       { nome: "QRcode", desc: "PetCare", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/qrcode%20petcare.png?raw=true" },
       { nome: "QRcode", desc: "Portifólio", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/qrcodeportifolio.png?raw=true" },
-      ];
+    ];
 
-    // Categoria PYTHON (Separada - Única do Professor Vitor, fica por último)
     const pythonActivities = [
       { nome: "Trabalho do vitim", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/main.ipynb" },
       { nome: "Aluno que irá apagar o quadro", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/alunoqueir%C3%A1apagaroquadro.py" },
@@ -480,18 +776,21 @@
       { nome: "", desc: "", link: "" },
     ];
 
-    // Função para renderizar cards dinamicamente com botão de edição
+    // ---------- RENDER (otimizado) ----------
     function renderCards(containerId, activitiesArray, additionalClass = "") {
       const container = document.getElementById(containerId);
       if (!container) return;
-      container.innerHTML = "";
+      
+      // Usar DocumentFragment para melhor performance
+      const fragment = document.createDocumentFragment();
+      
       activitiesArray.forEach((activity, idx) => {
         const card = document.createElement("div");
         card.className = `card ${additionalClass}`;
         card.setAttribute("data-index", idx);
         card.setAttribute("data-category", containerId);
-        
         const uniqueId = `${containerId}_${idx}`;
+        
         card.innerHTML = `
           <h2 id="title-${uniqueId}">${escapeHtml(activity.nome)}</h2>
           <p>${escapeHtml(activity.desc)}</p>
@@ -500,11 +799,13 @@
             <button class="edit-name-btn" data-id="${uniqueId}" data-current-name="${escapeHtml(activity.nome)}">✏️ EDITAR NOME</button>
           </div>
         `;
-        container.appendChild(card);
+        fragment.appendChild(card);
       });
+      
+      container.appendChild(fragment);
 
-      // Adicionar eventos aos botões de edição depois de renderizar
-      document.querySelectorAll('.edit-name-btn').forEach(btn => {
+      // Event delegation para performance
+      container.querySelectorAll('.edit-name-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
           const targetId = btn.getAttribute('data-id');
@@ -514,19 +815,17 @@
       });
     }
 
-    // Função auxiliar para escapar HTML
     function escapeHtml(str) {
+      if (!str) return '';
       return str.replace(/[&<>]/g, function(m) {
         if (m === '&') return '&amp;';
         if (m === '<') return '&lt;';
         if (m === '>') return '&gt;';
         return m;
-      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-        return c;
       });
     }
 
-    // Variáveis globais para o modal
+    // ---------- MODAL ----------
     let currentEditingId = null;
     let currentEditingCategory = null;
 
@@ -542,18 +841,11 @@
     function saveEditedName() {
       if (!currentEditingId || !currentEditingCategory) return;
       const newName = document.getElementById('activityNameInput').value.trim();
-      if (newName === "") {
-        alert("Digite um nome válido para a atividade!");
-        return;
-      }
+      if (newName === "") { alert("Digite um nome válido!"); return; }
       
-      // Atualiza o título no DOM
       const titleElement = document.getElementById(`title-${currentEditingId}`);
-      if (titleElement) {
-        titleElement.innerText = newName;
-      }
+      if (titleElement) titleElement.innerText = newName;
       
-      // Atualiza também o array correspondente para persistência
       const parts = currentEditingId.split('_');
       const containerId = parts.slice(0, -1).join('_');
       const idx = parseInt(parts[parts.length - 1]);
@@ -565,57 +857,41 @@
         case 'backend-container': targetArray = backendActivities; break;
         case 'mobile-container': targetArray = mobileActivities; break;
         case 'analise-container': targetArray = analiseActivities; break;
+        case 'googleIAstudio-container': targetArray = googleIAstudioActivities; break;
         case 'python-container': targetArray = pythonActivities; break;
         default: break;
       }
-      
       if (targetArray && targetArray[idx]) {
         targetArray[idx].nome = newName;
-        // Atualizar o atributo data-current-name do botão correspondente
         const btn = document.querySelector(`.edit-name-btn[data-id="${currentEditingId}"]`);
         if(btn) btn.setAttribute('data-current-name', newName);
       }
-      
       closeModal();
     }
-    
+
     function closeModal() {
-      const modal = document.getElementById('editModal');
-      modal.style.display = 'none';
+      document.getElementById('editModal').style.display = 'none';
       currentEditingId = null;
       currentEditingCategory = null;
     }
 
-    // Inicializar todas as seções na ordem correta:
-    // 1. JS, 2. HTML, 3. Back-End, 4. Mobile, 5. ANÁLISE, 6. PYTHON (separado)
-    renderCards('js-container', jsActivities, 'js-card');
-    renderCards('html-container', htmlActivities, 'html-card');
-    renderCards('backend-container', backendActivities, 'backend-card');
-    renderCards('mobile-container', mobileActivities, 'mobile-card');
-    renderCards('analise-container', analiseActivities, 'analise-card');
-    renderCards('googleIAstudio-container', googleIAstudioActivities, 'googleIAstudio-card');
+    // ---------- INICIALIZAR ----------
+    renderCards('js-container', jsActivities, '');
+    renderCards('html-container', htmlActivities, '');
+    renderCards('backend-container', backendActivities, '');
+    renderCards('mobile-container', mobileActivities, '');
+    renderCards('analise-container', analiseActivities, '');
+    renderCards('googleIAstudio-container', googleIAstudioActivities, '');
     renderCards('python-container', pythonActivities, 'python-card');
 
-    // Configurar eventos do modal
+    // eventos modal
     document.getElementById('saveNameBtn').addEventListener('click', saveEditedName);
     document.getElementById('cancelModalBtn').addEventListener('click', closeModal);
     window.addEventListener('click', (e) => {
-      const modal = document.getElementById('editModal');
-      if (e.target === modal) closeModal();
+      if (e.target === document.getElementById('editModal')) closeModal();
     });
 
-    // Som ao clicar nos links (efeito retrô)
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        if (link.getAttribute('href') === '#') e.preventDefault();
-        const audio = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
-        audio.volume = 0.3;
-        audio.play().catch(e => console.log("Áudio não carregado"));
-      });
-    });
-
-    console.log("🏆 Portfólio Gold Edition 2026 - Ordem: JS, HTML, Back-End, Mobile, ANÁLISE, PYTHON (Professor Vitor - matéria separada)");
+    console.log("⚡ STRANGER THINGS · OPTIMIZED · 2026 ⚡");
   </script>
 </body>
 </html>
