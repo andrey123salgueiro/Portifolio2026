@@ -795,7 +795,7 @@
       { nome: "", desc: "", link: "" },
     ];
 
-    // ---------- RENDER (otimizado) ----------
+    // ---------- RENDER (otimizado com suporte a QR Code) ----------
     function renderCards(containerId, activitiesArray, additionalClass = "") {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -804,7 +804,7 @@
       const fragment = document.createDocumentFragment();
       
       activitiesArray.forEach((activity, idx) => {
-        // Ignora itens completamente vazios para não renderizar cards fantasmas
+        // Ignora itens totalmente vazios para evitar renderizar cards "fantasmas"
         if (!activity.nome && !activity.link) return;
 
         const card = document.createElement("div");
@@ -813,14 +813,15 @@
         card.setAttribute("data-category", containerId);
         const uniqueId = `${containerId}_${idx}`;
 
-        // CONDIÇÃO: Verifica se o link contém "qrcode" ou extensão de imagem, e se o link não está vazio
+        // CONDIÇÃO: Verifica se o link é válido e se indica uma imagem ou QR Code
         const isQrCode = activity.link && (
           activity.link.toLowerCase().includes('qrcode') || 
           activity.link.toLowerCase().includes('.png') || 
-          activity.link.toLowerCase().includes('.jpg')
+          activity.link.toLowerCase().includes('.jpg') ||
+          activity.link.toLowerCase().includes('?raw=true')
         );
         
-        // Se for um QR Code válido, cria a tag de imagem, senão fica vazia
+        // Renderiza a tag de imagem apenas se for um QR Code válido com link preenchido
         const qrCodeHtml = isQrCode 
           ? `<div class="qr-container"><img src="${activity.link}" alt="QR Code ${escapeHtml(activity.nome)}" class="qr-code-img" /></div>` 
           : '';
@@ -834,7 +835,7 @@
             <button class="edit-name-btn" data-id="${uniqueId}" data-current-name="${escapeHtml(activity.nome)}">✏️ EDITAR NOME</button>
           </div>
         `;
-
+        
         fragment.appendChild(card);
       });
       
@@ -849,7 +850,19 @@
           openEditModal(targetId, currentName, containerId);
         });
       });
-    }    // ---------- MODAL ----------
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
+
+    // ---------- MODAL ----------
     let currentEditingId = null;
     let currentEditingCategory = null;
 
@@ -916,6 +929,3 @@
     });
 
     console.log("⚡ STRANGER THINGS · OPTIMIZED · 2026 ⚡");
-  </script>
-</body>
-</html>
