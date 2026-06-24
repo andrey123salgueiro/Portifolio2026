@@ -362,6 +362,25 @@
       position: relative;
     }
 
+    /* Container do QR Code para garantir centralização */
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* Estilização da Imagem para mantê-la sempre proporcional */
+.qr-code-img {
+  max-width: 100%;       /* Não deixa a imagem passar da largura do card */
+  height: auto;          /* Mantém a proporção de altura original */
+  max-height: 180px;     /* Limita a altura máxima para o card não ficar gigante */
+  object-fit: contain;   /* Garante que a imagem seja redimensionada sem distorcer */
+  border-radius: 8px;    /* Opcional: deixa as bordas do QR Code suavemente arredondadas */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: leve sombra para destacar */
+}
+
     .card a:hover {
       background: var(--neon-blue);
       color: #000;
@@ -785,20 +804,37 @@
       const fragment = document.createDocumentFragment();
       
       activitiesArray.forEach((activity, idx) => {
+        // Ignora itens completamente vazios para não renderizar cards fantasmas
+        if (!activity.nome && !activity.link) return;
+
         const card = document.createElement("div");
         card.className = `card ${additionalClass}`;
         card.setAttribute("data-index", idx);
         card.setAttribute("data-category", containerId);
         const uniqueId = `${containerId}_${idx}`;
+
+        // CONDIÇÃO: Verifica se o link contém "qrcode" ou extensão de imagem, e se o link não está vazio
+        const isQrCode = activity.link && (
+          activity.link.toLowerCase().includes('qrcode') || 
+          activity.link.toLowerCase().includes('.png') || 
+          activity.link.toLowerCase().includes('.jpg')
+        );
+        
+        // Se for um QR Code válido, cria a tag de imagem, senão fica vazia
+        const qrCodeHtml = isQrCode 
+          ? `<div class="qr-container"><img src="${activity.link}" alt="QR Code ${escapeHtml(activity.nome)}" class="qr-code-img" /></div>` 
+          : '';
         
         card.innerHTML = `
           <h2 id="title-${uniqueId}">${escapeHtml(activity.nome)}</h2>
           <p>${escapeHtml(activity.desc)}</p>
+          ${qrCodeHtml}
           <div class="card-actions">
-            <a href="${activity.link}" target="_blank">🔗 ACESSAR PROJETO</a>
+            <a href="${activity.link || '#'}" target="_blank">🔗 ACESSAR PROJETO</a>
             <button class="edit-name-btn" data-id="${uniqueId}" data-current-name="${escapeHtml(activity.nome)}">✏️ EDITAR NOME</button>
           </div>
         `;
+
         fragment.appendChild(card);
       });
       
@@ -813,19 +849,7 @@
           openEditModal(targetId, currentName, containerId);
         });
       });
-    }
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-      });
-    }
-
-    // ---------- MODAL ----------
+    }    // ---------- MODAL ----------
     let currentEditingId = null;
     let currentEditingCategory = null;
 
