@@ -178,7 +178,6 @@
       top: 0;
       z-index: 200;
       border-bottom: 2px solid var(--neon-purple);
-      backdrop-filter: blur(8px);
       box-shadow: 0 4px 40px rgba(0, 0, 0, 0.9);
     }
 
@@ -472,7 +471,6 @@
       background: rgba(0, 0, 0, 0.9);
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(6px);
     }
 
     .modal-content {
@@ -711,221 +709,408 @@
        SCRIPT
   ================================================================ -->
   <script>
-    // ---------- DADOS ----------
+        // ---------- DADOS ----------
+
     const jsActivities = [
+
       { nome: "Usando selectionSort", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/selectionSort.js" },
+
       { nome: "Usando o brake", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/brake_continue.js" },
+
       { nome: "carroJS", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/carro.js" },
+
       { nome: "Usando o Filtrar", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/filtrar.js" },
+
       { nome: "NotasJS", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/notas.js" },
+
       { nome: "TesteHTML", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste.html" },
+
       { nome: "TesteJS 1", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste.js" },
+
       { nome: "TesteJS 2", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste2.js" },
+
       { nome: "TesteJS 3", desc: "", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/teste3.js" },
+
       { nome: "Aprendendo a fazer Media no JS", desc: "", link: "https://github.com/andrey123salgueiro/teste/blob/main/media_se.js" },
+
       { nome: "Variaveis", desc: "", link: "https://andrey123salgueiro.github.io/variaveis/variaveis.js" },
+
       { nome: "ArraysJS", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/arrays.js" },
+
       { nome: "Filtrando objetos", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/filtrodeobjetos.js" },
+
       { nome: "Leitura de Arquivos", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/leituradearquivos.js" },
+
       { nome: "ObjetoJS", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/objeto.js" },
+
       { nome: "Operação Basica no JS", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/opera%C3%A7%C3%A3obasica.js" },
+
       { nome:"Hello Word", desc: "", link:"https://github.com/andrey123salgueiro/Portifolio2026/blob/main/helloword.js" },
+
       { nome:"App js", desc: "codigo do Snack Expo", link:"https://github.com/andrey123salgueiro/Portifolio2026/blob/main/app.js" }
+
     ];
+
+
 
     const htmlActivities = [
+
       { nome: "Album da copa 26", desc: "Minha coleção de figurinhas.", link: "https://andrey123salgueiro.github.io/Portifolio2026/album26.html" },
+
       { nome: "Cafeteria", desc: "Cantinho do Café", link: "https://andrey123salgueiro.github.io/cafeteria/index.html" },
+
       { nome: "Portifólio 25", desc: "Meu hub de projetos antigo", link: "https://andrey123salgueiro.github.io/site-c-todos-os-codigos/index.html" },
+
       { nome: "Pac-Mam", desc: "", link: "https://andrey123salgueiro.github.io/Pac-mam/pam-man.html" },
+
       { nome: "html", desc: "Exercicio basico", link: "exerciciobasico.html" },
+
     ];
+
+
 
     const backendActivities = [
+
       { nome: "Atividade Gamma 1", desc: "Plano de negócio", link: "https://gamma.app/docs/plano-de-negocio-Educacao-Sem-Barreiras-pw8okkqjwz5c3n8" },
+
       { nome: "Atividade Gamma 2", desc: "Agenda Escolar", link: "https://gamma.app/docs/EduSphere-6t61ggx5xb3i9vs" },
+
       { nome: "Atividade Gamma 3", desc: "Propriedade Intelectual", link: "https://gamma.app/docs/Propriedade-Intelectual-Pilar-Estrategico-para-Inovacao-e-Competi-ityfjg2ye9yky95" },
+
       { nome: "Atividade Gamma 4", desc: "Métricas e Melhorias nos Negócios", link: "https://gamma.app/docs/Metricas-e-Melhorias-nos-Negocios-bp0tq07tr2cyovj?mode=doc" },
+
       { nome: "", desc: "", link: "" },
+
     ];
+
+
 
     const mobileActivities = [
+
       { nome: "QRcode App Teste", desc: "", link: "./qrcode.png" },
+
       { nome: "QRcode Carrossel de imagens", desc: "", link: "./QRcodecarrosselimg.png" }
+
     ];
+
+
 
     const analiseActivities = [
+
       { nome: "Melhores IAs", desc: "", link: "https://notebooklm.google.com/notebook/e7352761-18d2-4517-9407-a32876f966e6/artifact/6992e8cd-282b-42dd-94ea-437f0bf0c29e?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
+
       { nome: "IAs usadas para fazer as novelinhas de frutas ", desc: "", link: "https://notebooklm.google.com/notebook/e7352761-18d2-4517-9407-a32876f966e6/artifact/a111a2c6-82d4-4266-86bd-40470d24385f?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
+
       { nome: "Analise do projeto Robô de resgate", desc: "", link: "https://notebooklm.google.com/notebook/31e23506-e4d9-4b28-9604-21e7da751227/artifact/21959f93-bf43-4977-832e-919fec81fe50?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
+
       { nome: "Robô de resgate", desc: "Mapa Mental", link: "https://notebooklm.google.com/notebook/31e23506-e4d9-4b28-9604-21e7da751227/artifact/21959f93-bf43-4977-832e-919fec81fe50?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" },
+
       { nome: "#", desc: "", link: "#" },
+
     ];
+
+
 
     const googleIAstudioActivities = [
+
       { nome: "QRcode", desc: "Jogo que ensina o Programador", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/qrcode%20jogo%20que%20ensina%20o%20programador.png?raw=true" },
+
       { nome: "QRcode", desc: "Controle de Torcidas", link: "" },
+
       { nome: "QRcode", desc: "Gestor de Finanças Pessoais", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/QRcodeappfinan%C3%A7as.png?raw=true" },
+
       { nome: "QRcode", desc: "PetCare", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/qrcode%20petcare.png?raw=true" },
+
       { nome: "QRcode", desc: "Portifólio", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/Qrcode/qrcodeportifolio.png?raw=true" },
+
     ];
+
+
 
     const pythonActivities = [
+
       { nome: "Trabalho do vitim", desc: "", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/main.ipynb" },
+
       { nome: "Aluno que irá apagar o quadro", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/alunoqueir%C3%A1apagaroquadro.py" },
+
       { nome: "Automação", desc: "Usando a keyboard", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/redacao.py" },
+
       { nome: "Conversão de dolar", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/convers%C3%A3odolar.py" },
+
       { nome: "Conversão de Temperaturas", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/convers%C3%A3otemperatura.py" },
+
       { nome: "Dividindo o nome ", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/dividindonome.py" },
+
       { nome: "Doblo, triplo e raiz", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/doblo%2Ctriplo%2Craiz.py" },
+
       { nome: "Hipotenusa do triangulo", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/hipotenusadotriangulo.py" },
+
       { nome: "Lendo um numero", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/lendonumeros.py" },
+
       { nome: "Letra Maiuscula", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/letramaiuscula.py" },
+
       { nome: "Media aritmetica", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/mediaaritmetica.py" },
+
       { nome: "Ordem de que aluno que ira apresentar", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/ordemapresenta%C3%A7%C3%A3o.py" },
+
       { nome: "Parte inteira de um numero", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/parteinteiranumero.py" },
+
       { nome: "Tinta para parede", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/tintaparede.py" },
+
       { nome: "Condicionais", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/condicionais.py" },
+
       { nome: "Animação 1", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/anima%C3%A7%C3%A3o.py" },
+
       { nome: "Animação 2", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/anima%C3%A7ao2.py" },
+
       { nome: "Adivinhe o numero", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/jogo.py" },
+
       { nome: "Pac-Man", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/pac-man.py" },
+
       { nome: "Velocidade do carro", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/velocidade.py" },
+
       { nome: "Velocidade do carro 2", desc: "", link: "https://github.com/andrey123salgueiro/python/blob/main/velocidade2.py" },
+
       { nome: "", desc: "", link: "" },
+
     ];
 
-    // ---------- RENDER (otimizado com suporte a QR Code) ----------
+
+
+    // ---------- RENDER (otimizado) ----------
+
     function renderCards(containerId, activitiesArray, additionalClass = "") {
+
       const container = document.getElementById(containerId);
+
       if (!container) return;
+
       
+
       // Usar DocumentFragment para melhor performance
+
       const fragment = document.createDocumentFragment();
+
       
+
       activitiesArray.forEach((activity, idx) => {
-        // Ignora itens totalmente vazios para evitar renderizar cards "fantasmas"
-        if (!activity.nome && !activity.link) return;
 
         const card = document.createElement("div");
+
         card.className = `card ${additionalClass}`;
+
         card.setAttribute("data-index", idx);
+
         card.setAttribute("data-category", containerId);
+
         const uniqueId = `${containerId}_${idx}`;
 
-        // CONDIÇÃO: Verifica se o link é válido e se indica uma imagem ou QR Code
-        const isQrCode = activity.link && (
-          activity.link.toLowerCase().includes('qrcode') || 
-          activity.link.toLowerCase().includes('.png') || 
-          activity.link.toLowerCase().includes('.jpg') ||
-          activity.link.toLowerCase().includes('?raw=true')
-        );
-        
-        // Renderiza a tag de imagem apenas se for um QR Code válido com link preenchido
-        const qrCodeHtml = isQrCode 
-          ? `<div class="qr-container"><img src="${activity.link}" alt="QR Code ${escapeHtml(activity.nome)}" class="qr-code-img" /></div>` 
-          : '';
-        
         card.innerHTML = `
+
           <h2 id="title-${uniqueId}">${escapeHtml(activity.nome)}</h2>
+
           <p>${escapeHtml(activity.desc)}</p>
-          ${qrCodeHtml}
+
           <div class="card-actions">
-            <a href="${activity.link || '#'}" target="_blank">🔗 ACESSAR PROJETO</a>
+
+            <a href="${activity.link}" target="_blank">🔗 ACESSAR PROJETO</a>
+
             <button class="edit-name-btn" data-id="${uniqueId}" data-current-name="${escapeHtml(activity.nome)}">✏️ EDITAR NOME</button>
+
           </div>
+
         `;
+
+
+
         
+
         fragment.appendChild(card);
+
       });
+
       
+
       container.appendChild(fragment);
 
+
+
       // Event delegation para performance
+
       container.querySelectorAll('.edit-name-btn').forEach(btn => {
+
         btn.addEventListener('click', (e) => {
+
           e.stopPropagation();
+
           const targetId = btn.getAttribute('data-id');
+
           const currentName = btn.getAttribute('data-current-name');
+
           openEditModal(targetId, currentName, containerId);
+
         });
+
       });
+
     }
+
+
 
     function escapeHtml(str) {
+
       if (!str) return '';
+
       return str.replace(/[&<>]/g, function(m) {
+
         if (m === '&') return '&amp;';
+
         if (m === '<') return '&lt;';
+
         if (m === '>') return '&gt;';
+
         return m;
+
       });
+
     }
+
+
 
     // ---------- MODAL ----------
+
     let currentEditingId = null;
+
     let currentEditingCategory = null;
 
+
+
     function openEditModal(elementId, currentName, categoryId) {
+
       currentEditingId = elementId;
+
       currentEditingCategory = categoryId;
+
       const modal = document.getElementById('editModal');
+
       const input = document.getElementById('activityNameInput');
+
       input.value = currentName.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+
       modal.style.display = 'flex';
+
     }
+
+
 
     function saveEditedName() {
+
       if (!currentEditingId || !currentEditingCategory) return;
+
       const newName = document.getElementById('activityNameInput').value.trim();
+
       if (newName === "") { alert("Digite um nome válido!"); return; }
+
       
+
       const titleElement = document.getElementById(`title-${currentEditingId}`);
+
       if (titleElement) titleElement.innerText = newName;
+
       
+
       const parts = currentEditingId.split('_');
+
       const containerId = parts.slice(0, -1).join('_');
+
       const idx = parseInt(parts[parts.length - 1]);
+
       
+
       let targetArray = null;
+
       switch(containerId) {
+
         case 'js-container': targetArray = jsActivities; break;
+
         case 'html-container': targetArray = htmlActivities; break;
+
         case 'backend-container': targetArray = backendActivities; break;
+
         case 'mobile-container': targetArray = mobileActivities; break;
+
         case 'analise-container': targetArray = analiseActivities; break;
+
         case 'googleIAstudio-container': targetArray = googleIAstudioActivities; break;
+
         case 'python-container': targetArray = pythonActivities; break;
+
         default: break;
+
       }
+
       if (targetArray && targetArray[idx]) {
+
         targetArray[idx].nome = newName;
+
         const btn = document.querySelector(`.edit-name-btn[data-id="${currentEditingId}"]`);
+
         if(btn) btn.setAttribute('data-current-name', newName);
+
       }
+
       closeModal();
+
     }
+
+
 
     function closeModal() {
+
       document.getElementById('editModal').style.display = 'none';
+
       currentEditingId = null;
+
       currentEditingCategory = null;
+
     }
 
+
+
     // ---------- INICIALIZAR ----------
+
     renderCards('js-container', jsActivities, '');
+
     renderCards('html-container', htmlActivities, '');
+
     renderCards('backend-container', backendActivities, '');
+
     renderCards('mobile-container', mobileActivities, '');
+
     renderCards('analise-container', analiseActivities, '');
+
     renderCards('googleIAstudio-container', googleIAstudioActivities, '');
+
     renderCards('python-container', pythonActivities, 'python-card');
 
+
+
     // eventos modal
+
     document.getElementById('saveNameBtn').addEventListener('click', saveEditedName);
+
     document.getElementById('cancelModalBtn').addEventListener('click', closeModal);
+
     window.addEventListener('click', (e) => {
+
       if (e.target === document.getElementById('editModal')) closeModal();
+
     });
 
+
+
     console.log("⚡ STRANGER THINGS · OPTIMIZED · 2026 ⚡");
+
+    </script>
+
+</body>
