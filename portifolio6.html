@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrey Salgueiro | Portfólio Desenvolvedor Full Stack</title>
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent: #7c3aed;
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-hover: 0 20px 30px -10px rgba(37, 99, 235, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-brand { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--primary); background-color: var(--primary-light); }
+
+    header { max-width: 1200px; margin: 40px auto 20px; padding: 40px 24px; text-align: center; }
+    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: #dcfce7; color: #15803d; padding: 6px 16px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
+    .status-dot { width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+
+    header h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .typing-container { font-size: 1.25rem; color: var(--primary); font-weight: 600; min-height: 32px; margin-bottom: 20px; }
+    header p { max-width: 650px; margin: 0 auto 30px; color: var(--text-muted); font-size: 1.05rem; }
+    .hero-buttons { display: flex; justify-content: center; gap: 12px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+    .btn-primary { background-color: var(--primary); color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); }
+    .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+    .btn-secondary { background-color: white; color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-secondary:hover { background-color: var(--bg-main); transform: translateY(-2px); }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 50px 0 24px; padding-bottom: 12px; border-bottom: 2px solid var(--border-color); }
+    .section-header i { color: var(--primary); }
+    .section-header h2 { font-size: 1.5rem; font-weight: 700; }
+
+    .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow-sm); opacity: 0; transform: translateY(20px); }
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(37, 99, 235, 0.3); }
+    .card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .card-body p { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 20px; }
+    .qr-container { margin: 12px 0; text-align: center; }
+    .qr-code-img { max-width: 140px; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+
+    .card-actions { display: flex; gap: 8px; }
+    .card-actions a { flex: 1; text-align: center; text-decoration: none; padding: 8px 12px; font-size: 0.8rem; font-weight: 600; border-radius: 8px; background-color: var(--primary-light); color: var(--primary); transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .card-actions a:hover { background-color: var(--primary); color: white; }
+    .edit-name-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); border-radius: 8px; padding: 8px; cursor: pointer; transition: all 0.2s; }
+    .edit-name-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(4px); z-index: 2000; justify-content: center; align-items: center; }
+    .modal-content { background: white; padding: 32px; border-radius: var(--radius-lg); max-width: 400px; width: 90%; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    .modal-content h3 { font-size: 1.2rem; margin-bottom: 16px; }
+    .modal-content input { width: 100%; padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; outline: none; }
+    .modal-content input:focus { border-color: var(--primary); }
+    .modal-buttons { display: flex; justify-content: flex-end; gap: 8px; }
+
+    footer { background: white; border-top: 1px solid var(--border-color); text-align: center; padding: 30px 24px; font-size: 0.875rem; color: var(--text-muted); }
+    @media (max-width: 768px) { header h1 { font-size: 2.2rem; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand"><i data-lucide="code-2"></i> Andrey Salgueiro</div>
+    <div class="nav-links">
+      <a href="#javascript">JavaScript</a>
+      <a href="#html">HTML/CSS</a>
+      <a href="#backend">Back-End</a>
+      <a href="#mobile">Mobile</a>
+      <a href="#analise">Análise</a>
+      <a href="#ias">IA Studio</a>
+      <a href="#python">Python</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="status-badge"><span class="status-dot"></span> Disponível para novos projetos e conexões</div>
+    <h1>Desenvolvedor Full Stack</h1>
+    <div class="typing-container" id="typing-text"></div>
+    <p>Transformando ideias em código limpo, funcional e focado em soluções de alto impacto. Conheça meus projetos e aplicações abaixo.</p>
+    <div class="hero-buttons">
+      <a href="https://github.com/andrey123salgueiro" target="_blank" class="btn btn-primary"><i data-lucide="github"></i> Meu GitHub</a>
+      <a href="#contato" class="btn btn-secondary"><i data-lucide="mail"></i> Entrar em Contato</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="section-header" id="javascript"><i data-lucide="file-code"></i><h2>01. JavaScript & Front-End</h2></div>
+    <div class="container" id="js-container"></div>
+
+    <div class="section-header" id="html"><i data-lucide="layout"></i><h2>02. HTML & CSS</h2></div>
+    <div class="container" id="html-container"></div>
+
+    <div class="section-header" id="backend"><i data-lucide="server"></i><h2>03. Back-End & Negócios</h2></div>
+    <div class="container" id="backend-container"></div>
+
+    <div class="section-header" id="mobile"><i data-lucide="smartphone"></i><h2>04. Mobile & React Native</h2></div>
+    <div class="container" id="mobile-container"></div>
+
+    <div class="section-header" id="analise"><i data-lucide="line-chart"></i><h2>05. Análise de Sistemas</h2></div>
+    <div class="container" id="analise-container"></div>
+
+    <div class="section-header" id="ias"><i data-lucide="sparkles"></i><h2>06. Google IA Studio Apps</h2></div>
+    <div class="container" id="googleIAstudio-container"></div>
+
+    <div class="section-header" id="python"><i data-lucide="terminal"></i><h2>07. Python & Automações</h2></div>
+    <div class="container" id="python-container"></div>
+
+    <div class="section-header" id="contato"><i data-lucide="user"></i><h2>Sobre & Contato</h2></div>
+    <div class="container">
+      <div class="card visible" style="grid-column: 1 / -1;">
+        <div class="card-body">
+          <h3>Conecte-se Comigo</h3>
+          <p>Estou sempre aberto a trocar ideias sobre desenvolvimento, novos projetos e oportunidades na área tech.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px;">
+            <a href="mailto:andrey.salgueiro@email.com" class="btn btn-secondary" style="font-size: 0.85rem;"><i data-lucide="mail"></i> Enviar E-mail</a>
+            <a href="https://github.com/andrey123salgueiro" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem;"><i data-lucide="github"></i> GitHub Perfil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h3>Editar Nome da Atividade</h3>
+      <input type="text" id="activityNameInput" placeholder="Novo título...">
+      <div class="modal-buttons">
+        <button class="btn btn-secondary" id="cancelModalBtn">Cancelar</button>
+        <button class="btn btn-primary" id="saveNameBtn">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Andrey Salgueiro · Desenvolvido com foco em alta performance e legibilidade.</p>
+  </footer>
+
+  <script>
+    const jsActivities = [
+      { nome: "Selection Sort", desc: "Algoritmo de ordenação eficiente em JS.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/selectionSort.js" },
+      { nome: "Brake & Continue", desc: "Estruturas de controle de fluxo.", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/brake_continue.js" },
+      { nome: "Carro JS", desc: "Modelagem de objeto e propriedades.", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/carro.js" },
+      { nome: "Filtrar Dados", desc: "Manipulação e filtragem de arrays.", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/filtrar.js" },
+      { nome: "Notas JS", desc: "Cálculos e condicionais de notas escolares.", link: "https://github.com/andrey123salgueiro/inicio-2026/blob/main/notas.js" },
+      { nome: "Média de Alunos", desc: "Lógica para cálculo de médias em JS.", link: "https://github.com/andrey123salgueiro/teste/blob/main/media_se.js" },
+      { nome: "Variáveis JS", desc: "Conceitos fundamentais de variáveis.", link: "https://andrey123salgueiro.github.io/variaveis/variaveis.js" },
+      { nome: "Arrays JS", desc: "Manipulação avançada de listas.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/arrays.js" },
+      { nome: "Filtro de Objetos", desc: "Busca e filtro em estruturas complexas.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/filtrodeobjetos.js" },
+      { nome: "Leitura de Arquivos", desc: "Manipulação de dados e I/O.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/leituradearquivos.js" },
+      { nome: "Objetos JS", desc: "Estruturação de dados com objetos.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/objeto.js" },
+      { nome: "Operações Básicas", desc: "Fundamentos matemáticos em JS.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/opera%C3%A7%C3%A3obasica.js" },
+      { nome: "Hello World", desc: "Primeiro passo em desenvolvimento.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/helloword.js" },
+      { nome: "App Expo JS", desc: "Código e estrutura no Snack Expo.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/app.js" }
+    ];
+
+    const htmlActivities = [
+      { nome: "Álbum da Copa 2026", desc: "Aplicação interativa de coleção de figurinhas.", link: "https://andrey123salgueiro.github.io/Portifolio2026/album26.html" },
+      { nome: "Cafeteria", desc: "Interface para menu e cantinho do café.", link: "https://andrey123salgueiro.github.io/cafeteria/index.html" },
+      { nome: "Portfólio Antigo 2025", desc: "Primeira versão do hub de códigos.", link: "https://andrey123salgueiro.github.io/site-c-todos-os-codigos/index.html" },
+      { nome: "Pac-Man Game", desc: "Recriação do clássico em HTML5 Canvas.", link: "https://andrey123salgueiro.github.io/Pac-mam/pam-man.html" }
+    ];
+
+    const backendActivities = [
+      { nome: "Plano de Negócio - EdTech", desc: "Apresentação estratégica de modelo de negócio.", link: "https://gamma.app/docs/plano-de-negocio-Educacao-Sem-Barreiras-pw8okkqjwz5c3n8" },
+      { nome: "EduSphere Agenda", desc: "Solução para organização e agenda escolar.", link: "https://gamma.app/docs/EduSphere-6t61ggx5xb3i9vs" },
+      { nome: "Propriedade Intelectual", desc: "Análise estratégica sobre inovação.", link: "https://gamma.app/docs/Propriedade-Intelectual-Pilar-Estrategico-para-Inovacao-e-Competi-ityfjg2ye9yky95" },
+      { nome: "Métricas de Negócios", desc: "Indicadores de desempenho e melhorias.", link: "https://gamma.app/docs/Metricas-e-Melhorias-nos-Negocios-bp0tq07tr2cyovj?mode=doc" }
+    ];
+
+    const mobileActivities = [
+      { nome: "App Teste QR Code", desc: "Scan de acesso ao app mobile.", link: "./qrcode.png", isQr: true },
+      { nome: "Carrossel Mobile QR Code", desc: "Componente de carrossel em React Native.", link: "./QRcodecarrosselimg.png", isQr: true }
+    ];
+
+    const analiseActivities = [
+      { nome: "Hub de IAs", desc: "Mapeamento das melhores ferramentas de IA.", link: "https://notebooklm.google.com/notebook/e7352761-18d2-4517-9407-a32876f966e6" },
+      { nome: "Robô de Resgate - Análise", desc: "Documentação do projeto de robótica.", link: "https://notebooklm.google.com/notebook/31e23506-e4d9-4b28-9604-21e7da751227" }
+    ];
+
+    const googleIAstudioActivities = [
+      { nome: "Code Quest", desc: "Jogo interativo para aprendizado de programação.", link: "https://daffy-code-quest-flow.base44.app" },
+      { nome: "Torcida Pro Hub", desc: "Sistema de controle e engajamento de torcidas.", link: "https://torcida-pro-hub.base44.app" },
+      { nome: "Money Flow", desc: "Gerenciador intuitivo de finanças pessoais.", link: "https://rough-zenith-money-flow.base44.app" },
+      { nome: "PetCare Pulse", desc: "Plataforma de cuidados com animais domésticos.", link: "https://mahogany-pet-pulse-care.base44.app" },
+      { nome: "Nave Espacial Game", desc: "Jogo de nave desenvolvido com física 2D.", link: "https://game-fun--salgueiroandrey.replit.app/" },
+      { nome: "Academia Fitness", desc: "Portal web para treinos e mensalidades.", link: "https://andrey123salgueiro.github.io/academia/index.html" },
+      { nome: "Terra Trek Locadora", desc: "Sistema para gerenciamento de locação.", link: "https://terra-trek-hub.base44.app/" }
+    ];
+
+    const pythonActivities = [
+      { nome: "Análise Jupyter Notebook", desc: "Estruturas de dados e análise de performance.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/main.ipynb" },
+      { nome: "Sorteio de Alunos", desc: "Automação para seleção randômica.", link: "https://github.com/andrey123salgueiro/python/blob/main/alunoqueir%C3%A1apagaroquadro.py" },
+      { nome: "Automação Keyboard", desc: "Script para digitação e tarefas repetitivas.", link: "https://github.com/andrey123salgueiro/Portifolio2026/blob/main/redacao.py" },
+      { nome: "Conversor de Moedas", desc: "Cálculo de cotações em tempo real.", link: "https://github.com/andrey123salgueiro/python/blob/main/convers%C3%A3odolar.py" },
+      { nome: "Conversor de Temperatura", desc: "Algoritmo de conversão Celsius/Fahrenheit.", link: "https://github.com/andrey123salgueiro/python/blob/main/convers%C3%A3otemperatura.py" },
+      { nome: "Dividindo Nome", desc: "Manipulação de strings em Python.", link: "https://github.com/andrey123salgueiro/python/blob/main/dividindonome.py" },
+      { nome: "Dobro, Triplo e Raiz", desc: "Operações matemáticas fundamentais.", link: "https://github.com/andrey123salgueiro/python/blob/main/doblo%2Ctriplo%2Craiz.py" },
+      { nome: "Hipotenusa do Triângulo", desc: "Cálculo geométrico com módulo math.", link: "https://github.com/andrey123salgueiro/python/blob/main/hipotenusadotriangulo.py" },
+      { nome: "Lendo Números", desc: "Entrada de dados e validações.", link: "https://github.com/andrey123salgueiro/python/blob/main/lendonumeros.py" },
+      { nome: "Letra Maiúscula", desc: "Tratamento de caixa alta e baixa.", link: "https://github.com/andrey123salgueiro/python/blob/main/letramaiuscula.py" },
+      { nome: "Média Aritmética", desc: "Cálculo estatístico simples.", link: "https://github.com/andrey123salgueiro/python/blob/main/mediaaritmetica.py" },
+      { nome: "Ordem de Apresentação", desc: "Sorteio sequencial de lista.", link: "https://github.com/andrey123salgueiro/python/blob/main/ordemapresenta%C3%A7%C3%A3o.py" },
+      { nome: "Parte Inteira de Número", desc: "Truncamento matemático.", link: "https://github.com/andrey123salgueiro/python/blob/main/parteinteiranumero.py" },
+      { nome: "Tinta para Parede", desc: "Cálculo de área e consumo.", link: "https://github.com/andrey123salgueiro/python/blob/main/tintaparede.py" },
+      { nome: "Condicionais", desc: "Estruturas de decisão if/else.", link: "https://github.com/andrey123salgueiro/python/blob/main/condicionais.py" },
+      { nome: "Animação 1", desc: "Lógica gráfica em Python.", link: "https://github.com/andrey123salgueiro/python/blob/main/anima%C3%A7%C3%A3o.py" },
+      { nome: "Animação 2", desc: "Manipulação de quadros e tempo.", link: "https://github.com/andrey123salgueiro/python/blob/main/anima%C3%A7%C3%A3o2.py" },
+      { nome: "Adivinhe o Número", desc: "Jogo interativo no terminal.", link: "https://github.com/andrey123salgueiro/python/blob/main/jogo.py" },
+      { nome: "Pac-Man Python", desc: "Jogo clássico com Pygame.", link: "https://github.com/andrey123salgueiro/python/blob/main/pac-man.py" },
+      { nome: "Velocidade do Carro", desc: "Cálculo e verificação de radar.", link: "https://github.com/andrey123salgueiro/python/blob/main/velocidade.py" },
+      { nome: "Velocidade do Carro 2", desc: "Aprimoramento do controle de velocidade.", link: "https://github.com/andrey123salgueiro/python/blob/main/velocidade2.py" }
+    ];
+
+    function renderSection(data, containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const fragment = document.createDocumentFragment();
+
+      data.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('data-index', index);
+        card.innerHTML = `
+          <div class="card-body">
+            <h3 id="title-${containerId}_${index}">${item.nome}</h3>
+            <p>${item.desc || 'Aplicação desenvolvida para consolidação de conhecimentos.'}</p>
+            ${item.isQr ? `<div class="qr-container"><img src="${item.link}" alt="QR Code" class="qr-code-img"/></div>` : ''}
+          </div>
+          <div class="card-actions">
+            <a href="${item.link}" target="_blank"><i data-lucide="external-link"></i> Acessar Projeto</a>
+            <button class="edit-name-btn" data-id="${containerId}_${index}" data-name="${item.nome}" title="Editar título"><i data-lucide="edit-2"></i></button>
+          </div>
+        `;
+        fragment.appendChild(card);
+      });
+
+      container.appendChild(fragment);
+
+      // Event Delegation REAL: apenas 1 listener no container
+      container.addEventListener('click', (e) => {
+        const btn = e.target.closest('.edit-name-btn');
+        if (!btn) return;
+        const targetId = btn.getAttribute('data-id');
+        const currentName = btn.getAttribute('data-name');
+        openModal(targetId, currentName);
+      });
+    }
+
+    renderSection(jsActivities, 'js-container');
+    renderSection(htmlActivities, 'html-container');
+    renderSection(backendActivities, 'backend-container');
+    renderSection(mobileActivities, 'mobile-container');
+    renderSection(analiseActivities, 'analise-container');
+    renderSection(googleIAstudioActivities, 'googleIAstudio-container');
+    renderSection(pythonActivities, 'python-container');
+
+    lucide.createIcons();
+
+    // Typing effect
+    const phrases = ["JavaScript & Python", "Front-End & Back-End", "Game Dev & Automações"];
+    let phraseIndex = 0, letterIndex = 0, isDeleting = false;
+    const typingElement = document.getElementById('typing-text');
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      typingElement.textContent = isDeleting 
+        ? currentPhrase.substring(0, letterIndex--) 
+        : currentPhrase.substring(0, letterIndex++);
+
+      let speed = isDeleting ? 40 : 80;
+      if (!isDeleting && letterIndex === currentPhrase.length + 1) {
+        speed = 2000; isDeleting = true;
+      } else if (isDeleting && letterIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        speed = 400;
+      }
+      setTimeout(typeEffect, speed);
+    }
+    typeEffect();
+
+    // Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    // Modal
+    let activeTargetId = null;
+    function openModal(targetId, currentName) {
+      activeTargetId = targetId;
+      document.getElementById('activityNameInput').value = currentName;
+      document.getElementById('editModal').style.display = 'flex';
+    }
+
+    document.getElementById('cancelModalBtn').onclick = () => {
+      document.getElementById('editModal').style.display = 'none';
+    };
+
+    document.getElementById('saveNameBtn').onclick = () => {
+      const newName = document.getElementById('activityNameInput').value.trim();
+      if (newName && activeTargetId) {
+        const titleEl = document.getElementById(`title-${activeTargetId}`);
+        if (titleEl) titleEl.textContent = newName;
+      }
+      document.getElementById('editModal').style.display = 'none';
+    };
+  </script>
+</body>
+</html>
